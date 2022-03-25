@@ -1,10 +1,15 @@
 import { MongoClient } from "mongodb";
 
 const client = new MongoClient(process.env.DATABASE_URL, {
-    useNewURLParse: true,
+    useNewURLParser: true,
     useUnifiedTopology: true,
 });
 
-async function connect(){
-    await.client.connect();
+console.log(client.isConnected);
+
+export default async function connect(){
+    if(!client.isConnected){ await client.connect(); }
+
+    const db = client.db('teste-limits');
+    return { db, client }
 }
