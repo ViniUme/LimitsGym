@@ -12,6 +12,7 @@ export default async (req,res) => {
         res.status(200).json(response);    
     }
     else{
-        res.status(400).json({error: "faz favor"})
+        const { name } = req.body;
+        res.status(400).json({mensage: name})
     }
 }
