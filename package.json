@@ -9,16 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "mongodb": "^4.4.1",
+    "@auth0/nextjs-auth0": "^1.7.0",
     "next": "12.1.0",
-    "next-auth": "^4.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@auth0/nextjs-auth0": "^1.7.0",
-    "@types/mongodb": "^4.0.7",
-    "@types/next-auth": "^3.15.0",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0"
   }
