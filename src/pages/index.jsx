@@ -5,7 +5,7 @@ export default function Profile() {
 
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>{error.message}</div>;
-  if (!user) return <a href="/api/auth/login">Login</a>
+  if (!user) return <div><a href="/api/auth/login">Login</a></div>
 
   return (
     user && (
