@@ -1,21 +1,34 @@
-import { useUser } from '@auth0/nextjs-auth0';
-import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useEffect } from "react";
 
-export default function Profile() {
-  const { user, error, isLoading } = useUser();
+export default function Index() {
 
-  if (isLoading) return <div>Loading... </div>;
-  if (error) return <div>{error.message}</div>;
-  if (!user) return <div><Link href="/api/auth/login">Login</Link></div>
+  useEffect(() => {
+    async function VerifyUser(){
+      await fetch('/api/verify-user')
+        .then( async (res) => {
+          await res.json()
+          console.log(res);
+        })
+    }
+    VerifyUser();
+  }, [])
 
-  return (
-    user && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <Link href="/api/auth/logout">Logout</Link>
-      </div>
+  const { data: session } = useSession()
+
+  if (session) {
+    return (
+      <>
+        Signed in as {session.user.email} <br />
+        <img src={session.user.image} alt="" />
+        <button onClick={() => signOut()}>Sign out</button>
+      </>
     )
-  );
+  }
+  return (
+    <>
+      Not signed in <br />
+      <button onClick={() => signIn()}>Sign in</button>
+    </>
+  )
 }
