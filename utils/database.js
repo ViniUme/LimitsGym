@@ -1,17 +1,13 @@
 import { MongoClient } from 'mongodb';
 
-const url = process.env.DATABASE_URL;
-const client = new MongoClient(url, {
+const client = new MongoClient(process.env.DATABASE_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
-const dbName = 'LIMITS';
-
 export default async function Connect(){
-    
     await client.connect();
-    const db = client.db(dbName).collection('users');
+    const db = client.db(process.env.DATABASE_NAME);
 
     return {db, client}
 }
