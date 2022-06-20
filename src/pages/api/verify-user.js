@@ -4,10 +4,20 @@ export default async function handler (req,res){
     if(req.method === "POST"){
         const { db } = await Connect();
         const body = req.body
-        const response = db.collection('users').insertOne(body)
-        res.status(200).json({message: "insert with success"});
+
+        const find = await db.collection('users').findOne(body);
+        
+        if(find === null){
+            res.status(200).json({
+                response: false,
+                email: body
+            })
+        }
+        else{
+            res.status(200).json({response: true})
+        }
     }
     else{
-        res.status(400).json({message: "BAD REQUEST"})
+        res.status(400).json({message: "Bad request, use method POST"})
     }
 }
