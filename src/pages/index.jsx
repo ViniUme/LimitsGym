@@ -12,7 +12,7 @@ export default function Index() {
         Signed in as {session.user.email} <br />
         <img src={session.user.image} alt="" />
         <button onClick={() => signOut()}>Sign out</button>
-        <button onClick={() => VerifyUser({email: session.user.email})}>add</button>
+        <button onClick={() => AddWishList(1, session.user.email)}>produto 1</button>
       </>
     )
   }
