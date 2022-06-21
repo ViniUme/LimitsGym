@@ -5,7 +5,7 @@ export default async function handler (req,res){
         const { db } = await Connect();
         const body = req.body
 
-        const find = await db.collection('users').findOne(body);
+        const find = await db.collection('users').findOne({email: body});
         
         if(find === null){
             res.status(200).json({
