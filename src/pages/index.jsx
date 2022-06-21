@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import { VerifyUser } from '../../lib/functions';
+import { AddWishList } from '../../lib/functions';
 
 export default function Index() {
 
