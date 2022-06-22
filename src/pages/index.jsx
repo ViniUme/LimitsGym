@@ -1,27 +1,31 @@
-import { useSession, signIn, signOut } from "next-auth/react";
-import { AddWishList } from '../../lib/functions';
+import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Index() {
+  return(
+    <div>
 
-  const { data: session } = useSession()
-
-  if (session) {
-
-    return (
-      <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-        <button onClick={() => AddWishList(1, session.user.email)}>produto 1</button>
-        <button onClick={() => AddWishList(2, session.user.email)}>produto 2</button>
-        <button onClick={() => AddWishList(3, session.user.email)}>produto 3</button>
-        <button onClick={() => AddWishList(4, session.user.email)}>produto 4</button>
-      </>
-    )
-  }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+      {/* Navbar Start */ }
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#link">Link</Nav.Link>
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      {/* Navbar End */}
+    </div>
   )
 }
