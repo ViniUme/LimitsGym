@@ -10,9 +10,11 @@ export default function Index() {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <img src={session.user.image} alt="" />
         <button onClick={() => signOut()}>Sign out</button>
         <button onClick={() => AddWishList(1, session.user.email)}>produto 1</button>
+        <button onClick={() => AddWishList(2, session.user.email)}>produto 2</button>
+        <button onClick={() => AddWishList(3, session.user.email)}>produto 3</button>
+        <button onClick={() => AddWishList(4, session.user.email)}>produto 4</button>
       </>
     )
   }
