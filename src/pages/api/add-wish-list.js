@@ -5,6 +5,11 @@ export default async function handler (req,res){
         const { db } = await Connect();
         const body = req.body;
 
-        const add = await db.collection('users').insertOne(body);
+        /*
+        const add = await db.collection('users').findOne({email: body[0]})
+        console.log(add)*/
+        const add = await db.collection('users').replaceOne({email: body[0]},body[1])
+        console.log(add)
+        res.status(200)
     }
 }
