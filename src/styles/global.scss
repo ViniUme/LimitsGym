@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;900&display=swap');
+
+@font-face{
+    font-family: SpaceRanger;
+    src: url("/fonts/spaceranger.ttf") format("truetype");
+}
+
+:root{
+    --red: #ff0e0e;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+body::-webkit-scrollbar-track {
+    background: #000000;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #ff2929;
+    border-radius: 20px;
+}
