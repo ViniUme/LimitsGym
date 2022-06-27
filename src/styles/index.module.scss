@@ -83,7 +83,7 @@
             }
 
             .title_header{
-                font: 100px SpaceRanger;
+                font: calc((12vh + 7vw) / 2) SpaceRanger;
                 letter-spacing: 4px;
                 color: white;
             }
@@ -104,7 +104,7 @@
         .navbar{
             background: #000000;
             justify-content: flex-start;
-            height: 7.5vh;
+            height: 90px;
 
             .hamburguer_menu{
                 margin: 25px 0;
@@ -112,15 +112,14 @@
         }
 
         .navbar_activate{
-            height: 100vh;
+            height: 412px;
             background: #000000;
 
             .hamburguer_menu{
-                position: relative;
                 margin: 25px 0;
 
                 .menu_line_1{
-                    background: transparent;
+                    background-color: #00000000;
                 }
 
                 .menu_line_2, .menu_line_3{
@@ -162,11 +161,17 @@
             }
 
             .hamburguer_menu{
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 width: 50px;
                 height: 42px;
                 margin: 25px 0;
+                transition: none;
+
+                .menu_line_1, .menu_line_2, .menu_line_3{
+                    transition: 1s ease-in-out;
+                }
             }
         }
     }
