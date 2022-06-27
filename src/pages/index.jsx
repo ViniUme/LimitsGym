@@ -38,6 +38,9 @@ export default function Index() {
         <h1 className={style.titles}>
           <span className={style.title_sub}>exceda seus limites</span>
           <span className={style.title_header}>academia limits</span>
+          
+          <Link href="#"><a><button className={style.title_shadow}><span className={style.title_button}>junte-se a nós</span></button></a></Link>
+
         </h1>
       </section>
 
