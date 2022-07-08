@@ -11,7 +11,7 @@
         align-items: center;
         flex-wrap: wrap;
         width: 100%;
-        height: 9vh;
+        height: 7vh;
         background: linear-gradient(180deg, #000000df 50%, #00000000 100%);
         text-transform: uppercase;
         font-size: 19px;
@@ -19,8 +19,7 @@
         .nav_link_main{
             color: var(--red);
             text-decoration: none;
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 900;
+            font: 700 0.8em 'Noto Sans', sans-serif;
             letter-spacing: 2px;
             margin: 0 25px 0 75px;
         }
@@ -28,8 +27,7 @@
         .nav_link{
             color: white;
             text-decoration: none;
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 900;
+            font: 700 0.8em 'Noto Sans', sans-serif;
             letter-spacing: 2px;
             margin: 0 25px;
         }
@@ -39,8 +37,8 @@
             width: 50px;
 
             .menu_line_1, .menu_line_2, .menu_line_3{
-                width: 50px;
-                height: 6px;
+                width: 40px;
+                height: 3px;
                 background: #ffffff;
                 margin: 4px 0;
                 border-radius: 10px;
@@ -78,14 +76,14 @@
 
             .title_sub{
                 margin-top: 250px;
-                font: 30px 'Noto Sans', sans-serif;
+                font: 1.2em 'Noto Sans', sans-serif;
                 letter-spacing: 3px;
                 text-transform: uppercase;
                 color: var(--red);
             }
 
             .title_header{
-                font: calc((12vh + 7vw) / 2) SpaceRanger;
+                font: calc((9vh + 8vw) / 2) SpaceRanger;
                 letter-spacing: 4px;
                 color: #ffffff;
                 margin: 0 40px;
@@ -103,6 +101,7 @@
                 text-transform: uppercase;
                 font: 700 1.5rem 'Noto Sans', sans-serif;
                 background: #00000065;
+                transition: 250ms ease-out;
 
                 .title_button{
                     display: flex;
@@ -119,6 +118,15 @@
                     height: 70px;
                     border-radius: 30px;
                     background: #000000c4;
+                    transition: 250ms ease-out;
+                }
+            }
+
+            .title_shadow:hover{
+                background: #ff0e0e65;
+
+                .title_button{
+                    background: var(--red);
                 }
             }
         }
@@ -135,14 +143,27 @@
     }
 
     @media(max-width: 650px){
+        .section_main{
+
+            .titles{
+
+                .title_shadow{
+                    width: 270px;
+                    height: 90px;
+
+                    .title_button{
+                        width: 230px;
+                        height: 65px;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
         .navbar{
             background: #000000;
             justify-content: flex-start;
-            height: 90px;
-
-            .hamburguer_menu{
-                margin: 25px 0;
-            }
+            height: 60px;
         }
 
         .navbar_activate{
@@ -150,19 +171,9 @@
             background: #000000;
 
             .hamburguer_menu{
-                margin: 25px 0;
 
                 .menu_line_1{
                     background-color: #00000000;
-                }
-
-                .menu_line_2, .menu_line_3{
-                    position: absolute;
-                    margin: auto;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
                 }
 
                 .menu_line_2{
@@ -170,7 +181,7 @@
                 }
 
                 .menu_line_3{
-                    transform: rotate(135deg);
+                    transform: translate(0, -11px) rotate(135deg);
                 }
             }
         }
@@ -200,7 +211,7 @@
                 flex-direction: column;
                 width: 50px;
                 height: 42px;
-                margin: 25px 0;
+                margin: 15px 0;
                 transition: none;
 
                 .menu_line_1, .menu_line_2, .menu_line_3{
