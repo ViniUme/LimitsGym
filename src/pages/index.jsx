@@ -20,7 +20,7 @@ export default function Index() {
 
       <nav className={activate}>
 
-        <div className={style.hamburguer_menu} onClick={() => SwitchNavbar()}>
+        <div className={style.mobile_menu} onClick={() => SwitchNavbar()}>
           <div className={style.menu_line_1}></div>
           <div className={style.menu_line_2}></div>
           <div className={style.menu_line_3}></div>
