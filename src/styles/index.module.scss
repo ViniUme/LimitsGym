@@ -183,6 +183,10 @@
                 .menu_line_3{
                     transform: translate(0, -11px) rotate(135deg);
                 }
+
+                .menu_line_2, .menu_line_3{
+                    background: var(--red);
+                }
             }
         }
 
