@@ -26,7 +26,7 @@ export default function Index() {
           <div className={style.menu_line_3}></div>
         </div>
 
-        <Link href="#"><a className={style.nav_link_main}>início</a></Link>
+        <Link href="/"><a className={style.nav_link_main}>início</a></Link>
         <Link href="#"><a className={style.nav_link}>sobre nós</a></Link>
         <Link href="#"><a className={style.nav_link}>aula</a></Link>
         <Link href="#"><a className={style.nav_link}>contatos</a></Link>
@@ -39,7 +39,7 @@ export default function Index() {
           <span className={style.title_sub}>exceda seus limites</span>
           <span className={style.title_header}>academia limits</span>
           
-          <Link href="#"><a><button className={style.title_shadow}><span className={style.title_button}>junte-se a nós</span></button></a></Link>
+          <Link href="#"><a className={style.link_button}><button className={style.title_shadow}><span className={style.title_button}>junte-se a nós</span></button></a></Link>
 
         </h1>
       </section>
