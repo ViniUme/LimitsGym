@@ -23,13 +23,25 @@
             letter-spacing: 2px;
             margin: 0 25px 0 75px;
         }
+        .nav_link_main:hover{
+            border-bottom: 2px var(--red) solid;
+        }
 
         .nav_link{
             color: white;
             text-decoration: none;
             font: 700 0.8em 'Noto Sans', sans-serif;
             letter-spacing: 2px;
-            margin: 0 25px;
+            margin: 0 15px;
+            padding: 3px 10px;
+        }
+        .nav_link:hover{
+            border-bottom: 2px solid white;
+        }
+
+        .nav_link, .nav_link_main{
+            border-bottom: 2px transparent solid;
+            transition: 150ms ease-in-out;
         }
 
         .mobile_menu{
@@ -89,36 +101,41 @@
                 margin: 0 40px;
             }
 
-            .title_shadow{
-                text-align: center;
-                position: relative;
+            .link_button{
                 margin-top: 50px;
-                width: 300px;
-                height: 120px;
-                border-radius: 50px;
-                border: none;
-                cursor: pointer;
-                text-transform: uppercase;
-                font: 700 1.5rem 'Noto Sans', sans-serif;
-                background: #00000065;
-                transition: 250ms ease-out;
 
-                .title_button{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: #ffffff;
-                    position: absolute;
-                    margin: auto;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    width: 250px;
-                    height: 70px;
-                    border-radius: 30px;
-                    background: #000000c4;
+                .title_shadow{
+                    text-align: center;
+                    position: relative;
+                    width: 300px;
+                    height: 120px;
+                    border-radius: 50px;
+                    border: none;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    font: 700 1.5rem 'Noto Sans', sans-serif;
+                    background: #00000065;
                     transition: 250ms ease-out;
+                    user-select: none;
+
+                    .title_button{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #ffffff;
+                        position: absolute;
+                        margin: auto;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: 250px;
+                        height: 70px;
+                        border-radius: 30px;
+                        background: #000000c4;
+                        transition: 250ms ease-out;
+                        user-select: none;
+                    }
                 }
             }
 
