@@ -24,3 +24,207 @@ body::-webkit-scrollbar-thumb {
     background-color: #ff2929;
     border-radius: 20px;
 }
+
+.container,.container-fluid,.container-lg,.container-md,.container-sm,.container-xl{
+    width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto
+}
+
+.gym-class{
+    position:relative;
+    margin-top:90px;
+}
+.gym-class .gym-class-box{
+    min-height:450px
+}
+@media (min-width:992px){
+    .gym-class{
+        margin-top:-90px;
+        z-index:1
+    }
+}
+.gym-class i{
+    position:absolute;
+    font-size:200px;
+    line-height:200px;
+    bottom:0;
+    color:#fff;
+    opacity:.1
+}
+.gym-class .gym-class-box.text-right i{
+    left:0
+}
+.gym-class .gym-class-box.text-left i{
+    right:0
+}
+
+.mb-5,.my-5{
+    margin-bottom:3rem!important
+}
+
+.row{
+    display:flex;
+    flex-direction: row;
+    
+    max-width: 150vh;
+}
+
+.pr-3,.px-3{
+    padding-right:1rem!important
+}
+
+.col,.col-1,.col-10,.col-11,.col-12,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-auto,.col-lg,.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-auto,.col-md,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-auto,.col-sm,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-auto,.col-xl,.col-xl-1,.col-xl-10,.col-xl-11,.col-xl-12,.col-xl-2,.col-xl-3,.col-xl-4,.col-xl-5,.col-xl-6,.col-xl-7,.col-xl-8,.col-xl-9,.col-xl-auto{
+    position:relative;
+    width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    
+}
+
+.col-md-6{
+    flex:0 0 50%;
+    max-width:50%;
+    font-family: 'Noto Sans', sans-serif;
+}
+.gym-class .gym-class-box{
+    min-height:280px
+}
+.gym-class .gym-class-box.text-right i{
+    left:0
+}
+.gym-class .gym-class-box.text-left i{
+    right:0
+}
+
+.d-flex{
+    display:flex!important
+}
+
+.d-md-flex{
+    display:flex!important
+}
+
+.flex-column{
+    flex-direction:column!important
+}
+
+.flex-column-reverse{
+    flex-direction:column-reverse!important
+}
+
+.align-items-end{
+    align-items:flex-end!important
+}
+
+.justify-content-center{
+    justify-content:center!important
+}
+
+.bg-primary{
+    background-color:#e31c25!important
+}
+
+a.bg-primary:focus,a.bg-primary:hover,button.bg-primary:focus,button.bg-primary:hover{
+    background-color:#b6161e!important
+}
+
+.text-right{
+    text-align:right!important
+}
+
+.gym-class .gym-class-box.text-right i{
+    left:0
+}
+
+.text-white{
+    color:#fff!important
+}
+
+.pt-5,.py-5{
+    padding-top:3rem!important
+}
+.pr-5,.px-5{
+    padding-right:3rem!important
+}
+.pb-5,.py-5{
+    padding-bottom:3rem!important
+}
+.pl-5,.px-5{
+    padding-left:3rem!important
+}
+
+.align-items-start{
+    align-items:flex-start!important
+}
+
+.bg-secondary{
+    background-color:#111!important
+}
+a.bg-secondary:focus,a.bg-secondary:hover,button.bg-secondary:focus,button.bg-secondary:hover{
+    background-color:#000!important
+}
+
+.font-weight-bold{
+    font-weight:700!important
+}
+.font-weight-bolder{
+    font-weight:bolder!important
+}
+
+.display-4{
+    font-size:3.5rem;
+    font-weight:300;
+    line-height:1.2
+}
+@media (max-width:1200px){
+    .display-4{
+        font-size:calc(1.475rem + 2.7vw)
+    }
+}
+
+.mb-3,.my-3{
+    margin-bottom:1rem!important
+}
+
+.btn{
+    display:inline-block;
+    font-weight:400;
+    color:#666;
+    text-align:center;
+    vertical-align:middle;
+    user-select:none;
+    background-color:transparent;
+    border:2px solid transparent;
+    padding:.375rem .75rem;
+    font-size:1rem;
+    line-height:1.5;
+    border-radius:0;
+    transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.btn-group-lg>.btn,.btn-lg{
+    padding:.5rem 1rem;
+    font-size:1.25rem;
+    line-height:1.5;
+    border-radius:0
+}
+
+.btn-outline-light{
+    color:#fff;
+    border-color:#fff
+}
+
+.mt-4,.my-4{
+    margin-top:1.5rem!important
+}
+
+.pr-4,.px-4{
+    padding-right:1.5rem!important
+}
+
+h3 {
+    letter-spacing: -2px;
+}
