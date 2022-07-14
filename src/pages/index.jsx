@@ -1,7 +1,6 @@
 import Navbar from '../components/navbar';
 import FrontCover from '../components/front_cover';
-import style from '../styles/index.module.scss'
-import Link from 'next/link';
+import style from '../styles/index.module.scss';
 
 export default function Index() {
 
