@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
 
 @font-face{
     font-family: SpaceRanger;
@@ -6,7 +7,8 @@
 }
 
 :root{
-    --red: #ff0e0e;
+    --red: #e31c25;
+    --black: #101010
 }
 
 html, body{
@@ -21,7 +23,7 @@ body::-webkit-scrollbar-track {
 }
   
 body::-webkit-scrollbar-thumb {
-    background-color: #ff2929;
+    background-color: var(--red);
     border-radius: 20px;
 }
 
