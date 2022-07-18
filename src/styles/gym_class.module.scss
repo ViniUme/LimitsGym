@@ -1,0 +1,26 @@
+.gym_class{
+    width: 100vw;
+    height: 600px;
+    min-height: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    margin: 0 0 200px 0;
+
+    .body, .muscle{
+        width: 600px;
+        min-width: 300px;
+        height: 400px;
+        min-height: 200px;
+    }
+
+    .body{
+        background-color: var(--red);
+    }
+
+    .muscle{
+        background-color: var(--black);
+    }
+}
