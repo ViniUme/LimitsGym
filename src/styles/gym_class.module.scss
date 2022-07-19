@@ -1,26 +1,47 @@
 .gym_class{
     width: 100vw;
-    height: 600px;
-    min-height: 400;
+    width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
     color: #fff;
-
     margin: 0 0 200px 0;
 
     .body, .muscle{
-        width: 600px;
-        min-width: 300px;
-        height: 400px;
-        min-height: 200px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: calc(30vw + 100px);
+        padding: 0 50px;
+        z-index: 2;
+        font: calc(1vw + 4px) 'Inter', 'Noto Sans', sans-serif;
+
+        .title{
+            font-size: 1.9em;
+            margin: 10% 0 0 0;
+        }
+
+        .description{
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+
+        .button_join{
+            background: transparent;
+            color: #fff;
+            border: 2px #fff solid;
+            font-size: 0.9em;
+            margin: 3% 0;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
     }
 
     .body{
         background-color: var(--red);
+        text-align: right;
     }
 
     .muscle{
         background-color: var(--black);
+        text-align: left;
     }
 }
