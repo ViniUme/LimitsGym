@@ -5,63 +5,48 @@
     text-align: center;
 
     .wallpaper{
+        flex-direction: column;
         width: 100%;
-        height: 80vh;
-        background: linear-gradient(180deg, #00000000 50%, #ff444471 100%), radial-gradient(#00000000 50%, #ff444446 100%), url("/img/wallpaper-1.jpg");
+        background: linear-gradient(180deg, #00000023 50%, #ff444471 100%), radial-gradient(#00000080 50%, #ff444446 100%), url("/img/wallpaper-1.jpg");
         background-repeat: no-repeat;
         background-position: center top;
         background-size: cover;
-        filter: brightness(0.3);
-    }
-
-    .titles{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        position: absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        font: (calc(5vw + 30px)) 'Inter', 'Noto Sans', sans-serif;
 
         .title_sub{
             margin-top: 250px;
-            font: 1.2em 'Inter', 'Noto Sans', sans-serif;
+            font: 0.28em 'Inter', 'Noto Sans', sans-serif;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--red);
         }
 
         .title_header{
-            font: calc((9vh + 8vw) / 2) SpaceRanger;
+            font: 1.3em SpaceRanger;
             letter-spacing: 4px;
             color: #ffffff;
             margin: 0 40px;
         }
 
         .link_button{
-            margin-top: 50px;
+            margin: 50px 0 200px 0;
+            font-size: 1em;
 
             .title_shadow{
-                text-align: center;
                 position: relative;
-                width: 300px;
+                width: calc(10vw + 150px);
                 height: 120px;
                 border-radius: 50px;
                 border: none;
                 cursor: pointer;
                 text-transform: uppercase;
-                font: 700 1.5rem 'Inter', 'Noto Sans', sans-serif;
+                font-size: 0.25em;
+                font-weight: 700;
                 background: #00000065;
                 transition: 250ms ease-out;
                 user-select: none;
 
                 .title_button{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     color: #ffffff;
                     position: absolute;
                     margin: auto;
@@ -69,7 +54,7 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    width: 250px;
+                    width: calc(10vw + 100px);
                     height: 70px;
                     border-radius: 30px;
                     background: #000000c4;
@@ -77,33 +62,22 @@
                     user-select: none;
                 }
             }
-        }
 
-        .title_shadow:hover{
-            background: #ff0e0e65;
-
-            .title_button{
-                background: var(--red);
-            }
-        }
-    }
-}
-
-@media(max-width: 650px){
-    .section_main{
-
-        .titles{
-
-            .title_shadow{
-                width: 270px;
-                height: 90px;
+            .title_shadow:hover{
+                background: #ff0e0e65;
 
                 .title_button{
-                    width: 230px;
-                    height: 65px;
-                    font-size: 20px;
+                    background: var(--red);
                 }
             }
         }
+        
     }
+
+    .wallpaper, .title_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
 }
