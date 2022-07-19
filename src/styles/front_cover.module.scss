@@ -35,7 +35,7 @@
             .title_shadow{
                 position: relative;
                 width: calc(10vw + 150px);
-                height: 120px;
+                height: calc(4vw + 70px);
                 border-radius: 50px;
                 border: none;
                 cursor: pointer;
@@ -55,7 +55,7 @@
                     right: 0;
                     bottom: 0;
                     width: calc(10vw + 100px);
-                    height: 70px;
+                    height: calc(3vw + 30px);
                     border-radius: 30px;
                     background: #000000c4;
                     transition: 250ms ease-out;
