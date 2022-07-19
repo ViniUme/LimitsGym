@@ -1,0 +1,74 @@
+.gym_class{
+    width: 100%;
+    color: #fff;
+    margin: -100px 0 0 0;
+    display: flex;
+    justify-content: center;
+
+    .body, .muscle{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: calc(30vw + 100px);
+        padding: 0 50px;
+        z-index: 2;
+        font: calc(0.5vw + 20px) 'Inter', 'Roboto', 'Noto Sans', sans-serif;
+
+        .title{
+            font-size: 1.5em;
+            margin: 0;
+            align-self: flex-end;
+        }
+
+        .description{
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .link_join{
+            font-size: 1em;
+
+            .button_join{
+                background: transparent;
+                color: #fff;
+                border: 2px #fff solid;
+                font-size: 0.9em;
+                margin: 3% 0;
+                padding: 10px 15px;
+                cursor: pointer;
+                transition: 500ms ease-in-out;
+            }
+
+            .button_join:hover{
+                border-radius: 25px;
+            }
+        }
+    }
+
+    .body{
+        background-color: var(--red);
+        text-align: right;
+    }
+
+    .muscle{
+        background-color: var(--black);
+        text-align: left;
+
+        .button_join{
+            align-self: flex-end;
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .gym_class{
+        flex-wrap: wrap;
+
+        .body, .muscle{
+            text-align: center;
+
+            .description{
+                text-align: justify;
+            }
+        }
+    }
+}

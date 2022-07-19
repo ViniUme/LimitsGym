@@ -1,0 +1,83 @@
+.section_main{
+    width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+
+    .wallpaper{
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(180deg, #00000023 50%, #ff444471 100%), radial-gradient(#00000080 50%, #ff444446 100%), url("/img/wallpaper-1.jpg");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        font: calc(5vw + 30px) 'Inter', 'Roboto', 'Noto Sans', sans-serif;
+
+        .title_sub{
+            margin-top: 250px;
+            font: 0.28em 'Inter', 'Roboto', 'Noto Sans', sans-serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+        }
+
+        .title_header{
+            font: 1.3em SpaceRanger;
+            letter-spacing: 4px;
+            color: #ffffff;
+            margin: 0 40px;
+        }
+
+        .link_button{
+            margin: 50px 0 200px 0;
+            font-size: 1em;
+
+            .title_shadow{
+                position: relative;
+                width: calc(7vw + 220px);
+                height: calc(1vw + 85px);
+                border-radius: 50px;
+                border: none;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-size: calc(0.7vw + 10px);
+                font-weight: 700;
+                background: #00000065;
+                transition: 250ms ease-out;
+                user-select: none;
+
+                .title_button{
+                    color: #ffffff;
+                    position: absolute;
+                    margin: auto;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: calc(7vw + 150px);
+                    height: calc(1vw + 50px);
+                    border-radius: 30px;
+                    background: #000000c4;
+                    transition: 250ms ease-out;
+                    user-select: none;
+                }
+            }
+
+            .title_shadow:hover{
+                background: #ff0e0e65;
+
+                .title_button{
+                    background: var(--red);
+                }
+            }
+        }
+        
+    }
+
+    .wallpaper, .title_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
