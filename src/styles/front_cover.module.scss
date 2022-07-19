@@ -11,7 +11,7 @@
         background-repeat: no-repeat;
         background-position: center top;
         background-size: cover;
-        font: (calc(5vw + 30px)) 'Inter', 'Noto Sans', sans-serif;
+        font: calc(5vw + 30px) 'Inter', 'Noto Sans', sans-serif;
 
         .title_sub{
             margin-top: 250px;
@@ -34,13 +34,13 @@
 
             .title_shadow{
                 position: relative;
-                width: calc(10vw + 150px);
-                height: calc(4vw + 70px);
+                width: calc(7vw + 220px);
+                height: calc(1vw + 85px);
                 border-radius: 50px;
                 border: none;
                 cursor: pointer;
                 text-transform: uppercase;
-                font-size: 0.25em;
+                font-size: calc(0.7vw + 10px);
                 font-weight: 700;
                 background: #00000065;
                 transition: 250ms ease-out;
@@ -54,8 +54,8 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    width: calc(10vw + 100px);
-                    height: calc(3vw + 30px);
+                    width: calc(7vw + 150px);
+                    height: calc(1vw + 50px);
                     border-radius: 30px;
                     background: #000000c4;
                     transition: 250ms ease-out;
