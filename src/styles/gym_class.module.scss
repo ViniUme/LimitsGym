@@ -2,9 +2,12 @@
     width: 100%;
     color: #fff;
     margin: -100px 0 0 0;
+    display: flex;
+    justify-content: center;
 
     .body, .muscle{
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
         width: calc(30vw + 100px);
         padding: 0 50px;
         z-index: 2;
@@ -12,7 +15,8 @@
 
         .title{
             font-size: 1.5em;
-            margin: 10% 0 0 0;
+            margin: 0;
+            align-self: flex-end;
         }
 
         .description{
@@ -35,7 +39,7 @@
             }
 
             .button_join:hover{
-                border-radius: 30px;
+                border-radius: 25px;
             }
         }
     }
@@ -48,12 +52,11 @@
     .muscle{
         background-color: var(--black);
         text-align: left;
-    }
-}
 
-.gym_class, .body, .muscle{
-    display: flex;
-    justify-content: center;
+        .button_join{
+            align-self: flex-end;
+        }
+    }
 }
 
 @media(max-width: 800px){
