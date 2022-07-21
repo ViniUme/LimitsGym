@@ -1,5 +1,5 @@
 import Navbar from '../components/navbar';
-import GymClass from '../components/gym_class';
+import GymClass from '../components/gym_class'
 import Page from '../components/page';
 import style from '../styles/index.module.scss';
 import Link from 'next/link';
