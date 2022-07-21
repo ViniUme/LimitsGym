@@ -35,11 +35,12 @@
                 margin: 3% 0;
                 padding: 10px 15px;
                 cursor: pointer;
-                transition: 500ms ease-in-out;
+                transition: 250ms ease-in-out;
             }
 
             .button_join:hover{
-                border-radius: 25px;
+                background-color: #fff;
+                color: #000000;
             }
         }
     }
