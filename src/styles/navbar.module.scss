@@ -101,7 +101,7 @@
     .navbar, .navbar_activate{
         flex-direction: column;
         flex-wrap: nowrap;
-        transition: 1s ease-in-out;
+        transition: 500ms ease-in-out;
         overflow-y: hidden;
 
         .nav_link_main, .nav_link{
@@ -127,7 +127,7 @@
             transition: none;
 
             .menu_line_1, .menu_line_2, .menu_line_3{
-                transition: 1s ease-in-out;
+                transition: 500ms ease-in-out;
             }
         }
     }
