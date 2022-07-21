@@ -7,7 +7,7 @@
 
     .body, .muscle{
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 0.6fr 1fr 0.7fr;
         width: calc(30vw + 100px);
         padding: 0 50px;
         z-index: 2;
@@ -25,6 +25,7 @@
         }
 
         .link_join{
+            margin-top: 20px;
             font-size: 1em;
 
             .button_join{
@@ -32,7 +33,6 @@
                 color: #fff;
                 border: 2px #fff solid;
                 font-size: 0.9em;
-                margin: 3% 0;
                 padding: 10px 15px;
                 cursor: pointer;
                 transition: 250ms ease-in-out;
@@ -66,6 +66,10 @@
 
         .body, .muscle{
             text-align: center;
+
+            .title{
+                align-self: center;
+            }
 
             .description{
                 text-align: justify;
