@@ -6,6 +6,7 @@ export default function Page({title, description, children}){
             <Head>
                 <title>{title}</title>
                 <meta name="description" content={description} />
+                <meta charSet='UTF-8' />
             </Head>
 
             {children}
