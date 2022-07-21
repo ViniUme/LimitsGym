@@ -1,3 +1,167 @@
 .container{
     width: 100%;
+
+    .front_cover{
+        width: 100%;
+        margin: 0;
+        position: relative;
+        text-align: center;
+    
+        .wallpaper{
+            flex-direction: column;
+            width: 100%;
+            background: linear-gradient(180deg, #0000004d 50%, #ff444471 100%), radial-gradient(#00000080 50%, #ff444446 100%), url("/img/wallpaper-1.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            font: calc(3vw + 35px) var(--clean_fonts);
+    
+            .title_sub{
+                margin-top: 250px;
+                font: 0.35em var(--clean_fonts);
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--red);
+            }
+    
+            .title_header{
+                font: 1.3em SpaceRanger;
+                letter-spacing: 4px;
+                color: #ffffff;
+                margin: 0 40px;
+            }
+    
+            .link_button{
+                margin: 50px 0 200px 0;
+                font-size: 1em;
+    
+                .title_shadow{
+                    position: relative;
+                    width: calc(7vw + 220px);
+                    height: calc(1vw + 85px);
+                    border-radius: 50px;
+                    border: none;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    font-size: calc(0.5vw + 15px);
+                    font-weight: 700;
+                    background: #00000065;
+                    transition: 250ms ease-out;
+                    user-select: none;
+    
+                    .title_button{
+                        color: #ffffff;
+                        position: absolute;
+                        margin: auto;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: calc(7vw + 150px);
+                        height: calc(1vw + 50px);
+                        border-radius: 30px;
+                        background: #000000c4;
+                        transition: 250ms ease-out;
+                        user-select: none;
+                    }
+                }
+    
+                .title_shadow:hover{
+                    background: #ff0e0e65;
+    
+                    .title_button{
+                        background: var(--red);
+                    }
+                }
+            }
+            
+        }
+    
+        .wallpaper, .title_button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    }
+
+    .gym_class{
+        width: 100%;
+        color: #fff;
+        margin: -100px 0 0 0;
+        display: flex;
+        justify-content: center;
+    
+        .body, .muscle{
+            display: grid;
+            grid-template-rows: 0.6fr 1fr 0.7fr;
+            width: calc(30vw + 100px);
+            padding: 0 50px;
+            z-index: 2;
+            font: calc(0.5vw + 20px) var(--clean_fonts);
+    
+            .title{
+                font-size: 1.5em;
+                margin: 0;
+                align-self: flex-end;
+            }
+    
+            .description{
+                font-size: 0.75em;
+                font-weight: 300;
+            }
+    
+            .link_join{
+                margin-top: 20px;
+                font-size: 1em;
+    
+                .button_join{
+                    background: transparent;
+                    color: #fff;
+                    border: 2px #fff solid;
+                    font-size: 0.9em;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    transition: 250ms ease-in-out;
+                }
+    
+                .button_join:hover{
+                    background-color: #fff;
+                    color: #000000;
+                }
+            }
+        }
+    
+        .body{
+            background-color: var(--red);
+            text-align: right;
+        }
+    
+        .muscle{
+            background-color: var(--black);
+            text-align: left;
+    
+            .button_join{
+                align-self: flex-end;
+            }
+        }
+    }
+    
+    @media(max-width: 800px){
+        .gym_class{
+            flex-wrap: wrap;
+    
+            .body, .muscle{
+                text-align: center;
+    
+                .title{
+                    align-self: center;
+                }
+    
+                .description{
+                    text-align: justify;
+                }
+            }
+        }
+    }
 }
