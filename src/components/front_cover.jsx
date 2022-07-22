@@ -3,7 +3,7 @@ import style from '../styles/front_cover.module.scss';
 
 export default function FrontCover(){
     return(
-        <section className={style.section_main}>
+        <section className={style.front_cover}>
             <div className={style.wallpaper}>
                 <span className={style.title_sub}>exceda seus limites</span>
                 <span className={style.title_header}>academia limits</span>

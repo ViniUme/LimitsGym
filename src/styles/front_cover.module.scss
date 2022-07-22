@@ -1,4 +1,4 @@
-.section_main{
+.front_cover{
     width: 100%;
     margin: 0;
     position: relative;
@@ -80,4 +80,84 @@
         align-items: center;
     }
     
+}
+
+.gym_class{
+    width: 100%;
+    color: #fff;
+    margin: -100px 0 0 0;
+    display: flex;
+    justify-content: center;
+
+    .body, .muscle{
+        display: grid;
+        grid-template-rows: 0.6fr 1fr 0.7fr;
+        width: calc(30vw + 100px);
+        padding: 0 50px;
+        z-index: 2;
+        font: calc(0.5vw + 20px) var(--clean_fonts);
+
+        .title{
+            font-size: 1.5em;
+            margin: 0;
+            align-self: flex-end;
+        }
+
+        .description{
+            font-size: 0.75em;
+            font-weight: 300;
+        }
+
+        .link_join{
+            margin-top: 20px;
+            font-size: 1em;
+
+            .button_join{
+                background: transparent;
+                color: #fff;
+                border: 2px #fff solid;
+                font-size: 0.9em;
+                padding: 10px 15px;
+                cursor: pointer;
+                transition: 250ms ease-in-out;
+            }
+
+            .button_join:hover{
+                background-color: #fff;
+                color: #000000;
+            }
+        }
+    }
+
+    .body{
+        background-color: var(--red);
+        text-align: right;
+    }
+
+    .muscle{
+        background-color: var(--black);
+        text-align: left;
+
+        .button_join{
+            align-self: flex-end;
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .gym_class{
+        flex-wrap: wrap;
+
+        .body, .muscle{
+            text-align: center;
+
+            .title{
+                align-self: center;
+            }
+
+            .description{
+                text-align: justify;
+            }
+        }
+    }
 }
