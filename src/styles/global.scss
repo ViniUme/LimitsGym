@@ -8,14 +8,17 @@
 
 :root{
     --red: #e7252e;
-    --red_strong: #c70c15;
+    --red_strong: #e31c25;
     --black: #101010;
     --clean_fonts: 'Inter', 'Roboto', sans-serif;
 }
 
-html, body{
+*{
     margin: 0;
     padding: 0;
+}
+
+html, body{
     width: 100vw;
     cursor: default;
     overflow-x: hidden;
