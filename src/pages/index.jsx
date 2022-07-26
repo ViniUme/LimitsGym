@@ -1,6 +1,7 @@
 import Navbar from '../components/navbar';
 import GymClass from '../components/gym_class';
 import FrontCover from '../components/front_cover';
+import GymFeature from '../components/gym_feature';
 import Page from '../components/page';
 import style from '../styles/index.module.scss';
 
@@ -13,7 +14,8 @@ export default function Index() {
         <Navbar/>
         <FrontCover/>
         <GymClass/>
-        
+        <GymFeature/>
+
       </div>
     </Page>
   )
