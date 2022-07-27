@@ -22,12 +22,14 @@
     }
 
     .div_features{
+        margin-top: 70px;
         width: 85%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
 
         .view_feature{
+            position: relative;
 
             .img_feature{
                 width: 250px;
