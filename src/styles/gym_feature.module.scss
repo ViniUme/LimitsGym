@@ -10,12 +10,12 @@
     .why, .guarantee{
         text-align: center;
     }
-
+    
     .why{
         font-size: 0.3em;
         color: var(--red_strong);
     }
-
+    
     .guarantee{
         font-size: 0.6em;
         color: #272727;
@@ -60,10 +60,10 @@
             .img4{
                 background-image: url("/img/feature-img4.webp");
             }
-
+            
             
             .svg_feature{
-                width: calc((2vw + 200p) / 4);
+                width: calc((2vw + 200px) / 4);
                 height: calc((2vw + 200px) / 4);
                 position: absolute;
                 top: calc((-2vw - 200px) / 10);
@@ -85,31 +85,49 @@
                 }
             }
         }
+
+        @media(max-width: 500px){
+            .view_feature{
+                grid-template-rows: min-content 1fr;
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 15px;
+    
+                .img_feature{
+                    display: none;
+                }
+    
+                .svg_feature{
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                }
+
+                .div_text{
+
+                    .title_feature{
+                        text-align: center;
+                    }
+
+                    .descrition_feature{
+                        text-align: justify;
+                    }
+                }
+            }
+        }
     }
     
     .div_features, .view_feature{
         display: grid;
     }
     
-    @media(max-width: 1160px){
+    @media(max-width: 1600px){
         .div_features{
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-rows: min-content min-content min-content min-content;
+            gap: 60px;
         }
+    
     }
-    
-    @media(max-width: 500px){
-         .view_feature{
-    
-             .img_feature{
-                 display: none;
-             }
-    
-             .svg_feature{
-                 position: relative !important;
-                 top: auto;
-                 left: auto;
-             }
-         }
-    }
+
 }

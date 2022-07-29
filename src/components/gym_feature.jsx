@@ -13,7 +13,7 @@ export default function GymFeature(){
                     <img className={style.svg_feature} src='svg/feature-svg1.svg' alt='Saúde' />
                     <div className={style.div_text}>
                         <h4 className={style.title_feature}>Benefício à Saúde</h4>
-                        <h5 className={style.descrition_feature}>Pode prevenir doenças, desde as cardiovasculares, diabetes, hipertensão, osteoporose, entre outros.</h5>
+                        <h5 className={style.descrition_feature}>Pode prevenir contra doenças como diabetes, hipertensão, osteoporose e algumas doenças cardíacas.</h5>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@ export default function GymFeature(){
                     <img className={style.svg_feature} src='svg/feature-svg3.svg' alt='' />
                     <div className={style.div_text}>
                         <h4 className={style.title_feature}>Maior Condicionamento</h4>
-                        <h5 className={style.descrition_feature}>Quanto mais intenso for a musculação, maior é o trabalho do coração, garantindo maior condicionamento cardíaco e respiratório.</h5>
+                        <h5 className={style.descrition_feature}>Quanto mais intenso for a musculação, maior é o trabalho do coração, garantindo melhora no sistema cardíaco e respiratório.</h5>
                     </div>
                 </div>
 
