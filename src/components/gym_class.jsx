@@ -8,7 +8,7 @@ export default function GymClass() {
             <div className={style.body}>
                 <h1 className={style.title}>Musculação</h1>
                 <h2 className={style.description}>
-                    Venha treinar para manter saldável tanto seu físico quanto seu psicológico. A musculação nos traz vários vantagens como uma maior qualidade do sono, melhora do humor, prevenção do diabetes, ajuda a emagrecer, entre muitos outros.
+                    Venha treinar para manter saudável tanto seu físico quanto seu psicológico. A musculação nos traz vários vantagens como uma maior qualidade do sono, melhora do humor, prevenção do diabetes, ajuda a emagrecer, entre muitos outros.
                 </h2>
                 <Link href="#"><a className={style.link_join}><button className={style.button_join}>Junte-se agora</button></a></Link>
             </div>
