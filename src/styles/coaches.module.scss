@@ -1,0 +1,23 @@
+.coaches_section{
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 60px;
+
+    .img_div{
+        background: var(--brown);
+        
+        .coache_text{
+            margin-top: -4px;
+            width: 250px;
+            height: 100px;
+            background: var(--red_strong);
+            color: #fff;
+            font: 20px var(--clean_fonts);
+        }
+    }
+}
+.coaches_section, .coache_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
