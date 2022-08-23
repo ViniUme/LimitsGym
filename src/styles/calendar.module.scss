@@ -1,0 +1,73 @@
+.calendar{
+    margin: 100px auto;
+    width: 80%;
+    display: grid;
+    grid-template-areas: 
+    "title title title"
+    "day_1 day_2 day_3"
+    ;
+    font: 16px var(--clean_fonts);
+    
+    .title{
+        text-align: center;
+        display: block;
+        grid-area: title;
+        width: 100%;
+        background: var(--brown);
+        color: #fff;
+        font-size: 2em;
+        padding: 25px 0;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+    }
+
+    .day_div_1, .day_div_2, .day_div_3{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-self: left;
+        font-size: 1em;
+
+        .day_title{
+            text-align: center;
+            display: block;
+            padding: 15px 0;
+            font-size: 1.5em;
+            background: var(--red_strong);
+            color: #fff;
+        }
+
+        .hours_div{
+            font-size: 1.2em;
+            height: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #dfdfdf;
+            border: var(--red_strong) 3px solid;
+            border-bottom: none;
+        }
+    }
+
+    .day_div_1{
+        grid-area: day_1;
+
+        .hours_div{
+            border-left: none;
+            border-right: none;
+        }
+    }
+
+    .day_div_2{
+        grid-area: day_2;
+    }
+
+    .day_div_3{
+        grid-area: day_3;
+        
+        .hours_div{
+            border-left: none;
+            border-right: none;
+        }
+    }
+}
