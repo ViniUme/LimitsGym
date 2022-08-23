@@ -4,6 +4,7 @@ import GymClass from '../components/gym_class';
 import GymFeature from '../components/gym_feature';
 import Calendar from '../components/calendar';
 import Page from '../components/page';
+import Coaches from '../components/coaches';
 import style from '../styles/index.module.scss';
 
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -20,6 +21,7 @@ export default function Index() {
         <FrontCover/>
         <GymClass/>
         <GymFeature/>
+        <Coaches/>
         <Calendar/>
         <button onClick={() => signIn('google')}>Sign in</button>
       </div>
