@@ -13,7 +13,7 @@
         display: block;
         grid-area: title;
         width: 100%;
-        background: var(--brown);
+        background: var(--black);
         color: #fff;
         font-size: 2em;
         padding: 25px 0;
@@ -44,18 +44,12 @@
             justify-content: center;
             align-items: center;
             background: #dfdfdf;
-            border: var(--red_strong) 3px solid;
             border-bottom: none;
         }
     }
 
     .day_div_1{
         grid-area: day_1;
-
-        .hours_div{
-            border-left: none;
-            border-right: none;
-        }
     }
 
     .day_div_2{
@@ -64,10 +58,5 @@
 
     .day_div_3{
         grid-area: day_3;
-        
-        .hours_div{
-            border-left: none;
-            border-right: none;
-        }
     }
 }
