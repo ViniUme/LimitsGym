@@ -1,8 +1,21 @@
 .footer{
     width: 100%;
     height: 450px;
-    background-image: linear-gradient(0deg, #000000e1 0%, #000000e1 100%), url("/img/wallpaper-2.jpg");
-    background-position: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, #000000e1 0%, #000000e1 100%), url("/img/wallpaper-2.jpg") top no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
+    font: 16px var(--clean_fonts);
+    color: #fff;
+
+    .contact, .links{
+        width: 35%;
+
+        .div_title{
+            color: var(--red);
+            font: 30px SpaceRanger;
+            margin-bottom: 10px;
+        }
+    }
 }
