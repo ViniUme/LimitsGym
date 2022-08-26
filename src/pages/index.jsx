@@ -5,13 +5,10 @@ import GymFeature from '../components/gym_feature';
 import Calendar from '../components/calendar';
 import Page from '../components/page';
 import Coaches from '../components/coaches';
+import Footer from '../components/footer';
 import style from '../styles/index.module.scss';
 
-import { useSession, signIn, signOut } from "next-auth/react";
-
 export default function Index() {
-
-  const { data: session } = useSession();
 
   return(
     <Page title="Academia Limits - Exceda seus limites" description="Compra de produtos">
@@ -23,7 +20,8 @@ export default function Index() {
         <GymFeature/>
         <Coaches/>
         <Calendar/>
-        <button onClick={() => signIn('google')}>Sign in</button>
+        <Footer/>
+        
       </div>
     </Page>
   )
