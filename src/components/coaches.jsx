@@ -1,24 +1,23 @@
 import styles from '../styles/coaches.module.scss';
-import Image from 'next/image';
 
 export default function Coaches(){
     return(
         <section className={styles.coaches_section}>
             <div className={styles.img_div}>
-                <Image src="/img/teste.png" alt="" width={250} height={416} /><br/>
+                <div className={styles.image_coach_1} />
                 <div className={styles.coache_text}><span>Gabriel Tardivo</span></div>
             </div>
             <div className={styles.img_div}>
-                <Image src="/img/teste.png" alt="" width={250} height={416} /><br/>
-                <div className={styles.coache_text}><span>Juliano Cruz</span></div>
+                <div className={styles.image_coach_2} />
+                <div className={styles.coache_text}><span>Max Marlon</span></div>
             </div>
             <div className={styles.img_div}>
-                <Image src="/img/teste.png" alt="" width={250} height={416} /><br/>
+                <div className={styles.image_coach_3} />
                 <div className={styles.coache_text}><span>Marcos kasa</span></div>
             </div>
             <div className={styles.img_div}>
-                <Image src="/img/teste.png" alt="" width={250} height={416} /><br/>
-                <div className={styles.coache_text}><span>Max Marlon</span></div>
+                <div className={styles.image_coach_4} />
+                <div className={styles.coache_text}><span>Juliano Cruz</span></div>
             </div>
         </section>
     )

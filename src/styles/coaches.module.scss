@@ -5,6 +5,25 @@
 
     .img_div{
         background: var(--black);
+
+        .image_coach_1, .image_coach_2, .image_coach_3, .image_coach_4{
+            width: 250px;
+            height: 416px;
+            background-size: cover;
+            background-position: center;
+        }
+        .image_coach_1{
+            background-image: url("/img/gabriel.jpg");
+        }
+        .image_coach_2{
+            background-image: url("/img/max.jpg");
+        }
+        .image_coach_3{
+            background-image: url("/img/kasa.jpg");
+        }
+        .image_coach_4{
+            background-image: url("/img/juliano.jpg");
+        }
         
         .coache_text{
             margin-top: -4px;
