@@ -60,3 +60,24 @@
         grid-area: day_3;
     }
 }
+
+@media(max-width: 1098px){
+    .calendar{
+        grid-template-areas: 
+        "title"
+        "day_1"
+        "day_2"
+        "day_3"
+        ;
+        font-size: 14px;
+
+        .day_div_1, .day_div_2, .day_div_3{
+
+            .hours_div{
+                height: auto;
+                padding: 20px 0;
+                font-size: 1.35em;
+            }
+        }
+    }
+}
