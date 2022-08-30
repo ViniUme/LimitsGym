@@ -13,7 +13,7 @@ export default function Coaches(){
             </div>
             <div className={styles.img_div}>
                 <div className={styles.image_coach_3} />
-                <div className={styles.coache_text}><span>Marcos kasa</span></div>
+                <div className={styles.coache_text}><span>Marcos Kasa</span></div>
             </div>
             <div className={styles.img_div}>
                 <div className={styles.image_coach_4} />
