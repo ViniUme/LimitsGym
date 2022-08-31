@@ -26,7 +26,6 @@ export default function Navbar(){
 
         <Link href="/"><a className={style.nav_link_main}>início</a></Link>
         <Link href="#"><a className={style.nav_link}>sobre nós</a></Link>
-        <Link href="#"><a className={style.nav_link}>aula</a></Link>
         <Link href="#"><a className={style.nav_link}>contatos</a></Link>
 
       </nav>
