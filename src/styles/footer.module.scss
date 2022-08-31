@@ -1,9 +1,9 @@
 .footer{
-    width: 100%;
+    width: 100vw;
     height: 450px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: flex-start;
     background: linear-gradient(0deg, #000000e1 0%, #000000e1 100%), url("/img/wallpaper-2.jpg") top no-repeat;
     background-size: cover;
     font: 16px var(--clean_fonts);
@@ -11,11 +11,62 @@
 
     .contact, .links{
         width: 35%;
+        margin-top: 150px;
 
         .div_title{
             color: var(--red);
-            font: 30px SpaceRanger;
+            font: 40px SpaceRanger;
             margin-bottom: 10px;
+        }
+
+        .div_item{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+            font: 17px var(--clean_fonts);
+            color: white;
+        }
+
+        .item_link{
+            cursor: pointer;
+        }
+    }
+}
+
+@media(max-width: 847px){
+    .footer{
+
+        .contact, .links{
+            width: 40%;
+        }
+    }
+}
+
+@media(max-width: 608px){
+    .footer{
+        height: max-content;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .contact{
+            margin: 50px 0 25px 0;
+        }
+        .links{
+            margin: 25px 0 50px 0;
+
+            .item_link{
+                margin: 10px 0;
+            }
+        }
+
+        .contact, .links{
+            width: 85vw;
+            .div_title{
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 }
