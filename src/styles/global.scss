@@ -20,9 +20,10 @@
 }
 
 html, body{
-    width: 99.5vw;
+    width: 100vw;
     cursor: default;
     overflow-x: hidden;
+    margin: 0;
 }
 body::-webkit-scrollbar {
     width: 0.5vw;
@@ -39,6 +40,7 @@ body::-webkit-scrollbar-thumb {
 a{
     text-decoration: none;
     cursor: default;
+    color: white;
 }
 
 @media(max-width: 800px){
