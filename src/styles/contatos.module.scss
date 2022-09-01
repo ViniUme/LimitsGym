@@ -1,0 +1,48 @@
+.contatos{
+    width: 100vw;
+    margin-top: 150px;
+}
+
+.contacts{
+    display: block;
+    width: max-content;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 180px;
+    
+    .name{
+        font: 50px SpaceRanger;
+        color: var(--red);
+        margin-bottom: 20px;
+    }
+
+    .image{
+        width: 200px;
+        height: 200px;
+        background-image: url("/img/logo.jpeg");
+        background-size: cover;
+        display: inline-block;
+        border-radius: 100%;
+    }
+    
+    .profile{
+        display: block;
+        margin: 5px 0;
+        font: 700 25px var(--clean_fonts);
+        color: black;
+    }
+    
+    .profile, .image{
+        transition: 100ms ease-in-out;
+    }
+}
+.contacts:hover{
+    .image{
+        transform: scale(1.1);
+    }
+    
+    .profile{
+        color: var(--red);
+    }
+}
