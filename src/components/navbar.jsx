@@ -25,7 +25,7 @@ export default function Navbar(){
         </div>
 
         <Link href="/"><a className={style.nav_link_main}>início</a></Link>
-        <Link href="#"><a className={style.nav_link}>contatos</a></Link>
+        <Link href="/contatos"><a className={style.nav_link}>contatos</a></Link>
 
       </nav>
     )

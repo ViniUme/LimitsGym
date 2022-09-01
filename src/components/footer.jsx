@@ -13,8 +13,8 @@ export default function Footer(){
             </div>
             <div className={styles.links}>
                 <h3 className={styles.div_title}>Links Rápidos</h3>
-                <Link href=""><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Sobre Nós</a></Link>
-                <Link href=""><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Contatos</a></Link>
+                <Link href="/"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Início</a></Link>
+                <Link href="/contatos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Contatos</a></Link>
             </div>
         </section>
     )
