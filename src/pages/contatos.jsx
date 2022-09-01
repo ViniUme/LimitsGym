@@ -1,6 +1,6 @@
 import Page from '../components/page';
 import Navbar from '../components/navbar';
-import Contacts from '../components/contacts';
+import Contacts from '../components/contact';
 import Coaches from '../components/coaches';
 import styles from '../styles/contatos.module.scss';
 
