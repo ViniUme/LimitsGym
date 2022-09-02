@@ -6,32 +6,22 @@ import Calendar from '../components/calendar';
 import Page from '../components/page';
 import Coaches from '../components/coaches';
 import Footer from '../components/footer';
-import { useSession, signIn, signOut } from "next-auth/react"
 import style from '../styles/index.module.scss';
 
 export default function Index() {
-  const { data: session } = useSession()
-  if(session){
-    return(
-      <Page title="Academia Limits - Exceda seus limites" description="Compra de produtos">
-        <div className={style.container} lang="pt-BR">
-
-          <Navbar/>
-          <FrontCover/>
-          <GymClass/>
-          <GymFeature/>
-          <Coaches/>
-          <Calendar/>
-          <Footer/>
-          <button onClick={() => signOut()}>Sign Out</button>
-        </div>
-      </Page>
-    )
-  }
   return(
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn('google')}>Sign in</button>
-    </>
+    <Page title="Academia Limits - Exceda seus limites" description="Compra de produtos">
+      <div className={style.container} lang="pt-BR">
+
+        <Navbar/>
+        <FrontCover/>
+        <GymClass/>
+        <GymFeature/>
+        <Coaches/>
+        <Calendar/>
+        <Footer/>
+        <button onClick={() => signOut()}>Sign Out</button>
+      </div>
+    </Page>
   )
 }
