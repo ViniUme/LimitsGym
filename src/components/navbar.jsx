@@ -2,7 +2,7 @@ import Link from 'next/link';
 import style from '../styles/navbar.module.scss';
 import { useState } from 'react';
 
-export default function Navbar(){
+export default function Navbar({type}){
 
     const [activate, setActivate] = useState(style.navbar);
 
@@ -15,8 +15,17 @@ export default function Navbar(){
         }
     }
 
+    function ChoseColor(){
+      if(type == 1){
+        return "linear-gradient(180deg, #101010df 50%, #00000000 100%)"
+      }
+      else{
+        return "#101010"
+      }
+    }
+
     return(
-        <nav className={activate}>
+        <nav className={activate} style={{background: ChoseColor()}}>
 
         <div className={style.mobile_menu} onClick={() => SwitchNavbar()}>
           <div className={style.menu_line_1}></div>

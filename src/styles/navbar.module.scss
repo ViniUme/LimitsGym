@@ -1,5 +1,5 @@
 .navbar, .navbar_activate{
-    width: 100%;
+    width: 100vw;
     height: 7vh;
     position: absolute;
     margin: auto;
@@ -8,7 +8,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    background: var(--black)/*linear-gradient(180deg, #000000df 50%, #00000000 100%)*/;
+    /*background: var(--black)linear-gradient(180deg, #000000df 50%, #00000000 100%);*/
     text-transform: uppercase;
     font-size: 19px;
     z-index: 100;
