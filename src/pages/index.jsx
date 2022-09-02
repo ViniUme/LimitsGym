@@ -9,8 +9,8 @@ import Footer from '../components/footer';
 import { useSession, signIn, signOut } from "next-auth/react"
 import style from '../styles/index.module.scss';
 
-export default function Index() {
-  const { data: session } = useSession()
+export default async function Index() {
+  const { data: session } = await useSession()
   if(session){
     return(
       <Page title="Academia Limits - Exceda seus limites" description="Compra de produtos">
