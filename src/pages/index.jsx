@@ -20,7 +20,7 @@ export default function Index() {
         <Coaches/>
         <Calendar/>
         <Footer/>
-        <button onClick={() => signOut()}>Sign Out</button>
+        
       </div>
     </Page>
   )
