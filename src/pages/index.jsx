@@ -10,17 +10,17 @@ import style from '../styles/index.module.scss';
 
 export default function Index() {
   return(
-    <Page title="Academia Limits - Exceda seus limites" description="Compra de produtos">
+    <Page title="Academia Limits - Exceda seus limites" description="Assinatura da academia">
       <div className={style.container} lang="pt-BR">
 
-        <Navbar/>
+        <Navbar type="1"/>
         <FrontCover/>
         <GymClass/>
         <GymFeature/>
         <Coaches/>
         <Calendar/>
         <Footer/>
-        
+
       </div>
     </Page>
   )
