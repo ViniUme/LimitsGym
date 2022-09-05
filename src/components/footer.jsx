@@ -15,6 +15,7 @@ export default function Footer(){
                 <h3 className={styles.div_title}>Links Rápidos</h3>
                 <Link href="/"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Início</a></Link>
                 <Link href="/contatos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Contatos</a></Link>
+                <Link href="/precos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Preços</a></Link>
             </div>
         </section>
     )
