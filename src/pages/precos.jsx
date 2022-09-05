@@ -1,12 +1,14 @@
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import styles from '../styles/prices.module.scss';
+import Prices from '../components/prices'
+import Page from '../components/page';
 
 export default function Precos(){
     return(
-        <section className={styles.price}>
+        <Page title="Preços dos Planos" context="Página que mostra o preço dos planos">
             <Navbar/>
+            <Prices/>
             <Footer/>
-        </section>
+        </Page>
     )
 }
