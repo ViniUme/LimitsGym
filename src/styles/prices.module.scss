@@ -1,3 +1,88 @@
 .prices{
     width: 100%;
+    margin: 150px 0 85px 0;
+    flex-direction: column;
+    font: 15px var(--clean_fonts);
+
+    .title{
+        font: 700 2.8em SpaceRanger;
+        letter-spacing: 3px;
+        color: var(--red);
+    }
+    
+    .different_prices{
+        width: 90%;
+        margin: 10px 0 50px 0;
+        flex-wrap: wrap;
+        gap: 30px;
+        
+        .price_div{
+            width: 350px;
+            /* height: 400px;*/
+            justify-content: flex-start;
+            flex-direction: column;
+            background: var(--red);
+            border: 5px var(--black) solid;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 1em;
+
+            .price_title{
+                width: 100%;
+                height: 70px;
+                color: #000;
+                background: #fff;
+                font: 30px SpaceRanger;
+                border-top-left-radius: 13px;
+                border-top-right-radius: 13px;
+            }
+
+            .price_string{
+                width: 100%;
+                text-align: center;
+                font: 700 55px var(--clean_fonts);
+                margin-top: 20px;
+                position: relative;
+
+                .dollar_sign, .month{
+                    font-size: 0.3em;
+                }
+
+                .dollar_sign{
+                    position: relative;
+                    top: -26px;
+                }
+
+            }
+
+            .text{
+                font-size: 0.9em;
+                font-weight: 500;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .button{
+                margin: 30px 0;
+                font: 700 1.2em var(--clean_fonts);
+                text-transform: uppercase;
+                padding: 13px 25px;
+                border: none;
+                border-radius: 40px;
+                background: #fff;
+                cursor: pointer;
+                transition: 150ms ease-in-out;
+            }
+            .button:hover{
+                background: var(--black);
+                color: #fff;
+            }
+        }
+    }
+}
+
+.prices, .price_div, .price_title, .different_prices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
