@@ -35,6 +35,7 @@ export default function Navbar({type}){
 
         <Link href="/"><a className={style.nav_link_main}>início</a></Link>
         <Link href="/contatos"><a className={style.nav_link}>contatos</a></Link>
+        <Link href="/precos"><a className={style.nav_link}>preços</a></Link>
 
       </nav>
     )
