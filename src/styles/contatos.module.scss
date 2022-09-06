@@ -3,46 +3,76 @@
     margin-top: 150px;
 }
 
-.contacts{
-    display: block;
-    width: max-content;
+.companies_title{
     text-align: center;
-    cursor: pointer;
-    margin: 0 auto;
-    margin-bottom: 180px;
-    
-    .name{
-        font: 50px SpaceRanger;
-        color: var(--red);
-        margin-bottom: 20px;
-    }
+    font: 50px SpaceRanger;
+    color: var(--red);
+    margin-bottom: 30px;
+}
 
-    .image{
-        width: 200px;
-        height: 200px;
-        background-image: url("/img/logo.jpeg");
-        background-size: cover;
-        display: inline-block;
-        border-radius: 100%;
-    }
-    
-    .profile{
-        display: block;
-        margin: 5px 0;
-        font: 700 25px var(--clean_fonts);
-        color: black;
-    }
-    
-    .profile, .image{
-        transition: 100ms ease-in-out;
+.companies{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    margin-bottom: 150px;
+
+    .contacts{
+        width: 350px;
+        margin: 0 30px;
+        padding: 20px;
+        border: 5px var(--red) solid;
+        border-radius: 40px;
+        background: var(--black);
+        text-align: center;
+        
+        .image{
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            background-size: cover;
+            display: inline-block;
+            border: 4px var(--red) solid;
+            border-radius: 100%;
+        }
+        .image_1{
+            background-image: url("/img/logo.jpeg");
+        }
+        .image_2{
+            background: #fff url("/img/fruit-point.png");
+            background-size: cover;
+        }
+
+        .text{
+            margin: 20px 0;
+            font: 500 18px var(--clean_fonts);
+            color: #fff;
+        }
+        
+        .profile{
+            width: 70%;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 5px;
+            border-radius: 40px;
+            border: 3px #fff solid;
+            transition: 250ms ease-in-out;
+            text-transform: uppercase;
+            font: 900 20px var(--clean_fonts);
+            color: #fff;
+            cursor: pointer;
+        }
+        .profile:hover{
+            border-color: var(--red);
+            color: var(--red);
+        }
     }
 }
-.contacts:hover{
-    .image{
-        transform: scale(1.1);
-    }
-    
-    .profile{
-        color: var(--red);
+
+@media(max-width: 1020px){
+    .companies{
+        gap: 50px;
     }
 }
