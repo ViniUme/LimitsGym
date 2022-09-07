@@ -4,7 +4,28 @@ import { setCookie, parseCookies } from 'nookies';
 
 export default function SignRoute(props){
 
-    const [email, setEmail] = useState(props.res.USER_LOGIN);
+    const info = [
+        ['nome', 'Nome'],
+        ['cid', 'Cidade'],
+        ['rua', 'Rua'],
+        ['email', 'E-mail'],
+        ['tel', 'Telefone/Celular'],
+        ['bair', 'Bairro'],
+        ['rg', 'RG'],
+        ['senha', 'Senha'],
+        ['senha', 'Comfirmar senha']
+    ]
+    const json = {
+        "nome": "",
+        "cid": "",
+        "rua": "",
+        "email": "",
+        "tel": "",
+        "bair": "",
+        "rg": "",
+        "senha": ""
+    }
+    const [data, setData] = useState(json);
 
     function Try(){
         setCookie(null, 'USER_LOGIN', email, {
