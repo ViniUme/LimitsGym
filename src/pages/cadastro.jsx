@@ -29,8 +29,16 @@ export default function SignRoute(){
     return(
         <Page title="Faça seu cadastro na Limits Gym" context="Tela para criação de usuário e efetuação do seu cadastro no banco de dados">
             <section>
-                
-                
+                <form>
+                    {info && info.map((item, key) => {
+                        return(
+                            <div key={key}>
+                                <label htmlFor={info[0]}>{item[1]}</label>
+                                <input type="text" id={item[0]} value={eval(`data.${item[0]}`)} />
+                            </div>
+                        )
+                    })}
+                </form>
             </section>
         </Page>
     )
