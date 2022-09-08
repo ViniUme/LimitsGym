@@ -1,6 +1,15 @@
+.header{
+    margin-top: 150px;
+    padding: 0 20%;
+    text-align: center;
+    font: 35px SpaceRanger;
+    letter-spacing: 1px;
+    color: var(--red_strong);
+}
+
 .sign_on{
     width: 40%;
-    margin: 150px auto 100px auto;
+    margin: 30px auto 100px auto;
     padding: 40px 50px;
     display: flex;
     justify-content: center;
@@ -89,6 +98,10 @@
 }
 
 @media(max-width: 1000px){
+    .header{
+        padding: 0 10%;
+    }
+
     .sign_on{
         width: 70%;
     }
