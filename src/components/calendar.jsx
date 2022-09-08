@@ -2,8 +2,10 @@ import styles from '../styles/calendar.module.scss';
 
 export default function Calendar(){
     return(
+        <div className={styles.align}>
+        <h2 className={styles.title}>Horários de Atendimento</h2>
         <section className={styles.calendar}>
-            <h2 className={styles.title}>Horários de Atendimento</h2>
+
             <div className={styles.day_div_1}>
                 <h3 className={styles.day_title}>Segunda, Quarta e Sexta</h3>
                 <div className={styles.hours_div}>
@@ -17,6 +19,7 @@ export default function Calendar(){
                     </div>
                 </div>
             </div>
+
             <div className={styles.day_div_2}>
                 <h3 className={styles.day_title}>Terça e Quinta</h3>
                 <div className={styles.hours_div}>
@@ -30,6 +33,7 @@ export default function Calendar(){
                     </div>
                 </div>
             </div>
+
             <div className={styles.day_div_3}>
                 <h3 className={styles.day_title}>Sábado</h3>
                 <div className={styles.hours_div}>
@@ -39,5 +43,6 @@ export default function Calendar(){
                 </div>
             </div>
         </section>
+        </div>
     );
 }
