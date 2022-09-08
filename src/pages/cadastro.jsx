@@ -50,8 +50,11 @@ export default function SignRoute(){
     return(
         <Page title="Faça seu cadastro na Limits Gym" context="Tela para criação de usuário e efetuação do seu cadastro no banco de dados">
             <Navbar/>
+
             <h1 className={styles.header}>preencha o formulário com seus dados para se cadastrar na acamedia limits gym</h1>
+
             <form className={styles.sign_on} onSubmit={(e) => Submit(e)}>
+
                 {info && info.map((item, key) => {
                     return(
                         <div className={styles.div_input} key={key}>
@@ -61,14 +64,18 @@ export default function SignRoute(){
                         </div>
                     )
                 })}
+
                 <div className={styles.div_input}>
                     <input className={styles.input} placeholder=" " type="text" id='verify' value={verify} onChange={(e) => setVerify(e.target.value)} autoComplete='off' />
                     <label className={styles.label} htmlFor='verify'>Confirmar Senha</label>
                     <span className={styles.line} />
                 </div>
+
                 <span className={styles.message}>{message}</span>
                 <input className={styles.button} type='submit' />
+                
             </form>
+
             <Footer/>
         </Page>
     )
