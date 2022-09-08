@@ -5,19 +5,19 @@
     margin: auto;
     top: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    /*background: var(--black)linear-gradient(180deg, #000000df 50%, #00000000 100%);*/
     text-transform: uppercase;
-    font-size: 19px;
+    font: 700 19px var(--clean_fonts);
     z-index: 100;
     overflow-x: hidden;
+    background: var(--black);
 
     .nav_link_main{
         color: var(--red);
         text-decoration: none;
-        font: 700 0.8em var(--clean_fonts);
+        font-size: 0.8em;
         letter-spacing: 2px;
         margin: 0 25px 0 75px;
     }
@@ -28,7 +28,7 @@
     .nav_link{
         color: white;
         text-decoration: none;
-        font: 700 0.8em var(--clean_fonts);
+        font-size: 0.8em;
         letter-spacing: 2px;
         margin: 0 15px;
         padding: 3px 10px;
@@ -54,6 +54,12 @@
             margin: 4px 0;
             border-radius: 10px;
         }
+    }
+
+    .sign_on_in{
+        margin: 0 75px 0 0;
+        font-size: 1em;
+        letter-spacing: 2px;
     }
 }
 
