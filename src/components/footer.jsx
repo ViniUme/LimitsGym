@@ -16,6 +16,7 @@ export default function Footer(){
                 <Link href="/"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Início</a></Link>
                 <Link href="/contatos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Contatos</a></Link>
                 <Link href="/precos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Preços</a></Link>
+                <Link href="/precos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Cadastro</a></Link>
             </div>
         </section>
     )
