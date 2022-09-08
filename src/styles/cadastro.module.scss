@@ -1,6 +1,6 @@
 .sign_on{
-    width: 30%;
-    margin: 0 auto;
+    width: 40%;
+    margin: 150px auto 100px auto;
     padding: 40px 50px;
     display: flex;
     justify-content: center;
@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 20px;
     background: var(--black);
+    border-radius: 40px;
     font: 25px SpaceRanger;
     letter-spacing: 2px;
 
@@ -84,5 +85,11 @@
         font: 500 16px var(--clean_fonts);
         text-transform: uppercase;
         color: var(--red);
+    }
+}
+
+@media(max-width: 1000px){
+    .sign_on{
+        width: 70%;
     }
 }

@@ -1,4 +1,6 @@
 import Page from '../components/page';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 import styles from '../styles/cadastro.module.scss';
 import { useState } from 'react';
 
@@ -9,7 +11,7 @@ export default function SignRoute(){
         ['city', 'Cidade'],
         ['road', 'Rua'],
         ['email', 'E-mail'],
-        ['tel', 'Telefone/Celular'],
+        ['tel', 'Celular'],
         ['dist', 'Bairro'],
         ['rg', 'RG'],
         ['pass', 'Senha']
@@ -47,7 +49,7 @@ export default function SignRoute(){
 
     return(
         <Page title="Faça seu cadastro na Limits Gym" context="Tela para criação de usuário e efetuação do seu cadastro no banco de dados">
-            
+            <Navbar/>
             <form className={styles.sign_on} onSubmit={(e) => Submit(e)}>
                 {info && info.map((item, key) => {
                     return(
@@ -66,6 +68,7 @@ export default function SignRoute(){
                 <span className={styles.message}>{message}</span>
                 <input className={styles.button} type='submit' />
             </form>
+            <Footer/>
         </Page>
     )
 }
