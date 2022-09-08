@@ -40,11 +40,13 @@ export default function SignRoute(){
         e.preventDefault();
         
         if(data.pass != verify){
-            setMessage('Suas senha estão diferentes');
+            setMessage('comfirme sua senha corretamente');
             return
         }
 
-        console.table(data);
+        const date = `${new Date()}`;
+        const client = {...data, "date": date};
+        console.log(client);
     }
 
     return(
