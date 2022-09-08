@@ -1,4 +1,5 @@
 import Page from '../components/page';
+import styles from '../styles/cadastro.module.scss';
 import { useState } from 'react';
 
 export default function SignRoute(){
@@ -46,24 +47,25 @@ export default function SignRoute(){
 
     return(
         <Page title="Faça seu cadastro na Limits Gym" context="Tela para criação de usuário e efetuação do seu cadastro no banco de dados">
-            <section>
-                <form onSubmit={(e) => Submit(e)}>
-                    {info && info.map((item, key) => {
-                        return(
-                            <div key={key}>
-                                <label htmlFor={info[0]}>{item[1]}</label>
-                                <input type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' />
-                            </div>
-                        )
-                    })}
-                    <div>
-                        <label htmlFor='verify'>Confirmar Senha</label>
-                        <input type="text" id='verify' value={verify} onChange={(e) => setVerify(e.target.value)} autoComplete='off' />
-                    </div>
-                    <span>{message}</span>
-                    <input type='submit' />
-                </form>
-            </section>
+            
+            <form className={styles.sign_on} onSubmit={(e) => Submit(e)}>
+                {info && info.map((item, key) => {
+                    return(
+                        <div className={styles.div_input} key={key}>
+                            <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' />
+                            <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
+                            <span className={styles.line} />
+                        </div>
+                    )
+                })}
+                <div className={styles.div_input}>
+                    <input className={styles.input} placeholder=" " type="text" id='verify' value={verify} onChange={(e) => setVerify(e.target.value)} autoComplete='off' />
+                    <label className={styles.label} htmlFor='verify'>Confirmar Senha</label>
+                    <span className={styles.line} />
+                </div>
+                <span className={styles.message}>{message}</span>
+                <input className={styles.button} type='submit' />
+            </form>
         </Page>
     )
 }

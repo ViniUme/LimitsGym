@@ -1,0 +1,88 @@
+.sign_on{
+    width: 30%;
+    margin: 0 auto;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--black);
+    font: 25px SpaceRanger;
+    letter-spacing: 2px;
+
+    .div_input{
+        width: 100%;
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .input{
+        margin: 0;
+        width: calc(100% - 19px);
+        padding: 8px 10px 3px 5px;
+        border: 2px #00000000 solid;
+        border-bottom: 2px var(--gray) solid;
+        background: none;
+        outline: none;
+        color: #fff;
+        font: 500 20px var(--clean_fonts);
+        transition: 250ms ease-out;
+    }
+    .input:focus + .label, .input:not(:placeholder-shown) + .label{
+        transform: translateY(-30px);
+        font-size: 17px;
+        color: #fff;
+    }
+    .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
+        width: 100%;
+    }
+
+    .label{
+        position: absolute;
+        margin: auto;
+        left: 5px;
+        bottom: 4px;
+        color: var(--gray);
+        transition: 250ms ease-out;
+    }
+
+    .line{
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 2px;
+        margin: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--red);
+        transition: 250ms ease-out;
+    }
+
+    .button{
+        margin: 0 auto;
+        padding: 10px 20px;
+        font: 900 17px var(--clean_fonts);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+        background: none;
+        border: 3px #fff solid;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 100ms ease-out;
+    }
+    .button:hover{
+        transform: scale(1.1);
+        border: 3px var(--red) solid;
+        color: var(--red);
+    }
+
+    .message{
+        margin: 10px auto;
+        font: 500 16px var(--clean_fonts);
+        text-transform: uppercase;
+        color: var(--red);
+    }
+}
