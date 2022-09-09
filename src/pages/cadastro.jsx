@@ -47,7 +47,8 @@ export default function SignRoute(){
 
         const date = `${new Date()}`;
         const client = {...data, "date": date, "wish": []};
-        CreateUser(client)
+        const response = await CreateUser(client)
+        console.log(response)
     }
 
     return(

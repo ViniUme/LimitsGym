@@ -26,7 +26,7 @@ export async function VerifyUser(user){
         })
 }
 
-export function CreateUser(user){
+export async function CreateUser(user){
 
     const init = {
         method: "POST",
@@ -36,9 +36,7 @@ export function CreateUser(user){
         body: JSON.stringify(user)
     }
 
-    return fetch("/api/create-user", init)
-        .then(response => response.json())
-        .then((json) => {console.log(json)})
+    return await fetch("/api/create-user", init).then(response => response.json())
 }
 
 export async function AddWishList(product, user){
