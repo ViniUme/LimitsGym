@@ -2,6 +2,7 @@ import Page from '../components/page';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import styles from '../styles/cadastro.module.scss';
+import { CreateUser } from '../utils/functions';
 import { useState } from 'react';
 
 export default function SignRoute(){
@@ -36,7 +37,7 @@ export default function SignRoute(){
         setData({...data, [id]: value});
     }
 
-    function Submit(e){
+    async function Submit(e){
         e.preventDefault();
         
         if(data.pass != verify){
@@ -45,8 +46,8 @@ export default function SignRoute(){
         }
 
         const date = `${new Date()}`;
-        const client = {...data, "date": date};
-        console.log(client);
+        const client = {...data, "date": date, "wish": []};
+        CreateUser(client)
     }
 
     return(

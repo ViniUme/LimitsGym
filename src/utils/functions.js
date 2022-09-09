@@ -28,25 +28,17 @@ export async function VerifyUser(user){
 
 export function CreateUser(user){
 
-    const body = {
-        email: user,
-        wish: []
-    }
     const init = {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(user)
     }
 
     return fetch("/api/create-user", init)
         .then(response => response.json())
-        .then((json) => {
-            if(json.message === true){
-                return true
-            }
-        })
+        .then((json) => {console.log(json)})
 }
 
 export async function AddWishList(product, user){
