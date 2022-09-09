@@ -2,7 +2,7 @@ import Page from '../components/page';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import styles from '../styles/cadastro.module.scss';
-import { CreateUser } from '../utils/functions';
+import { CreateUser, VerifyUser } from '../utils/functions';
 import { useState } from 'react';
 
 export default function SignRoute(){
@@ -44,11 +44,18 @@ export default function SignRoute(){
             setMessage('comfirme sua senha corretamente');
             return
         }
-
+        
         const date = `${new Date()}`;
         const client = {...data, "date": date, "wish": []};
-        const response = await CreateUser(client)
-        console.log(response)
+
+        const verify_user = await VerifyUser(client);
+
+        if(verify_user === true){
+            setMessage('useário já existente');
+        }
+        else{
+            await CreateUser(client);
+        }
     }
 
     return(

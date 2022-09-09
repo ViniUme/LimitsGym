@@ -4,25 +4,13 @@ export async function VerifyUser(user){
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user.email)
     }
 
     return await fetch('/api/verify-user', init)
         .then(response => response.json())
-        .then( async (json) => {
-            if(json.response === true){
-                console.log("existe")
-                return true
-            }
-            else{
-                console.log("criando")
-                const create = await CreateUser(json.email);
-                console.log(create);
-                if(create === true){
-                    console.log("feito");
-                    return true
-                }
-            }
+        .then((json) => {
+            return json.message
         })
 }
 

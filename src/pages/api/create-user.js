@@ -4,7 +4,7 @@ export default async function handler (req,res){
     if(req.method === "POST"){
         const { db } = await Connect();
         const body = req.body;
-        console.log(body);
+        
         const create = await db.collection('clients').insertOne(body)
 
         console.log(create)
