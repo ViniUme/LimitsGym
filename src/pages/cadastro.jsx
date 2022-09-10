@@ -5,7 +5,6 @@ import Loading from '../components/loading';
 import styles from '../styles/cadastro.module.scss';
 import { CreateUser, VerifyUser } from '../utils/functions';
 import { useState } from 'react';
-import { imageConfigDefault } from 'next/dist/server/image-config';
 
 export default function SignRoute(){
 
@@ -31,7 +30,7 @@ export default function SignRoute(){
     }
 
     const [data, setData] = useState(json);
-    const [message, setMessage] = useState('loading');
+    const [message, setMessage] = useState('');
     const [verify, setVerify] = useState('');
 
     function InputEdit(e){
@@ -41,7 +40,23 @@ export default function SignRoute(){
 
     async function Submit(e){
         e.preventDefault();
+
+        for(let item in data){
+            let real_item = eval(`data.${item}`);
+            if(real_item == ''){
+                setMessage('preencha todos os campos')
+                return
+            }
+        }
         
+        if((data.email.indexOf(' ') || data.tel.indexOf(' ') || data.rg.indexOf(' ') || data.pass.indexOf(' ')) >= 0){
+            setMessage('não use espaços nos campos de emai, celular, RG e senha');
+            return
+        }
+        if(data.pass.length < 6){
+            setMessage('digite uma senha com ao menos 6 caracteres')
+            return
+        }
         if(data.pass != verify){
             setMessage('comfirme sua senha corretamente');
             return
@@ -49,6 +64,8 @@ export default function SignRoute(){
         
         const date = `${new Date()}`;
         const client = {...data, "date": date, "wish": []};
+
+        setMessage('loading');
 
         const verify_user = await VerifyUser(client);
 
@@ -58,8 +75,8 @@ export default function SignRoute(){
         else{
             const response = await CreateUser(client);
             
-            if(response === true){
-
+            if(response.message === true){
+                setMessage('usuário criado com sucesso')
             }
         }
     }
