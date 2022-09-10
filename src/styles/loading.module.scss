@@ -1,0 +1,38 @@
+.load_section{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+
+    .load_obj{
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: 5px var(--red_strong) solid;
+        border-top: 5px #00000000 solid;
+        animation: spin 1500ms infinite;
+    }
+
+    @keyframes spin{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+}
+
+@media(prefers-color-scheme: dark){
+    .load_section{
+        background: var(--black);
+
+        .load_obj{
+            border: 5px var(--red) solid;
+            border-top: 5px #00000000 solid;
+        }
+    }
+}
