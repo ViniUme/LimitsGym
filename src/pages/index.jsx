@@ -5,7 +5,6 @@ import GymFeature from '../components/gym_feature';
 import Calendar from '../components/calendar';
 import Page from '../components/page';
 import Coaches from '../components/coaches';
-import Footer from '../components/footer';
 import style from '../styles/index.module.scss';
 
 export default function Index() {

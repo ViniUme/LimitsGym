@@ -1,5 +1,3 @@
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
 import Prices from '../components/prices'
 import Page from '../components/page';
 

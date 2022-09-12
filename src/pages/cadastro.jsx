@@ -1,6 +1,4 @@
 import Page from '../components/page';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
 import Loading from '../components/loading';
 import styles from '../styles/cadastro.module.scss';
 import { CreateUser, VerifyUser } from '../utils/functions';
