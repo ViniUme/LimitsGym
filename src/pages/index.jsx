@@ -13,13 +13,11 @@ export default function Index() {
     <Page title="Academia Limits - Exceda seus limites" description="Assinatura da academia">
       <div className={style.container} lang="pt-BR">
 
-        <Navbar type="1"/>
         <FrontCover/>
         <GymClass/>
         <GymFeature/>
         <Coaches/>
         <Calendar/>
-        <Footer/>
 
       </div>
     </Page>

@@ -83,7 +83,6 @@ export default function SignRoute(){
     if(message != 'loading'){
         return(
             <Page title="Faça seu cadastro na Limits Gym" context="Tela para criação de usuário e efetuação do seu cadastro no banco de dados">
-                <Navbar/>
 
                 <h1 className={styles.header}>preencha o formulário com seus dados para se cadastrar na acamedia limits gym</h1>
 
@@ -110,7 +109,6 @@ export default function SignRoute(){
                     
                 </form>
 
-                <Footer/>
             </Page>
         )
     }

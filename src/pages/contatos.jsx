@@ -8,11 +8,9 @@ import styles from '../styles/contatos.module.scss';
 export default function Contatos(){
     return(
         <Page title="Contatos Limits Gym" description="Página com todos contatos da Limits Gym">
-            <Navbar type="2"/>
             <section className={styles.contatos}>
                 <Contacts/>
                 <Coaches/>
-                <Footer/>
             </section>
         </Page>
     )
