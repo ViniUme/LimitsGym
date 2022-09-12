@@ -2,7 +2,7 @@ import Connect from "../../utils/database";
 
 export default async function handler(req,res){
     if(req.method == 'POST'){
-        const {db} = Connect();
+        const {db} = await Connect();
         const body = req.body;
 
         const response = await db.collection('clients').findOne({email: body.email, pass: body.pass});

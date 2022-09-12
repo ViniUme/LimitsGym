@@ -1,4 +1,5 @@
 import Page from '../components/page';
+import { LoginUser } from '../utils/functions';
 import { useState } from 'react';
 import styles from '../styles/entrar.module.scss'
 
@@ -16,9 +17,17 @@ export default function Login(){
         setData({...data, [id]: value});
     }
 
-    function Submit(e){
+    async function Submit(e){
         e.preventDefault();
-        console.log(data);
+        
+        const response = await LoginUser(data);
+
+        if(response.message == true){
+            console.log('logado');
+        }
+        else{
+            setMessage('seu e-mail ou senha estão incorretos');
+        }
     }
 
     return(
