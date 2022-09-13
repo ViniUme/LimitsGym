@@ -53,14 +53,6 @@ export default function SignRoute(){
             setMessage('não use espaços nos campos de emai, celular, RG e senha');
             return
         }
-        if(data.tel.length < 10){
-            setMessage('número de celular inválido');
-            return
-        }
-        if(data.rg.length < 9){
-            setMessage('numero de rg inválido');
-            return
-        }
         if(data.pass.length < 6){
             setMessage('digite uma senha com ao menos 6 caracteres')
             return
