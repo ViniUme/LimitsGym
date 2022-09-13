@@ -1,6 +1,8 @@
 import Page from '../components/page';
 import Loading from '../components/loading';
 import styles from '../styles/cadastro.module.scss';
+//import { mask } from "mask-input-dynamic";
+import InputMask from 'react-input-mask';
 import { CreateUser, VerifyUser } from '../utils/functions';
 import { useState } from 'react';
 
@@ -51,6 +53,14 @@ export default function SignRoute(){
             setMessage('não use espaços nos campos de emai, celular, RG e senha');
             return
         }
+        if(data.tel.length < 10){
+            setMessage('número de celular inválido');
+            return
+        }
+        if(data.rg.length < 9){
+            setMessage('numero de rg inválido');
+            return
+        }
         if(data.pass.length < 6){
             setMessage('digite uma senha com ao menos 6 caracteres')
             return
@@ -87,6 +97,24 @@ export default function SignRoute(){
                 <form className={styles.sign_on} onSubmit={(e) => Submit(e)}>
 
                     {info && info.map((item, key) => {
+                        if(item[0] == 'rg'){
+                            return(
+                                <div className={styles.div_input} key={key}>
+                                    <InputMask className={styles.input} id={item[0]} mask='99.999.999-9' placeholder=" " onChange={(e) => InputEdit(e)} />
+                                    <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
+                                    <span className={styles.line} />
+                                </div>
+                            )    
+                        }
+                        if(item[0] == 'tel'){
+                            return(
+                                <div className={styles.div_input} key={key}>
+                                    <InputMask className={styles.input} id={item[0]} mask='(99) 99999-9999' placeholder=' ' onChange={(e) => InputEdit(e)} />
+                                    <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
+                                    <span className={styles.line} />
+                                </div>
+                            )
+                        }
                         return(
                             <div className={styles.div_input} key={key}>
                                 <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' />
