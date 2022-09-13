@@ -1,7 +1,8 @@
 import Page from '../components/page';
 import Loading from '../components/loading';
 import { LoginUser } from '../utils/functions';
-import Link from 'next/link'
+import Link from 'next/link';
+import { parseCookies, setCookie } from 'nookies';
 import { useState, useEffect } from 'react';
 import styles from '../styles/entrar.module.scss'
 
@@ -34,10 +35,13 @@ export default function Login(){
         
         setMessage('loading');
         const response = await LoginUser(data);
-
+        
         if(response.message == true){
+            setCookie(null, 'USE_LOGIN', `${response.user}`, {
+                maxAge: 86400 * 365,
+                path: '/'
+            });
             setMessage('');
-            console.log('logado');
         }
         else{
             setMessage('seu e-mail ou senha estão incorretos');
