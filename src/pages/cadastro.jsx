@@ -76,7 +76,10 @@ export default function SignRoute(){
             const response = await CreateUser(client);
             
             if(response.message === true){
-                setMessage('usuário criado com sucesso')
+                window.location.href = '/entrar?created=true';
+            }
+            else{
+                setMessage('algo deu errado')
             }
         }
     }
