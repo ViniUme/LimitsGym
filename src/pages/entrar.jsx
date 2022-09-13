@@ -2,7 +2,7 @@ import Page from '../components/page';
 import Loading from '../components/loading';
 import { LoginUser } from '../utils/functions';
 import Link from 'next/link'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/entrar.module.scss'
 
 export default function Login(){
@@ -13,6 +13,16 @@ export default function Login(){
     }
     const [data, setData] = useState(json);
     const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        const url_var = new URLSearchParams(window.location.search);
+        const msg = url_var.get('created');
+        
+        if(msg == 'true'){
+            setMessage('usuario criado com sucesso')
+        }
+    }, [])
+
 
     function InputEdit(e){
         const {id, value} = e.target;
