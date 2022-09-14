@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from '../styles/navbar.module.scss';
 import { useState } from 'react';
 
-export default function Navbar(){
+export default function Navbar({cookies}){
 
     const [activate, setActivate] = useState(styles.navbar);
 
@@ -13,6 +13,25 @@ export default function Navbar(){
         else{
         setActivate(styles.navbar);
         }
+    }
+
+    function UserLinks(){
+      if(cookies.USER_LOGIN == undefined){
+        return(
+          <div className={styles.sign_on_in}>
+            <Link href="/entrar"><a className={styles.nav_link}>entrar</a></Link>
+            <Link href="/cadastro"><a className={styles.nav_link}>cadastrar</a></Link>
+          </div>
+        )
+      }
+      else{
+        return(
+          <div className={styles.sign_on_in}>
+            <Link href="/perfil"><a className={styles.nav_link}>perfil</a></Link>
+            <Link href="/carrinho"><a className={styles.nav_link}>carrinho</a></Link>
+          </div>
+        )
+      }
     }
 
     return(
@@ -30,10 +49,7 @@ export default function Navbar(){
             <Link href="/precos"><a className={styles.nav_link}>preços</a></Link>
           </div>
 
-          <div className={styles.sign_on_in}>
-            <Link href="/entrar"><a className={styles.nav_link}>entrar</a></Link>
-            <Link href="/cadastro"><a className={styles.nav_link}>cadastrar</a></Link>
-          </div>
+          {UserLinks()}
 
       </nav>
     )
