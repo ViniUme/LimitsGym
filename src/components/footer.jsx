@@ -2,7 +2,27 @@ import styles from '../styles/footer.module.scss'
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Footer(){
+export default function Footer({cookies}){
+
+    function UserLinks(){
+        if(cookies.USER_LOGIN == undefined){
+            return(
+                <>
+                    <Link href="/entrar"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Entrar</a></Link>
+                    <Link href="/cadastro"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Cadastrar-se</a></Link>
+                </>
+            )
+        }
+        else{
+            return(
+                <>
+                    <Link href="/perfil"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Perfil</a></Link>
+                    <Link href="/carrinho"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Carrinho</a></Link>
+                </>
+            )
+        }
+    }
+
     return(
         <section className={styles.footer}>
             <div className={styles.contact}>
@@ -16,7 +36,7 @@ export default function Footer(){
                 <Link href="/"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Início</a></Link>
                 <Link href="/contatos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Contatos</a></Link>
                 <Link href="/precos"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Preços</a></Link>
-                <Link href="/cadastro"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Cadastro</a></Link>
+                {UserLinks()}
             </div>
         </section>
     )
