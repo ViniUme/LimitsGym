@@ -22,6 +22,7 @@ export default function SignRoute(props){
         ['name', 'Nome'],
         ['city', 'Cidade'],
         ['road', 'Rua'],
+        ['num', 'Número'],
         ['email', 'E-mail'],
         ['tel', 'Celular'],
         ['dist', 'Bairro'],
@@ -32,6 +33,7 @@ export default function SignRoute(props){
         "name": "",
         "city": "",
         "road": "",
+        "num": "",
         "email": "",
         "tel": "",
         "dist": "",
@@ -102,6 +104,15 @@ export default function SignRoute(props){
                 <form className={styles.sign_on} onSubmit={(e) => Submit(e)}>
 
                     {info && info.map((item, key) => {
+                        if(item[0] == 'num'){
+                            return(
+                                <div className={styles.div_input} key={key}>
+                                    <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' maxLength={5} />
+                                    <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
+                                    <span className={styles.line} />
+                                </div>
+                            )    
+                        }
                         if(item[0] == 'rg'){
                             return(
                                 <div className={styles.div_input} key={key}>
