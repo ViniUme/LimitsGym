@@ -60,7 +60,7 @@ export default function Login(props){
 
     if((message != 'loading') && (props.cookies.USER_LOGIN == undefined)){
         return(
-            <Page title='Entre com sua conta na Limits Gym' description='Tela para acessar a conta do cliente da academia'>
+            <Page title='Entre com sua conta na Limits Gym' description='Tela para acessar a conta do cliente da academia' cookies={props.cookies}>
                 <form className={styles.login} onSubmit={(e) => Submit(e)}>
                     <h1 className={styles.title}>entre com seu email</h1>
                     <div className={styles.input_div}>
