@@ -4,7 +4,7 @@ import styles from '../styles/contatos.module.scss';
 export default function Contact(){
     return(
         <>
-            <h1 className={styles.companies_title}>Intagram das empresas</h1>
+            <h1 className={styles.companies_title}>Instagram das empresas</h1>
             <section className={styles.companies}>
                 <div className={styles.contacts}>
                     <div className={`${styles.image} ${styles.image_1}`}/>
