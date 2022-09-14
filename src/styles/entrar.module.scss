@@ -13,6 +13,7 @@
     .title{
         font: 27px SpaceRanger;
         text-align: center;
+        margin: 0 25px;
         margin-bottom: 25px;
     }
 
@@ -68,7 +69,7 @@
     .button{
         margin: 0 auto;
         margin-top: 10px;
-        padding: 10px 30px;
+        padding: 10px 40px;
         font: 900 17px var(--clean_fonts);
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -120,21 +121,51 @@
         color: #fff;
     }
 
-    .link{
-        margin: 20px 40px 0 40px;
-        padding: 10px 30px;
-        display: inline-block;
-        background: none;
-        border: 5px #fff solid;
-        text-transform: uppercase;
-        font: 900 25px var(--clean_fonts);
-        cursor: pointer;
-        transition: 200ms ease-in-out;
+    .input_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .link{
+            width: 279px;
+            margin: 20px 40px 0 40px;
+            padding: 10px 10px;
+            display: inline-block;
+            background: none;
+            border: 5px #fff solid;
+            text-transform: uppercase;
+            font: 900 25px var(--clean_fonts);
+            cursor: pointer;
+            transition: 200ms ease-in-out;
+        }
+        .link:hover{
+            border: 5px var(--red) solid;
+            color: var(--red);
+        }
     }
-    .link:hover{
-        border: 5px var(--red) solid;
-        color: var(--red);
-    }
+
+}
+
+@media(max-width: 1119px){
+    .login{
+        width: 50%;
+    }    
+}
+
+@media(max-width: 760px){
+    .login{
+        width: 90%;
+        padding: 5vh 0;
+
+        .title{
+            margin: 20px;
+        }
+
+        .input_div{
+            margin: 20px 0;
+        }
+    }    
 }
 
 @media(max-width: 699px){

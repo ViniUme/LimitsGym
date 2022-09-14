@@ -62,7 +62,7 @@ export default function Login(props){
         return(
             <Page title='Entre com sua conta na Limits Gym' description='Tela para acessar a conta do cliente da academia'>
                 <form className={styles.login} onSubmit={(e) => Submit(e)}>
-                    <h1 className={styles.title}>entre com seu e-mail</h1>
+                    <h1 className={styles.title}>entre com seu email</h1>
                     <div className={styles.input_div}>
                         <input className={styles.input} placeholder=' ' id='email' type='text' value={data.email} onChange={(e) => InputEdit(e)} autoComplete='off' />
                         <label className={styles.label} htmlFor='email'>E-mail</label>
@@ -95,8 +95,12 @@ export default function Login(props){
             <Page title='Acesso Concebido' description=''>
                 <section className={styles.user_loged}>
                     <h1 className={styles.main}>Parabens, seu acesso foi concebido, o quê gostaria de fazer agora ?</h1>
-                    <Link href='#'><a className={styles.link}>ver produtos</a></Link>
-                    <Link href='#'><a className={styles.link}>ver planos</a></Link>
+                    <div className={styles.input_div}>
+                        <Link href='#'><a className={styles.link}>ir para o início</a></Link>
+                        <Link href='#'><a className={styles.link}>ver produtos</a></Link>
+                        <Link href='#'><a className={styles.link}>ver planos</a></Link>
+                        <Link href='#'><a className={styles.link}>ver perfil</a></Link>
+                    </div>
                 </section>
             </Page>
         )
