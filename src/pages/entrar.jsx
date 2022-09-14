@@ -4,9 +4,19 @@ import { LoginUser } from '../utils/functions';
 import Link from 'next/link';
 import { parseCookies, setCookie } from 'nookies';
 import { useState, useEffect } from 'react';
-import styles from '../styles/entrar.module.scss'
+import styles from '../styles/entrar.module.scss';
 
-export default function Login(){
+export async function getServerSideProps(context){
+    let cookies = parseCookies(context);
+
+    return {
+        props: {
+            cookies: cookies
+        }
+    }
+}
+
+export default function Login(props){
 
     const json = {
         email: '',
@@ -37,18 +47,18 @@ export default function Login(){
         const response = await LoginUser(data);
         
         if(response.message == true){
-            setCookie(null, 'USE_LOGIN', `${response.user}`, {
+            setCookie(null, 'USER_LOGIN', `${response.user}`, {
                 maxAge: 86400 * 365,
                 path: '/'
             });
-            setMessage('');
+            window.location.reload();
         }
         else{
             setMessage('seu e-mail ou senha estão incorretos');
         }
     }
 
-    if(message != 'loading'){
+    if((message != 'loading') && (props.cookies.USER_LOGIN == undefined)){
         return(
             <Page title='Entre com sua conta na Limits Gym' description='Tela para acessar a conta do cliente da academia'>
                 <form className={styles.login} onSubmit={(e) => Submit(e)}>
@@ -73,10 +83,25 @@ export default function Login(){
             </Page>
         )
     }
-
-    return(
-        <>
-            {Loading()}
-        </>
-    )
+    if(message == 'loading'){
+        return(
+            <>
+                {Loading()}
+            </>
+        )
+    }
+    if(props.cookies.USER_LOGIN != undefined){
+        return(
+            <Page title='Acesso Concebido' description=''>
+                <section className={styles.user_loged}>
+                    <h1 className={styles.main}>Parabens, seu acesso foi concebido, o quê gostaria de fazer agora ?</h1>
+                    <Link href='#'><a className={styles.link}>ver produtos</a></Link>
+                    <Link href='#'><a className={styles.link}>ver planos</a></Link>
+                </section>
+            </Page>
+        )
+    }
+    
+    return<></>
+    
 }
