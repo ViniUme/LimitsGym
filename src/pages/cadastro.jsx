@@ -1,12 +1,22 @@
 import Page from '../components/page';
 import Loading from '../components/loading';
 import styles from '../styles/cadastro.module.scss';
-//import { mask } from "mask-input-dynamic";
 import InputMask from 'react-input-mask';
 import { CreateUser, VerifyUser } from '../utils/functions';
+import { parseCookies } from 'nookies';
 import { useState } from 'react';
 
-export default function SignRoute(){
+export function getServerSideProps(context){
+    const cookies = parseCookies(context);
+
+    return{
+        props: {
+            cookies: cookies
+        }
+    }
+}
+
+export default function SignRoute(props){
 
     const info = [
         ['name', 'Nome'],
@@ -85,7 +95,7 @@ export default function SignRoute(){
     }
     if(message != 'loading'){
         return(
-            <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados">
+            <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados" cookies={props.cookies}>
 
                 <h1 className={styles.header}>preencha o formulário com seus dados para se cadastrar na acamedia limits gym</h1>
 
