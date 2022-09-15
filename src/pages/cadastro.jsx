@@ -1,10 +1,10 @@
 import Page from '../components/page';
 import Loading from '../components/loading';
-import styles from '../styles/cadastro.module.scss';
-import InputMask from 'react-input-mask';
+import { mask } from 'remask';
 import { CreateUser, VerifyUser } from '../utils/functions';
 import { parseCookies } from 'nookies';
 import { useState } from 'react';
+import styles from '../styles/cadastro.module.scss';
 
 export function getServerSideProps(context){
     const cookies = parseCookies(context);
@@ -40,19 +40,51 @@ export default function SignRoute(props){
         "rg": "",
         "pass": ""
     }
+    const input_mask = {
+        tel: ['(99) 99999-9999', '(99) 9999-9999'],
+        rg: '99.999.999-9'
+    }
 
     const [data, setData] = useState(json);
     const [message, setMessage] = useState('');
     const [verify, setVerify] = useState('');
+    const [pattern, setPattern] = useState(input_mask);
+    const [visible, setVisible] = useState({
+        pass: 'password',
+        verify: 'password'
+    });
+
 
     function InputEdit(e){
         const {id, value} = e.target;
+
+        if(id == 'tel'){
+            const masked_tel = mask(value, pattern.tel);
+            setData({...data, [id]: masked_tel})
+            return
+        }
+        if(id == 'rg'){
+            const masked_rg = mask(value, pattern.rg);
+            setData({...data, [id]: masked_rg});
+            return
+        }
+
         setData({...data, [id]: value});
+    }
+
+    function HiddenPassword(id){
+        if(visible[id] == 'password'){
+            setVisible({...visible, [id]: 'text'});
+        }
+        else{
+            setVisible({...visible, [id]: 'password'})
+        }
     }
 
     async function Submit(e){
         e.preventDefault();
-
+        
+        /*
         for(let item in data){
             let real_item = eval(`data.${item}`);
             if(real_item == ''){
@@ -60,7 +92,7 @@ export default function SignRoute(props){
                 return
             }
         }
-        
+
         if((data.email.indexOf(' ') || data.tel.indexOf(' ') || data.rg.indexOf(' ') || data.pass.indexOf(' ')) >= 0){
             setMessage('não use espaços nos campos de emai, celular, RG e senha');
             return
@@ -94,6 +126,7 @@ export default function SignRoute(props){
                 setMessage('algo deu errado')
             }
         }
+        */
     }
     if(message != 'loading'){
         return(
@@ -107,7 +140,7 @@ export default function SignRoute(props){
                         if(item[0] == 'num'){
                             return(
                                 <div className={styles.div_input} key={key}>
-                                    <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' maxLength={5} />
+                                    <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' maxLength={5} inputMode='numeric' />
                                     <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
                                     <span className={styles.line} />
                                 </div>
@@ -116,7 +149,7 @@ export default function SignRoute(props){
                         if(item[0] == 'rg'){
                             return(
                                 <div className={styles.div_input} key={key}>
-                                    <InputMask className={styles.input} id={item[0]} mask='99.999.999-9' placeholder=" " onChange={(e) => InputEdit(e)} />
+                                    <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' inputMode='numeric' />
                                     <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
                                     <span className={styles.line} />
                                 </div>
@@ -125,7 +158,17 @@ export default function SignRoute(props){
                         if(item[0] == 'tel'){
                             return(
                                 <div className={styles.div_input} key={key}>
-                                    <InputMask className={styles.input} id={item[0]} mask='(99) 99999-9999' placeholder=' ' onChange={(e) => InputEdit(e)} />
+                                    <input className={styles.input} placeholder=" " type="text" id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' />
+                                    <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
+                                    <span className={styles.line} />
+                                </div>
+                            )
+                        }
+                        if(item[0] == 'pass'){
+                            return(
+                                <div className={styles.div_input} key={key}>
+                                    <button className={styles.eye_pass} onClick={() => HiddenPassword('pass')}></button>
+                                    <input className={styles.input} placeholder=" " type={visible.pass} id={item[0]} value={eval(`data.${item[0]}`)} onChange={(e) => InputEdit(e)} autoComplete='off' />
                                     <label className={styles.label} htmlFor={item[0]}>{item[1]}</label>
                                     <span className={styles.line} />
                                 </div>
@@ -141,7 +184,8 @@ export default function SignRoute(props){
                     })}
 
                     <div className={styles.div_input}>
-                        <input className={styles.input} placeholder=" " type="text" id='verify' value={verify} onChange={(e) => setVerify(e.target.value)} autoComplete='off' />
+                        <button className={styles.eye_pass} onClick={() => HiddenPassword('verify')}></button>
+                        <input className={styles.input} placeholder=" " type={visible.verify} id='verify' value={verify} onChange={(e) => setVerify(e.target.value)} autoComplete='off' />
                         <label className={styles.label} htmlFor='verify'>Confirmar Senha</label>
                         <span className={styles.line} />
                     </div>
