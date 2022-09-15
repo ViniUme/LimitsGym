@@ -17,7 +17,7 @@ export function getServerSideProps(context){
 }
 
 export default function SignRoute(props){
-
+    
     const info = [
         ['name', 'Nome'],
         ['city', 'Cidade'],
