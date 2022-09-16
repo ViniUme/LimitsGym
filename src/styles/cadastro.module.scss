@@ -25,51 +25,79 @@
         width: 100%;
         margin-top: 20px;
         position: relative;
+
+        .eye_pass{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            .eye_svg{
+                width: 30px;
+                height: 30px;
+                transition: 200ms ease-in-out;
+                fill: var(--gray);
+            }
+        }
+        .eye_pass:hover > .eye_svg, .eye_pass > .eye_svg_red{
+            fill: #ff0000;
+        }
+
+        .input{
+            margin: 0;
+            width: calc(100% - 19px);
+            padding: 8px 10px 3px 5px;
+            border: 2px #00000000 solid;
+            border-bottom: 2px var(--gray) solid;
+            background: none;
+            outline: none;
+            color: #fff;
+            font: 500 20px var(--clean_fonts);
+            transition: 250ms ease-out;
+        }
+        .input:focus + .label, .input:not(:placeholder-shown) + .label{
+            transform: translateY(-30px);
+            font-size: 17px;
+            color: #fff;
+        }
+        .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
+            width: 100%;
+        }
+        .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
+            width: 93%;
+        }
+
+        .input_pass{
+            width: calc(93% - 19px);
+        }
+    
+        .label{
+            position: absolute;
+            margin: auto;
+            left: 5px;
+            bottom: 4px;
+            color: var(--gray);
+            transition: 250ms ease-out;
+        }
+    
+        .line{
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 2px;
+            margin: auto;
+            bottom: 0;
+            left: 0;
+            background: var(--red);
+            transition: 250ms ease-out;
+        }
+    
     }
     
-    .input{
-        margin: 0;
-        width: calc(100% - 19px);
-        padding: 8px 10px 3px 5px;
-        border: 2px #00000000 solid;
-        border-bottom: 2px var(--gray) solid;
-        background: none;
-        outline: none;
-        color: #fff;
-        font: 500 20px var(--clean_fonts);
-        transition: 250ms ease-out;
-    }
-    .input:focus + .label, .input:not(:placeholder-shown) + .label{
-        transform: translateY(-30px);
-        font-size: 17px;
-        color: #fff;
-    }
-    .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
-        width: 100%;
-    }
-
-    .label{
-        position: absolute;
-        margin: auto;
-        left: 5px;
-        bottom: 4px;
-        color: var(--gray);
-        transition: 250ms ease-out;
-    }
-
-    .line{
-        position: absolute;
-        display: block;
-        width: 0;
-        height: 2px;
-        margin: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--red);
-        transition: 250ms ease-out;
-    }
-
     .button{
         margin: 0 auto;
         padding: 10px 20px;
