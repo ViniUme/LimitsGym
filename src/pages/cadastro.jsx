@@ -42,10 +42,6 @@ export default function SignRoute(props){
         "rg": "",
         "pass": ""
     }
-    const input_mask = {
-        tel: ['(99) 99999-9999', '(99) 9999-9999'],
-        rg: '99.999.999-9'
-    }
     const pass_visible = {
         pass: {
             type: 'password',
@@ -56,11 +52,20 @@ export default function SignRoute(props){
             className: styles.eye_svg
         }
     }
+    const pattern = {
+        tel: ['(99) 99999-9999', '(99) 9999-9999'],
+        rg: '99.999.999-9'
+    }
+    const reg_ex = {
+        email: new RegExp('[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'),
+        tel: new RegExp(/[\)\(\-\s)]/g),
+        password: new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
+        space: new RegExp(/\s/g)
+    }
 
     const [data, setData] = useState(json);
     const [message, setMessage] = useState('');
     const [verify, setVerify] = useState('');
-    const [pattern, setPattern] = useState(input_mask);
     const [visible, setVisible] = useState(pass_visible);
 
 
@@ -82,7 +87,6 @@ export default function SignRoute(props){
     }
 
     function HiddenPassword(id){
-        console.log(id)
         if(visible[id].type == 'password'){
             setVisible({
                 ...visible,
@@ -107,6 +111,26 @@ export default function SignRoute(props){
     async function Submit(e){
         e.preventDefault();
         
+        if(!reg_ex.email.test(data.email)){
+            setMessage('digite um e-mail válido');
+            return
+        }
+        if(reg_ex.space.test(data.pass)){
+            setMessage('não use espaços na senha');
+            return
+        }
+        if(!reg_ex.password.test(data.pass)){
+            setMessage('tenha na sua senha ao menos 1 letra maiuscula, 1 número e mais 6 caracteres');
+            return
+        }
+        if(data.pass == verify){
+            setMessage('comfirme sua senha corretamente');
+            return
+        }
+
+        const save_tel = data.tel.replace(reg_ex.tel, '');
+        console.log(save_tel);
+        
         /*
         for(let item in data){
             let real_item = eval(`data.${item}`);
@@ -115,7 +139,6 @@ export default function SignRoute(props){
                 return
             }
         }
-
         if((data.email.indexOf(' ') || data.tel.indexOf(' ') || data.rg.indexOf(' ') || data.pass.indexOf(' ')) >= 0){
             setMessage('não use espaços nos campos de emai, celular, RG e senha');
             return
@@ -148,8 +171,7 @@ export default function SignRoute(props){
             else{
                 setMessage('algo deu errado')
             }
-        }
-        */
+        }*/
     }
     if(message != 'loading'){
         return(
@@ -188,7 +210,6 @@ export default function SignRoute(props){
                             )
                         }
                         if(item[0] == 'pass'){
-                            console.log(visible.pass)
                             return(
                                 <div className={styles.div_input} key={key}>
                                     <button className={styles.eye_pass} onClick={() => HiddenPassword('pass')}>
