@@ -67,7 +67,7 @@
         .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
             width: 100%;
         }
-        .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
+        .input:focus ~ .line_pass, .input:not(:placeholder-shown) ~ .line_pass{
             width: 93%;
         }
 
