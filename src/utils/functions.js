@@ -7,11 +7,16 @@ export async function VerifyUser(user){
         body: JSON.stringify(user.email)
     }
 
-    return await fetch('/api/verify-user', init)
+    try{
+         return await fetch('/api/verify-user', init)
         .then(response => response.json())
         .then((json) => {
             return json.message
         })
+    }
+    catch(err){
+        return 'Erro ao tentar requisitar verificação de usuário'
+    }
 }
 
 export async function CreateUser(user){
