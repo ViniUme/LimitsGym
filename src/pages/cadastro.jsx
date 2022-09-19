@@ -113,7 +113,7 @@ export default function SignRoute(props){
         e.preventDefault();
         
         setMessage('loading');
-/*
+
         for(let item in data){
             let real_item = eval(`data.${item}`);
             if(real_item == ''){
@@ -153,8 +153,8 @@ export default function SignRoute(props){
             setMessage('digite um rg válido');
             return
         }
-        */
-        const date = `${new Date()}`;
+        
+        const date = new Date();
         const client = {...data, "date": date, "wish": []};
 
         const verify_user = await VerifyUser(client);
