@@ -51,7 +51,7 @@ export default function Login(props){
                 maxAge: 86400 * 365,
                 path: '/'
             });
-            window.location.reload();
+            window.location.href('/');
         }
         else{
             setMessage('seu e-mail ou senha estão incorretos');
