@@ -59,6 +59,7 @@ export default function SignRoute(props){
     const reg_ex = {
         email: new RegExp('[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'),
         tel: new RegExp(/[\)\(\-\s)]/g),
+        rg: new RegExp(/[\.\-]/g),
         password: new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
         space: new RegExp(/\s/g)
     }
@@ -113,7 +114,7 @@ export default function SignRoute(props){
         e.preventDefault();
         
         setMessage('loading');
-
+        
         for(let item in data){
             let real_item = eval(`data.${item}`);
             if(real_item == ''){
@@ -144,7 +145,7 @@ export default function SignRoute(props){
         }
         
         const save_tel = data.tel.replace(reg_ex.tel, '');
-        const save_rg = data.rg.replace(reg_ex.rg, '')
+        const save_rg = data.rg.replace(reg_ex.rg, '');
         if(save_tel.length < 10){
             setMessage('número de celular não válido');
             return
@@ -155,14 +156,14 @@ export default function SignRoute(props){
         }
         
         const date = new Date();
-        const client = {...data, "date": date, "wish": []};
-
+        const client = {...data, "date": date, "wish": [], 'tel': save_tel, 'rg': save_rg};
+        
         const verify_user = await VerifyUser(client);
-
-        if(verify_user === true){
+        
+        if(verify_user.message === true){
             setMessage('usuário já existente');
         }
-        else if(verify_user === false){
+        else if(verify_user.message === false){
             const response = await CreateUser(client);
             
             if(response.message === true){
