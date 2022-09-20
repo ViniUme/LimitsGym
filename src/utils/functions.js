@@ -1,4 +1,4 @@
-export async function VerifyUser(user){
+export async function VerifyUser(user, url){
     const init = {
         method: "POST",
         headers: {
@@ -8,11 +8,8 @@ export async function VerifyUser(user){
     }
 
     try{
-         return await fetch('/api/verify-user', init)
-        .then(response => response.json())
-        .then((json) => {
-            return json.message
-        })
+        const response = await fetch('http://localhost:3000/api/verify-user', init).then(response => response.json()).then((json) => {return json})
+        return response
     }
     catch(err){
         return 'Erro ao tentar requisitar verificação de usuário'
