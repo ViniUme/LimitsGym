@@ -8,7 +8,7 @@ export default async function handler (req,res){
         const response = await db.collection('clients').findOne({email: body})
 
         if(response != null){
-            res.status(200).json({message: true})
+            res.status(200).json({message: true, user: response})
         }
         else{
             res.status(200).json({message: false})
