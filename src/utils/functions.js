@@ -1,4 +1,4 @@
-export async function VerifyUser(user, url){
+export async function VerifyUser(user){
     const init = {
         method: "POST",
         headers: {
