@@ -1,6 +1,6 @@
 import EditForm from './edit_form';
 import { useState } from 'react';
-import styles from '../styles/profile.module.scss';
+import styles from '../styles/profile_data.module.scss';
 
 export default function ProfileData({data}){
     
