@@ -1,6 +1,8 @@
 import Page from '../components/page';
 import { VerifyUser } from '../utils/functions';
 import { parseCookies } from 'nookies';
+import EditForm from '../components/edit_form';
+import { useState } from 'react';
 import styles from '../styles/profile.module.scss';
 
 export async function getServerSideProps(context){
@@ -17,10 +19,16 @@ export async function getServerSideProps(context){
 
 export default function Profile({cookies, data}){
     
+    const [edit, setEdit] = useState(null);
     const info = [['city', 'Cidade'], ['road', 'Rua'], ['num', 'Número'], ['email', 'Email'], ['dist', 'Bairro'], ['tel', 'Telefone'], ['rg', 'RG'], ['date', 'Data de criação']]
+
+    function GetEdit(){
+        setEdit(<EditForm />);
+    }
 
     return(
         <Page title='Perfil do usuário' description='Página onde mostra todos os dados sobre o usuário' cookies={cookies}>
+            {edit}
             <section className={styles.profile}>
                 <h1 className={styles.name}>{data.name}</h1>
                 <div className={styles.profile_item}>
@@ -70,7 +78,7 @@ export default function Profile({cookies, data}){
                             </div>
                         )
                     })}
-                    <button className={styles.edit_button}>editar informações</button>
+                    <button className={styles.edit_button} onClick={() => GetEdit()}>editar informações</button>
                 </div>
             </section>
         </Page>
