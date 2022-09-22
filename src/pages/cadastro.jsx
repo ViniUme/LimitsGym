@@ -158,7 +158,7 @@ export default function SignRoute(props){
         const date = new Date();
         const client = {...data, "date": date, "wish": [], 'tel': save_tel, 'rg': save_rg};
         
-        const verify_user = await VerifyUser(client);
+        const verify_user = await VerifyUser(client.email, null);
         
         if(verify_user.message === true){
             setMessage('usuário já existente');
