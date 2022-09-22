@@ -1,18 +1,29 @@
-export async function VerifyUser(user){
+export async function VerifyUser(user, url){
     const init = {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user.email)
+        body: JSON.stringify(user)
     }
 
-    try{
-        const response = await fetch('http://localhost:3000/api/verify-user', init).then(response => response.json()).then((json) => {return json})
-        return response
+    if(url == null){
+        try{
+            const response = await fetch(`/api/verify-user`, init).then(response => {return response.json()})
+            return response
+        }
+        catch(error){
+            return 'Erro ao tentar requisitar verificação de usuário'
+        }
     }
-    catch(err){
-        return 'Erro ao tentar requisitar verificação de usuário'
+    else{
+        try{
+            const response = await fetch(`http://${url}/api/verify-user`).then(response => response.json());
+            return response
+        }
+        catch(error){
+            return error
+        }
     }
 }
 
@@ -84,4 +95,22 @@ export function VerifyWishList(user){
     return fetch("/api/verify-wish-list", init)
         .then(response => response.json())
         .then((json) => {return json})
+}
+
+export async function EditUser(old_user, new_user){
+    const init = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({old_user: old_user, new_user: new_user})
+    }
+    
+    try{
+        const response = await fetch(`${process.env.URL_BASE}/api/edit-user`, init).then((response) => {return response.json()});
+        return response
+    }
+    catch(error){
+        return error
+    }
 }
