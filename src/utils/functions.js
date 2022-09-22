@@ -18,7 +18,7 @@ export async function VerifyUser(user, url){
     }
     else{
         try{
-            const response = await fetch(`http://${url}/api/verify-user`).then(response => response.json());
+            const response = await fetch(`http://${url}/api/verify-user`, init).then(response => {return response.json()});
             return response
         }
         catch(error){
@@ -83,7 +83,7 @@ export async function AddWishList(product, user){
     }
 }
 
-export function VerifyWishList(user){
+export async function VerifyWishList(user){
     const init = {
         method: "POST",
         headers: {
@@ -107,7 +107,7 @@ export async function EditUser(old_user, new_user){
     }
     
     try{
-        const response = await fetch(`${process.env.URL_BASE}/api/edit-user`, init).then((response) => {return response.json()});
+        const response = await fetch('/api/edit-user', init).then((response) => {return response.json()});
         return response
     }
     catch(error){
