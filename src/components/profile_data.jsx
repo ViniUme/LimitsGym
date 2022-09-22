@@ -21,37 +21,20 @@ export default function ProfileData({data}){
                 <div className={styles.profile_item}>
                     <h1 className={styles.item_title}>meus dados</h1>
                     {info && info.map((item, key) => {
-                        if(item[0] == 'num'){
-                            return(
-                                <div className={styles.div_input} key={key}>
-                                    <input className={`${styles.input} ${styles.input_read}`} placeholder=" " type="text" value={eval(`data.${item[0]}`)} readOnly />
-                                    <label className={styles.label} >{item[1]}</label>
-                                    <span className={styles.line} />
-                                </div>
-                            )    
-                        }
-                        if(item[0] == 'rg'){
-                            return(
-                                <div className={styles.div_input} key={key}>
-                                    <input className={styles.input} placeholder=" " type="text" value={eval(`data.${item[0]}`)} readOnly />
-                                    <label className={styles.label} >{item[1]}</label>
-                                    <span className={styles.line} />
-                                </div>
-                            )    
-                        }
-                        if(item[0] == 'tel'){
-                            return(
-                                <div className={styles.div_input} key={key}>
-                                    <input className={styles.input} placeholder=" " type="text" value={eval(`data.${item[0]}`)} readOnly />
-                                    <label className={styles.label} >{item[1]}</label>
-                                    <span className={styles.line} />
-                                </div>
-                            )
-                        }
                         if(item[0] == 'pass'){
                             return(
                                 <div className={styles.div_input} key={key}>
                                     <input className={`${styles.input}`} placeholder=" " type='password' value={eval(`data.${item[0]}`)} readOnly />
+                                    <label className={styles.label} >{item[1]}</label>
+                                    <span className={`${styles.line}`} />
+                                </div>
+                            )
+                        }
+                        if(item[0] == 'date'){
+                            const date = new Date(eval(`data.${item[0]}`));
+                            return(
+                                <div className={styles.div_input} key={key}>
+                                    <input className={`${styles.input}`} placeholder=" " type='text' value={date.toLocaleString('pt-BR', {timeZone: 'UTC'})} readOnly />
                                     <label className={styles.label} >{item[1]}</label>
                                     <span className={`${styles.line}`} />
                                 </div>
