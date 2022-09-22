@@ -1,13 +1,12 @@
-import { parseCookies } from 'nookies';
+import { setCookie } from 'nookies';
 import Loading from '../components/loading';
-import { VerifyUser } from '../utils/functions';
+import { VerifyUser, EditUser } from '../utils/functions';
 import { useState } from 'react';
 import { mask } from 'remask';
 import { RegEx, Patterns } from '../utils/variables';
 import styles from '../styles/edit_form.module.scss';
 
 export default function EditForm({user}){
-    console.log(user)
     const pass_visible = {
         pass: {
             type: 'password',
@@ -76,9 +75,12 @@ export default function EditForm({user}){
     async function Submit(e){
         e.preventDefault();
 
+        setMessage('loading');
+
         for(let item in data){
             let real_item = eval(`data.${item}`);
-            if(real_item == ''){
+            if((real_item == '') && (item != 'wish')){
+                console.log(data)
                 setMessage('preencha todos os campos')
                 return
             }
@@ -103,10 +105,27 @@ export default function EditForm({user}){
             setMessage('digite um rg válido');
             return
         }
-        
-        const response = await VerifyUser({email: email});
-        if(response.message == true){
+        const response = await VerifyUser(email, null);
+        if(response.user.pass != confirm){
             setMessage('sua senha esta errada')
+            return
+        }
+
+        const new_user = {name: data.name, city: data.city, road: data.road, num: data.num, email: data.email, dist: data.dist, tel: save_tel, rg: save_rg, pass: confirm};
+        const edit_response = await EditUser(email, new_user);
+        console.log(edit_response)
+        if((edit_response.message.acknowledged == true) && (email != data.email)){
+            setCookie(null, 'USER_LOGIN', data.email, {
+                maxAge: 86400 * 365,
+                path: '/'
+            })
+            window.location.reload();
+        }
+        if((edit_response.message.acknowledged == true) && (email == data.email)){
+            window.location.reload();
+        }
+        else{
+            setMessage('algo deu errado');
         }
     }
 
