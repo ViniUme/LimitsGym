@@ -4,7 +4,7 @@ import { VerifyUser, EditUser } from '../utils/functions';
 import { useState } from 'react';
 import { mask } from 'remask';
 import { RegEx, Patterns } from '../utils/variables';
-import styles from '../styles/edit_form.module.scss';
+import styles from '../styles/profile_data.module.scss';
 
 export default function EditForm({user}){
     const pass_visible = {
@@ -200,7 +200,10 @@ export default function EditForm({user}){
                     <span className={`${styles.line} ${styles.line_pass}`} />
                 </div>
                 <span className={styles.message}>{message}</span>
-                <input className={styles.button} type='submit' value='enviar' />
+                <div className={styles.div_buttons}>
+                    <input className={`${styles.button} ${styles.cancel}`} type='button' value='cancelar' onClick={() => window.location.href = '/perfil'} />
+                    <input className={`${styles.button} ${styles.submit}`} type='submit' value='atualizar' />
+                </div>
             </form>
         )
     }
