@@ -1,4 +1,5 @@
 import EditForm from './edit_form';
+import EditPass from './edit_pass';
 import { useState } from 'react';
 import styles from '../styles/profile_data.module.scss';
 
@@ -8,10 +9,8 @@ export default function ProfileData({data}){
 
     const [display, setDisplay] = useState('read');
 
-    function GoEdit(){
-        if(display == 'read'){
-            setDisplay('write');
-        }
+    function GoEdit(func){
+        setDisplay(func);
     }
 
     if(display == 'read'){
@@ -48,14 +47,20 @@ export default function ProfileData({data}){
                             </div>
                         )
                     })}
-                    <button className={styles.edit_button} onClick={() => GoEdit()}>editar informações</button>
+                    <button className={styles.edit_button} onClick={() => GoEdit('edit_profile')}>editar informações</button>
+                    <button className={styles.pass_button} onClick={() => GoEdit('edit_pass')}>redefinir senha</button>
                 </div>
             </section>
         )
     }
-    if(display == 'write'){
+    if(display == 'edit_profile'){
         return(
             <EditForm user={data} />
+        )
+    }
+    if(display == 'edit_pass'){
+        return(
+            <EditPass user={data} />
         )
     }
 }
