@@ -98,17 +98,30 @@
             text-transform: uppercase;
             color: #000;
             cursor: pointer;
-            transition: 200ms ease-in-out;
+            transition: 150ms ease-in-out;
         }
         .edit_button:hover{
             border: 4px var(--red_strong) solid;
             color: var(--red_strong);
         }
+
+        .pass_button{
+            position: absolute;
+            bottom: -35px;
+            background-color: transparent;
+            border: none;
+            font: 700 15px var(--clean_fonts);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--red_strong);
+            padding: 7px 12px;
+            cursor: pointer;
+        }
     }
 }
 
 
-.edit_form{
+.edit_form, .edit_pass{
     width: 50%;
     margin: 150px auto 100px auto;
     padding: 30px 25%;
@@ -229,6 +242,10 @@
             color: var(--gray_black);
             border: 3px var(--gray_black) solid;
         }
+        .cancel:hover{
+            color: #000;
+            border: 3px #000 solid;
+        }
 
         .submit{
             color: var(--red_strong);
@@ -239,7 +256,7 @@
     .message{
         margin: 25px auto;
         text-align: center;
-        font: 500 16px var(--clean_fonts);
+        font: 700 16px var(--clean_fonts);
         text-transform: uppercase;
         color: var(--red);
     }
