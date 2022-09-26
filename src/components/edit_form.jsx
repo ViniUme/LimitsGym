@@ -25,8 +25,7 @@ export default function EditForm({user}){
     const [data, setData] = useState(user);
     const [confirm, setConfirm] = useState('');
     const [visible, setVisible] = useState(pass_visible);
-    const [message, setMessage] = useState('')
-
+    const [message, setMessage] = useState('');
     
     function InputEdit(e){
         const {id, value} = e.target;
