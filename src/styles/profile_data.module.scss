@@ -9,13 +9,14 @@
     color: #000;
 
     .name{
+        margin: 0 30px;
         color: var(--red_strong);
         font: 40px SpaceRanger;
+        text-align: center;
     }
 
     .profile_item{
         width: 70%;
-        height: 400px;
         margin-top: 100px;
         display: flex;
         align-items: center;
@@ -116,6 +117,18 @@
             color: var(--red_strong);
             padding: 7px 12px;
             cursor: pointer;
+        }
+        
+        @media(max-width: 900px){
+            .div_input{
+                width: 100%;
+            }
+        }
+
+        @media(max-width: 350px){
+            .item_title{
+                font-size: 28px;
+            }
         }
     }
 }
