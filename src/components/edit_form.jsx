@@ -196,7 +196,7 @@ export default function EditForm({user}){
                         </svg>
                     </div>
                     <input className={`${styles.input} ${styles.input_pass}`} placeholder=" " type={visible.pass.type} id='confirm_pass' value={confirm} onChange={(e) => InputEdit(e)} autoComplete='off' />
-                    <label className={styles.label} htmlFor='confirm_pass'>Senha para confirmar auterações</label>
+                    <label className={styles.label} htmlFor='confirm_pass'>Senha de confirmação</label>
                     <span className={`${styles.line} ${styles.line_pass}`} />
                 </div>
                 <span className={styles.message}>{message}</span>
