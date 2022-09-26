@@ -119,15 +119,19 @@
             cursor: pointer;
         }
         
-        @media(max-width: 900px){
-            .div_input{
-                width: 100%;
-            }
-        }
-
         @media(max-width: 350px){
             .item_title{
                 font-size: 28px;
+            }
+        }
+    }
+    
+    @media(max-width: 900px){
+        .profile_item{
+            width: 85%;
+            
+            .div_input{
+                width: 100%;
             }
         }
     }
@@ -151,6 +155,7 @@
         font: 35px SpaceRanger;
         letter-spacing: 2px;
         color: var(--red_strong);
+        text-align: center;
     }
 
     .div_input{
@@ -200,11 +205,17 @@
             width: 100%;
         }
         .input:focus ~ .line_pass, .input:not(:placeholder-shown) ~ .line_pass{
-            width: 93%;
+            width: calc(100% - 35px);
         }
 
         .input_pass{
-            width: calc(93% - 19px);
+            width: calc(100% - 54px);
+        }
+        .input_pass ~ .label{
+            width: calc(100% - 54px);
+        }
+        .input_pass:hover ~ .label, .input_pass:not(:placeholder-shown) ~ .label{
+            width: 100%;
         }
     
         .label{
@@ -212,7 +223,7 @@
             margin: auto;
             left: 5px;
             bottom: 4px;
-            font: 700 25px var(--clean_fonts);
+            font: 700 20px var(--clean_fonts);
             color: var(--gray_black);
             transition: 250ms ease-out;
         }
@@ -234,11 +245,12 @@
     .div_buttons{
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         
         .button{
-            text-align: center;
+            margin: 10px 15px;
             padding: 10px 20px;
+            text-align: center;
             font: 900 17px var(--clean_fonts);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -266,11 +278,36 @@
         }
     }
 
+    @media(max-width: 767px){
+        .div_input{
+            font-size: 17px;
+
+            .input{
+                font-size: inherit;
+            }
+
+            .label{
+                font-size: inherit;
+            }
+        }
+
+        .div_buttons{
+            flex-direction: column-reverse;
+        }
+    }
+
     .message{
         margin: 25px auto;
         text-align: center;
         font: 700 16px var(--clean_fonts);
         text-transform: uppercase;
         color: var(--red);
+    }
+}
+
+@media(max-width: 450px){
+    .edit_form, .edit_pass{
+        width: 80%;
+        padding: 30px 10%;
     }
 }
