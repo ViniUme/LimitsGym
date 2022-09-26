@@ -15,7 +15,7 @@ export function getServerSideProps(context){
 export default function Precos(props){
     return(
         <Page title="Preços dos Planos" context="Página que mostra o preço dos planos" cookies={props.cookies}>
-            <Prices/>
+            <Prices user={props.cookies} />
         </Page>
     )
 }
