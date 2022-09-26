@@ -28,7 +28,6 @@ export default function EditPass({user}){
     }
     
     const [data, setData] = useState(json_form);
-    const [confirm, setConfirm] = useState('');
     const [visible, setVisible] = useState(pass_visible);
     const [message, setMessage] = useState('')
 
