@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import styles from '../styles/prices.module.scss';
+import { SignLanguage } from '@mui/icons-material';
 
 export default function Prices({user}){
 
@@ -17,6 +18,7 @@ export default function Prices({user}){
                 plan: plan,
                 type: type
             })
+            window.scroll(0,0)
         }
     }
 
@@ -161,6 +163,11 @@ export default function Prices({user}){
 
             return benefits_var
         }
+
+        function Sign(){
+            
+        }
+
         return(
             <section className={styles.buy}>
                 <h1 className={styles.title}>plano {gym_plan.plan} {gym_plan.type}</h1>
@@ -181,8 +188,8 @@ export default function Prices({user}){
                 </div>
 
                 <div className={styles.div_buttons}>
-                    <button className={`${styles.button} ${styles.return}`} onClick={() => setGymPlan(null)}>Voltar</button>
-                    <button className={`${styles.button} ${styles.sign}`}>Assinar</button>
+                    <button className={`${styles.button} ${styles.return}`} onClick={() => {setGymPlan(null); window.scroll(0,0)}}>Voltar</button>
+                    <button className={`${styles.button} ${styles.sign}`} onClick={() => Sign()}>Assinar</button>
                 </div>
             </section>
         )

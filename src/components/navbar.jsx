@@ -36,7 +36,7 @@ export default function Navbar({cookies}){
     }
 
     return(
-        <nav className={activate}>
+        <nav className={activate} id="navbar">
 
           <div className={styles.mobile_menu} onClick={() => SwitchNavbar()}>
             <div className={styles.menu_line_1}></div>
