@@ -82,7 +82,123 @@
     }
 }
 
-.prices, .price_div, .price_title, .different_prices{
+.buy{
+    margin: 150px auto 90px auto;
+    width: 50%;
+    background: var(--black);
+    padding: 50px 30px;
+    color: #fff;
+    flex-direction: column;
+    border-radius: 30px;
+
+    .title{
+        font: 35px SpaceRanger;
+        text-align: center;
+    }
+
+    .price_string{
+        width: 100%;
+        text-align: center;
+        font: 700 55px var(--clean_fonts);
+        margin-top: 20px;
+        position: relative;
+
+        .dollar_sign, .month{
+            font-size: 0.3em;
+        }
+
+        .dollar_sign{
+            position: relative;
+            top: -26px;
+        }
+
+    }
+
+    .benefits_title{
+        margin-top: 30px;
+        font: 700 20px var(--clean_fonts);
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 1px;
+        color: var(--red);
+    }
+
+    .benefits{
+        margin: 10px 0;
+        font: 500 16px var(--clean_fonts);
+        
+        .item_list{
+            display: flex;
+            align-items: center;
+
+            .circle{
+                width: 8px;
+                margin: 0 10px;
+            }
+        }
+    }
+
+    .div_buttons{
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .button{
+            margin: 0 20px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font: 900 16px var(--clean_fonts);
+            letter-spacing: 2px;
+            background: transparent;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 100ms ease-out;
+        }
+        .button:hover{
+            transform: scale(1.1);
+        }
+        
+        .return{
+            border: 3px var(--gray) solid;
+            color: var(--gray);
+        }
+
+        .sign{
+            border: 3px var(--red) solid;
+            color: var(--red);
+        }
+    }
+}
+@media(max-width: 600px){
+.buy{
+    width: 80%;   
+    padding: 10% 5%;
+
+    .div_buttons{
+        .button{
+            margin: 0 10px;
+        }
+    }
+    @media(max-width: 400px){
+    .div_buttons{
+        margin-top: 10px;
+        flex-direction: column-reverse;
+
+        .button{
+            margin: 10px 0;
+        }
+        
+        .return{
+            transform: scale(0.9);
+        }
+    }
+    }
+}
+}
+
+.prices, .price_div, .price_title, .different_prices, .buy{
     display: flex;
     justify-content: center;
     align-items: center;
