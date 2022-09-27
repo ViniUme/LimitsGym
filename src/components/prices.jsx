@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import styles from '../styles/prices.module.scss';
-import { SignLanguage } from '@mui/icons-material';
+import { EditUser } from '../utils/functions';
 
 export default function Prices({user}){
 
@@ -164,8 +164,51 @@ export default function Prices({user}){
             return benefits_var
         }
 
-        function Sign(){
-            
+        function DayCalc(){
+            if(gym_plan.plan == 'Quinzenal'){
+                return 15
+            }
+            if(gym_plan.plan == 'Semanal'){
+                return 7
+            }
+            if(gym_plan.plan == 'Diário'){
+                return 1
+            }
+            if(gym_plan.plan == 'Mensal'){
+                return 30
+            }
+            if(gym_plan.plan == 'Trimestral'){
+                return 92
+            }
+            if(gym_plan.plan == 'Semestral'){
+                return 183
+            }
+            if(gym_plan.plan == 'Anual'){
+                return 365
+            }
+        }
+
+        async function Sign(){
+            const date = new Date();
+            const date_start = new Date();
+            let date_end = new Date(date.setHours(date_start.getHours() + (24 * DayCalc())));
+
+            const set_plan = {
+                "price": gym_plan.price,
+                "time": gym_plan.plan,
+                "type": gym_plan.type,
+                "date_start": date_start,
+                "date_end": date_end
+            }
+
+            const response = await EditUser(user.USER_LOGIN, {"plan": set_plan});
+
+            if(response.message.acknowledged === true){
+                window.location.href = "/perfil";
+            }
+            else{
+                console.log(response);
+            }
         }
 
         return(
