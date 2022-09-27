@@ -1,0 +1,15 @@
+{
+    "proteina": [
+        {
+            "slug": "whey_1",
+            "name": "Whey Protein Refil 900G - Max Titanium",
+            "measure": "g",
+            "weight": "900",
+            "image": "https://lojamaxtitanium.vtexassets.com/arquivos/ids/155872-800-800?v=1750686646&aspect=true",
+            "nutri_info": "https://lojamaxtitanium.vtexassets.com/arquivos/ids/155591-1200-1200?v=1750686646&aspect=true",
+            "price": "184,90",
+            "inventory": 5,
+            "desc": "descrição"
+        }
+    ]
+}
