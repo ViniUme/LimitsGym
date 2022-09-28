@@ -1,5 +1,6 @@
 import EditForm from './edit_form';
 import EditPass from './edit_pass';
+import ProfilePrices from './profile_prices';
 import { useState } from 'react';
 import styles from '../styles/profile_data.module.scss';
 
@@ -50,6 +51,9 @@ export default function ProfileData({data}){
                     <button className={styles.edit_button} onClick={() => GoEdit('edit_profile')}>editar informações</button>
                     <button className={styles.pass_button} onClick={() => GoEdit('edit_pass')}>redefinir senha</button>
                 </div>
+
+                <ProfilePrices data={data} />
+
             </section>
         )
     }
