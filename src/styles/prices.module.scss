@@ -8,7 +8,7 @@
         font: 700 2.8em SpaceRanger;
         text-align: center;
         letter-spacing: 3px;
-        color: var(--red);
+        color: var(--red_strong);
     }
     
     .different_prices{
@@ -19,10 +19,10 @@
         
         .price_div{
             width: 350px;
-            /* height: 400px;*/
+            //height: 400px;
             justify-content: flex-start;
             flex-direction: column;
-            background: var(--red);
+            background: var(--red_strong);
             border: 5px var(--black) solid;
             border-radius: 20px;
             color: #fff;
@@ -33,6 +33,7 @@
                 height: 70px;
                 color: #000;
                 background: #fff;
+                text-align: center;
                 font: 30px SpaceRanger;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -98,6 +99,7 @@
 
     .price_string{
         width: 100%;
+        height: min-content;
         text-align: center;
         font: 700 55px var(--clean_fonts);
         margin-top: 20px;
@@ -112,6 +114,12 @@
             top: -26px;
         }
 
+    }
+
+    .text{
+        font: 500 14px var(--clean_fonts);
+        text-align: center;
+        margin-top: 10px;
     }
 
     .benefits_title{
@@ -129,7 +137,7 @@
         
         .item_list{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
 
             .circle{
                 width: 8px;
@@ -172,30 +180,51 @@
     }
 }
 @media(max-width: 600px){
-.buy{
-    width: 80%;   
-    padding: 10% 5%;
+    .buy{
+        width: 80%;   
+        padding: 10% 5%;
 
-    .div_buttons{
-        .button{
-            margin: 0 10px;
+        .title{
+            font-size: 30px;
         }
-    }
-    @media(max-width: 400px){
-    .div_buttons{
-        margin-top: 10px;
-        flex-direction: column-reverse;
 
-        .button{
-            margin: 10px 0;
+        .price_string{
+            font-size: 45px;
         }
-        
-        .return{
-            transform: scale(0.9);
+
+        .benefits_title{
+            font: 700 18px var(--clean_fonts);
+            margin-top: 20px;
+        }
+
+        .div_buttons{
+            .button{
+                margin: 0 10px;
+            }
+        }
+        @media(max-width: 400px){
+            .benefits{
+                margin: 0;
+
+                .item_list{
+                    margin: 5px 0;
+                }
+            }
+
+            .div_buttons{
+                margin-top: 10px;
+                flex-direction: column-reverse;
+
+                .button{
+                    margin: 10px 0;
+                }
+                
+                .return{
+                    transform: scale(0.9);
+                }
+            }
         }
     }
-    }
-}
 }
 
 .prices, .price_div, .price_title, .different_prices, .buy{
