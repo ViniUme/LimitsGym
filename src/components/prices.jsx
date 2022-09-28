@@ -167,7 +167,7 @@ export default function Prices({user}){
                 return 7
             }
             if(gym_plan.plan == 'Diário'){
-                return 1
+                return 0
             }
             if(gym_plan.plan == 'Mensal'){
                 return 30
