@@ -168,7 +168,52 @@
         }
 
         .days_miss{
+            margin-top: 10%;
             font-size: 0.9em;
+            text-align: center;
+
+            .color_red{
+                text-transform: uppercase;
+                color: var(--red);
+            }
+        }
+
+        .div_buttons{
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .button{
+                padding: 10px 15px;
+                font: 900 18px var(--clean_fonts);
+                text-transform: uppercase;
+                text-align: center;
+                border-radius: 10px;
+                transition: 100ms ease-out;
+                background: transparent;
+                cursor: pointer;
+            }
+            .button:hover{
+                transform: scale(1.1);
+            }
+
+            .cancel{
+                color: var(--gray);
+                border: 3px var(--gray) solid;
+            }
+
+            .trade{
+                color: var(--red);
+                border: 3px var(--red) solid;
+            }
+
+            .renew{
+                color: #fff;
+                background: var(--red_strong);
+                border: 3px #fff solid;
+            }
         }
         @media(max-width: 666px){
             .price_grid{
