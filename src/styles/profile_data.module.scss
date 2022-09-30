@@ -233,6 +233,16 @@
                     margin-top: 15px;
                 }
             }
+
+            .div_buttons{
+                margin-top: 0;
+                flex-direction: column;
+                justify-content: center;
+
+                .button{
+                    margin-top: 25px;
+                }
+            }
         }
     }
 
@@ -428,5 +438,92 @@
     .edit_form, .edit_pass{
         width: 80%;
         padding: 30px 10%;
+    }
+}
+.modal, .pop_up, .pop_up > .div_buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    height: 100%;
+
+    .pop_up{
+        padding: 30px 50px;
+        width: 40%;
+        background: var(--black);
+        flex-direction: column;
+        font: 30px var(--clean_fonts);
+        border: 5px var(--red) solid;
+        border-radius: 30px;
+        color: #fff;
+        
+        .title{
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .sub{
+            margin-top: 20px;
+            font-size: 0.7em;
+            text-align: center;
+            color: #e7e7e7;
+        }
+
+        .div_buttons{
+            margin-top: 20px;
+            flex-direction: column;
+            font-size: 1em;
+
+            .button{
+                margin: 10px 0;
+                padding: 10px 20px;
+                background: transparent;
+                font: 700 0.6em var(--clean_fonts);
+                cursor: pointer;
+                transition: 100ms ease-out;
+                text-transform: uppercase;
+            }
+            .button:hover{
+                transform: scale(1.1);
+            }
+
+            .false{
+                border: 3px var(--red) solid;
+                color: var(--red);
+            }
+
+            .true{
+                border: 3px var(--gray) solid;
+                color: var(--gray);
+            }
+        }
+    }
+    @media(max-width: 800px){
+        .pop_up{
+            font-size: 25px;
+        }
+    }
+    @media(max-width: 700px){
+        .pop_up{
+            width: 60%;
+            padding: 5%;
+            font-size: 25px;
+        }
+    }
+    @media(max-width: 450px){
+        .pop_up{
+            font-size: 20px;
+
+            .title{
+                font-weight: 700;
+            }
+
+            .sub{
+                font-size: 0.8em;
+            }
+        }
     }
 }
