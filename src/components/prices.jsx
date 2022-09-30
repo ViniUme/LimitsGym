@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import Modal from 'react-modal';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import styles from '../styles/prices.module.scss';
 import { EditUser } from '../utils/functions';
 
-export default function Prices({user}){
+Modal.setAppElement('#__next');
+
+export default function Prices({user, data}){
 
     const [gym_plan, setGymPlan] = useState(null);
+    const [modalIsOpen, setIsOpen] = useState(false);
 
     function Buy(price, total, time, plan, type){
         if(user.USER_LOGIN == (undefined || null)){
@@ -138,6 +142,23 @@ export default function Prices({user}){
         )
     }
     else{
+        function OpenModal(){
+            setIsOpen(true);
+        }
+        
+        function CloseModal(){
+            setIsOpen(false);
+        }
+        
+        function CheckPlan(){
+            if((data.plan == undefined) || (data.plan == null)){
+                Sign();
+            }
+            else{
+                OpenModal();
+            }
+        }
+
         function List(){
             const benefits_var = []
             if((gym_plan.plan == 'Anual') && (gym_plan.type == 'Individual')){
@@ -229,8 +250,20 @@ export default function Prices({user}){
 
                 <div className={styles.div_buttons}>
                     <button className={`${styles.button} ${styles.return}`} onClick={() => {setGymPlan(null); window.scroll(0,0)}}>Voltar</button>
-                    <button className={`${styles.button} ${styles.sign}`} onClick={() => Sign()}>Assinar</button>
+                    <button className={`${styles.button} ${styles.sign}`} onClick={() => CheckPlan()}>Assinar</button>
                 </div>
+                <Modal isOpen={modalIsOpen} onRequestClose={CloseModal} className={styles.modal}>
+                    <section className={styles.pop_up}>
+                        <h1 className={styles.title}>trocar de plano</h1>
+                        <h2 className={styles.sub}>
+                            Ao trocar de plano, você acaba cancelando seu plano atual, perdendo os dias restantes que você pode ir à academia. Tem certeza que quer mesmo trocar de plano ?
+                        </h2>
+                        <div className={styles.div_buttons_reverse}>
+                            <button className={`${styles.button} ${styles.renew}`} onClick={() => Sign()}>trocar de plano</button>
+                            <button className={`${styles.button} ${styles.return}`} onClick={() => CloseModal('renew')}>voltar</button>
+                        </div>
+                    </section>
+                </Modal>
             </section>
         )
     }

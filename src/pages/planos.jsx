@@ -1,13 +1,16 @@
 import Prices from '../components/prices'
+import { VerifyUser } from '../utils/functions';
 import Page from '../components/page';
 import { parseCookies } from 'nookies';
 
-export function getServerSideProps(context){
+export async function getServerSideProps(context){
     const cookies = parseCookies(context);
+    const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1])
 
     return {
         props: {
-            cookies: cookies
+            cookies: cookies,
+            data: data
         }
     }
 }
@@ -15,7 +18,7 @@ export function getServerSideProps(context){
 export default function Precos(props){
     return(
         <Page title="Preços dos Planos" context="Página que mostra o preço dos planos" cookies={props.cookies}>
-            <Prices user={props.cookies} />
+            <Prices user={props.cookies} data={props.data.user} />
         </Page>
     )
 }
