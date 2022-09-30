@@ -7,11 +7,20 @@ import styles from '../styles/profile_data.module.scss';
 export default function ProfileData({data}){
     
     const info = [['city', 'Cidade'], ['road', 'Rua'], ['num', 'Número'], ['email', 'Email'], ['dist', 'Bairro'], ['tel', 'Telefone'], ['rg', 'RG'], ['date', 'Data de criação']]
-
+    
     const [display, setDisplay] = useState('read');
-
+    
     function GoEdit(func){
         setDisplay(func);
+    }
+    
+    function ShowPlan(){
+        if((data.plan != null) && (data.plan != undefined)){
+            return <ProfilePrices data={data} />
+        }
+        else{
+            return <></>
+        }
     }
 
     if(display == 'read'){
@@ -52,7 +61,7 @@ export default function ProfileData({data}){
                     <button className={styles.pass_button} onClick={() => GoEdit('edit_pass')}>redefinir senha</button>
                 </div>
 
-                <ProfilePrices data={data} />
+                {ShowPlan()}
 
             </section>
         )
