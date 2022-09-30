@@ -47,7 +47,7 @@ export default function Navbar({cookies}){
           <div className={styles.link_menu}>
             <Link href="/"><a className={styles.nav_link_main}>início</a></Link>
             <Link href="/contatos"><a className={styles.nav_link}>contatos</a></Link>
-            <Link href="/precos"><a className={styles.nav_link}>preços</a></Link>
+            <Link href="/planos"><a className={styles.nav_link}>planos</a></Link>
           </div>
 
           {UserLinks()}
