@@ -14,14 +14,43 @@ export default function ProfilePrices({data}){
     const date_start = new Date(data.plan.date_start);
     const date_end = new Date(data.plan.date_end);
     const date_now = new Date();
-    const [modalIsOpoen, setIsOpen] = useState(false);
+    const [modalIsOpen, setIsOpen] = useState({
+        cancel: false,
+        renew: false
+    });
 
-    function OpenModal(){
-        setIsOpen(true);
+    function DayCalc(){
+        if(data.plan.time == 'Quinzenal'){
+            return 15
+        }
+        if(data.plan.time == 'Semanal'){
+            return 7
+        }
+        if(data.plan.time == 'Diário'){
+            return 1
+        }
+        if(data.plan.time == 'Mensal'){
+            return 30
+        }
+        if(data.plan.time == 'Trimestral'){
+            return 92
+        }
+        if(data.plan.time == 'Semestral'){
+            return 183
+        }
+        if(data.plan.time == 'Anual'){
+            return 365
+        }
     }
 
-    function CloseModal(){
-        setIsOpen(false);
+    function OpenModal(id){
+        const modal = {...modalIsOpen, [id]: true};
+        setIsOpen(modal);
+    }
+
+    function CloseModal(id){
+        const modal = {...modalIsOpen, [id]: false};
+        setIsOpen(modal);
     }
 
     function CheckTime(date){
@@ -54,13 +83,28 @@ export default function ProfilePrices({data}){
 
     function ReturnButton(){
         if(date_now > date_end){
-            return <button className={`${styles.button} ${styles.renew}`}>renovar</button>
+            return <button className={`${styles.button} ${styles.renew}`} onClick={() => OpenModal('renew')}>renovar</button>
         }
     }
 
     async function CancelPlan(){
         await EditUser(data.email, {plan: null});
         window.location.reload();
+    }
+
+    async function RenewPlan(){
+        const date = new Date();
+        const date_start = new Date();
+        let date_end = new Date(date.setHours(date_start.getHours() + (24 * DayCalc())));
+
+        const response = await EditUser(data.email, {plan: {...data.plan, date_start: date_start, date_end: date_end}});
+
+        if(response.message.acknowledged === true){
+            window.location.reload();
+        }
+        else{
+            return
+        }
     }
     
     if(data.plan != undefined){
@@ -81,20 +125,34 @@ export default function ProfilePrices({data}){
                 <h2 className={styles.days_miss}>{DaysMissing()}</h2>
 
                 <div className={styles.div_buttons}>
-                    <button className={`${styles.button} ${styles.cancel}`} onClick={() => OpenModal()}>cancelar</button>
+                    <button className={`${styles.button} ${styles.cancel}`} onClick={() => OpenModal('cancel')}>cancelar</button>
                     <button className={`${styles.button} ${styles.trade}`} onClick={() => window.location.href = '/planos'}>trocar</button>
                     {ReturnButton()}
                 </div>
 
-                <Modal isOpen={modalIsOpoen} onRequestClose={CloseModal} className={styles.modal}>
+                <Modal isOpen={modalIsOpen.cancel} className={styles.modal}>
                     <section className={styles.pop_up}>
                         <h1 className={styles.title}>cancelar plano ?</h1>
                         <h2 className={styles.sub}>
                             Em pleno 2022, e você está querendo sair da academia ? Conhece o Paulo Muzy ? Ta gigante e trincado, e você aí, querendo sair da academia.
                         </h2>
                         <div className={styles.div_buttons}>
-                            <button className={`${styles.button} ${styles.false}`} onClick={() => CloseModal()}>não, voltar atrás</button>
+                            <button className={`${styles.button} ${styles.false}`} onClick={() => CloseModal('cancel')}>não, voltar atrás</button>
                             <button className={`${styles.button} ${styles.true}`} onClick={() => CancelPlan()}>sim, certeza</button>
+                        </div>
+                    </section>
+                </Modal>
+
+                <Modal isOpen={modalIsOpen.renew} className={styles.modal}>
+                    <section className={styles.pop_up}>
+                        <h1 className={styles.title}>renovar plano</h1>
+                        <h2 className={styles.sub}>
+                            {`"Porque sou eu que conheço os planos que tenho para vocês", diz o Senhor, "planos de fazê-los prosperar e não de causar dano, planos de dar a vocês esperança e um futuro."`}
+                        </h2>
+                        <span className={styles.chapter}>- Jeremias 29:11</span>
+                        <div className={styles.div_buttons_reverse}>
+                            <button className={`${styles.button} ${styles.renew}`} onClick={() => RenewPlan()}>amém, renovar plano</button>
+                            <button className={`${styles.button} ${styles.return}`} onClick={() => CloseModal('renew')}>voltar</button>
                         </div>
                     </section>
                 </Modal>

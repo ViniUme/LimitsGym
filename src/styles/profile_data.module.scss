@@ -236,11 +236,15 @@
 
             .div_buttons{
                 margin-top: 0;
-                flex-direction: column;
+                flex-direction: column-reverse;
                 justify-content: center;
 
                 .button{
                     margin-top: 25px;
+                }
+
+                .cancel{
+                    transform: scale(0.88);
                 }
             }
         }
@@ -440,7 +444,7 @@
         padding: 30px 10%;
     }
 }
-.modal, .pop_up, .pop_up > .div_buttons{
+.modal, .pop_up, .pop_up > .div_buttons, .pop_up > .div_buttons_reverse{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -468,11 +472,18 @@
         .sub{
             margin-top: 20px;
             font-size: 0.7em;
-            text-align: center;
+            text-align: justify;
             color: #e7e7e7;
         }
 
-        .div_buttons{
+        .chapter{
+            font-size: 0.5em;
+            text-transform: uppercase;
+            margin: 10px 5px 0 auto;
+            letter-spacing: 1px;
+        }
+
+        .div_buttons, .div_buttons_reverse{
             margin-top: 20px;
             flex-direction: column;
             font-size: 1em;
@@ -500,6 +511,18 @@
                 color: var(--gray);
             }
         }
+        .div_buttons_reverse{
+            .renew{
+                background: var(--red_strong);
+                border: 3px #fff solid;
+                color: #fff;
+            }
+
+            .return{
+                border: 3px var(--gray) solid;
+                color: var(--gray);
+            }
+        }
     }
     @media(max-width: 800px){
         .pop_up{
@@ -509,7 +532,7 @@
     @media(max-width: 700px){
         .pop_up{
             width: 60%;
-            padding: 5%;
+            padding: 5% 10%;
             font-size: 25px;
         }
     }
