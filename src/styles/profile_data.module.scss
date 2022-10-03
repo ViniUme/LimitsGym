@@ -469,11 +469,14 @@
             text-align: center;
         }
 
-        .sub{
+        .sub, .sub_chapter{
             margin-top: 20px;
             font-size: 0.7em;
-            text-align: justify;
+            text-align: center;
             color: #e7e7e7;
+        }
+        .sub_chapter{
+            text-align: justify;
         }
 
         .chapter{

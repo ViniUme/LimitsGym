@@ -9,7 +9,7 @@ export default function ProfilePrices({data}){
 
     const render = {
         today: <span className={styles.color_red}>Você tem apenas hoje para ir à Academia</span>,
-        finished: <>Parece que seu plano <span className={styles.color_red}>já acabou</span>, renove seu plano para continuar na limits</> 
+        finished: <>Parece que seu plano <span className={styles.color_red}>já acabou</span>, renove seu plano para continuar na Limits</> 
     }
     const date_start = new Date(data.plan.date_start);
     const date_end = new Date(data.plan.date_end);
@@ -63,21 +63,20 @@ export default function ProfilePrices({data}){
     }
 
     function DaysMissing(){
-        
-        if(date_end.getDay() === date_now.getDay()){
+        const convert = 1000 * 60 * 60 * 24;
+        const date_difernce = Math.round(Math.abs(date_now - date_end) / convert);
+
+        if(date_difernce == 0){
             return render.today
         }
         if(date_now > date_end){
             return render.finished
         }
-        
-        const date_difernce = Math.round(Math.abs(date_now - date_end) / (1000 * 60 * 60 * 24));
-        
         if(date_difernce == 1){
             return <>Você ainda tem <span className={styles.color_red}>até amanhã</span> de acesso à Academia</>
         }
         else{
-            return <>Você ainda tem <span className={styles.color_red}>{date_difernce} dias</span> para ir à Academia</>
+            return <>Você ainda tem <span className={styles.color_red}>{date_difernce} dias</span> restantes de acesso à Academia</>
         }
     }
 
@@ -134,7 +133,7 @@ export default function ProfilePrices({data}){
                     <section className={styles.pop_up}>
                         <h1 className={styles.title}>cancelar plano ?</h1>
                         <h2 className={styles.sub}>
-                            Em pleno 2022, e você está querendo sair da academia ? Conhece o Paulo Muzy ? Ta gigante e trincado, e você aí, querendo sair da academia.
+                            Em pleno 2022, e você está querendo sair da academia ? Conhece o Paulo Muzy ? Ta gigante e trincado, e você aí, querendo sair da academia. Tem certeza que quer cancelar o seu plano da academia ?
                         </h2>
                         <div className={styles.div_buttons}>
                             <button className={`${styles.button} ${styles.false}`} onClick={() => CloseModal('cancel')}>não, voltar atrás</button>
@@ -146,7 +145,7 @@ export default function ProfilePrices({data}){
                 <Modal isOpen={modalIsOpen.renew} className={styles.modal}>
                     <section className={styles.pop_up}>
                         <h1 className={styles.title}>renovar plano</h1>
-                        <h2 className={styles.sub}>
+                        <h2 className={styles.sub_chapter}>
                             {`"Porque sou eu que conheço os planos que tenho para vocês", diz o Senhor, "planos de fazê-los prosperar e não de causar dano, planos de dar a vocês esperança e um futuro."`}
                         </h2>
                         <span className={styles.chapter}>- Jeremias 29:11</span>
