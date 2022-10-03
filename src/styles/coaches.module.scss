@@ -11,6 +11,11 @@
         font: 50px SpaceRanger;
         color: var(--red);
     }
+    @media(max-width: 600px){
+        .title{
+            font-size: 40px;
+        }
+    }
 
     .img_div{
         background: var(--black);

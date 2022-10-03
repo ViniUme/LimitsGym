@@ -84,7 +84,7 @@
     }
 
     .navbar_activate{
-        height: 427px;
+        height: calc(60px + 50px + (63px * 4));
         background: #000000;
 
         .mobile_menu{

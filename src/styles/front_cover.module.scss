@@ -15,17 +15,31 @@
 
         .title_sub{
             margin-top: 250px;
-            font: 0.35em var(--clean_fonts);
+            font: 25px var(--clean_fonts);
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--red);
         }
 
         .title_header{
-            font: 1.3em SpaceRanger;
+            font: 100px SpaceRanger;
             letter-spacing: 4px;
             color: #ffffff;
             margin: 0 40px;
+        }
+        @media(max-width: 600px){
+            .title_sub{
+                font-size: 17px;
+            }
+
+            .title_header{
+                font-size: 70px;
+            }
+        }
+        @media(max-width: 600px){
+            .title_header{
+                font-size: 40px;
+            }
         }
 
         .link_button{
