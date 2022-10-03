@@ -29,7 +29,6 @@ export default function Navbar({cookies}){
         return(
           <div className={styles.sign_on_in}>
             <Link href="/perfil"><a className={styles.nav_link}>perfil</a></Link>
-            <Link href="/carrinho"><a className={`${styles.nav_link} ${styles.shopping_cart}`}><ShoppingCartOutlinedIcon/></a></Link>
           </div>
         )
       }
