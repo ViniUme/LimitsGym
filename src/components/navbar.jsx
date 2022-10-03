@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import styles from '../styles/navbar.module.scss';
 
 export default function Navbar({cookies}){
