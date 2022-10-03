@@ -23,8 +23,8 @@ export default function Index(props) {
     <Page title="Academia Limits - Exceda seus limites" description="Assinatura da academia" cookies={props.cookies}>
       <div className={style.container} lang="pt-BR">
 
-        <FrontCover/>
-        <GymClass/>
+        <FrontCover cookies={props.cookies}/>
+        <GymClass cookies={props.cookies}/>
         <GymFeature/>
         <Coaches/>
         <Calendar/>
