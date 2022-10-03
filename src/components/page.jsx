@@ -8,8 +8,11 @@ export default function Page({title, description, cookies, children}){
         <>
             <Head>
                 <title>{title}</title>
-                <meta name="description" content={description} />
-                <meta charSet='UTF-8' />
+                <meta name="description" content={description}/>
+                <meta charSet='UTF-8'/>
+                <meta name='author' content='Leonardo Berteli, Ruan Lucas, Pedro Vágula, Vinícius Santos, Vinícius Marcham'/>
+                <meta name='google' content='notranslate'/>
+                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
             </Head>
             <Navbar cookies={cookies} />
                 {children}
