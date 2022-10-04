@@ -250,6 +250,24 @@
         }
     }
 
+    .log_off{
+        display: block;
+        margin-top: 70px;
+        padding: 10px 30px;
+        background: transparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font: 700 18px var(--clean_fonts);
+        color: var(--black);
+        cursor: pointer;
+        border: 3px var(--black) solid;
+        border-radius: 20px;
+        transition: 150ms ease-in-out;
+    }
+    .log_off:hover{
+        transform: scale(1.1);
+    }
+
     @media(max-width: 900px){
         .profile_item{
             width: 85%;

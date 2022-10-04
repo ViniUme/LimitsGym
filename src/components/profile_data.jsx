@@ -2,6 +2,7 @@ import EditForm from './edit_form';
 import EditPass from './edit_pass';
 import ProfilePrices from './profile_prices';
 import { useState } from 'react';
+import { destroyCookie } from 'nookies'
 import styles from '../styles/profile_data.module.scss';
 
 export default function ProfileData({data}){
@@ -21,6 +22,11 @@ export default function ProfileData({data}){
         else{
             return <></>
         }
+    }
+
+    function LogOff(){
+        destroyCookie(null, 'USER_LOGIN');
+        window.location.href = '/';
     }
 
     if(display == 'read'){
@@ -62,6 +68,8 @@ export default function ProfileData({data}){
                 </div>
 
                 {ShowPlan()}
+
+                <h2 className={styles.log_off} onClick={() => LogOff()}>sair</h2>
 
             </section>
         )
