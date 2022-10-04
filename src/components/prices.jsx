@@ -227,6 +227,10 @@ export default function Prices({user, data}){
             }
         }
 
+        function Phrase(){
+            const phrases = ['Claro que é difícil. Deve ser difícil. Se fosse fácil, todos fariam. Difícil é o que o torna ótimo.', 'Sem dor, sem ganho. Cale a boca e treine.', 'Seu corpo pode suportar quase tudo. É a sua mente que você tem que convencer.', '']
+        }
+
         return(
             <section className={styles.buy}>
                 <h1 className={styles.title}>{gym_plan.plan} {gym_plan.type}</h1>
