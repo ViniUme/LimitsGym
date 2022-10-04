@@ -54,49 +54,6 @@ export async function LoginUser(user){
     return response
 }
 
-export async function AddWishList(product, user){
-
-    const check = await VerifyUser(user);
-
-    if(check === true){
-
-        const info = await VerifyWishList(user)
-        const wish = info.wish
-        wish.push(product)
-        const newInfo = [
-            info.email,
-            {
-                email: info.email,
-                wish: wish
-            }
-        ]
-        
-        const init = {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newInfo)
-        }
-
-        fetch("/api/add-wish-list", init)
-    }
-}
-
-export async function VerifyWishList(user){
-    const init = {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    }
-
-    return fetch("/api/verify-wish-list", init)
-        .then(response => response.json())
-        .then((json) => {return json})
-}
-
 export async function EditUser(old_user, new_user){
     const init = {
         method: 'POST',
