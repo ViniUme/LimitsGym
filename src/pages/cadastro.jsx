@@ -9,19 +9,31 @@ import { useState } from 'react';
 import styles from '../styles/cadastro.module.scss';
 
 export async function getServerSideProps(context){
-    const cookies = parseCookies(context);
-    const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
+    let cookies = parseCookies(context);
+    if(cookies.USER_LOGIN != undefined){
+        let data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
-    return{
-        props: {
-            cookies: cookies,
-            data: data.user
+        return {
+            props: {
+                cookies: cookies,
+                data: data.user
+            }
+        }
+    }
+    else{
+        return {
+            props: {
+                cookies: cookies,
+                data: {name: null}
+            }
         }
     }
 }
 
 export default function SignRoute(props){
-    
+
+    const test_tel = ['11111111111', '1111111111', '22222222222', '2222222222', '33333333333', '3333333333', '44444444444', '4444444444', '55555555555', '5555555555', '66666666666', '6666666666', '77777777777', '7777777777', '88888888888', '8888888888', '99999999999', '9999999999', '00000000000', '0000000000']
+    const test_rg = ['111111111', '222222222', '333333333', '444444444', '555555555', '666666666', '777777777', '888888888', '999999999', '000000000']
     const info = [
         ['name', 'Nome'],
         ['city', 'Cidade'],
@@ -120,11 +132,11 @@ export default function SignRoute(props){
         for(let item in data){
             let real_item = eval(`data.${item}`);
             if(real_item == ''){
-                setMessage('preencha todos os campos')
+                setMessage('preencha todos os campos');
                 return
             }
         }
-        
+
         if(parseInt(data.num) == NaN){
             setMessage('digite o número de sua casa corretamente');
             return
@@ -148,8 +160,22 @@ export default function SignRoute(props){
         
         const save_tel = data.tel.replace(reg_ex.tel, '');
         const save_rg = data.rg.replace(reg_ex.rg, '');
+    
+        for(let item of test_tel){
+            if(save_tel == item){
+                setMessage('número de celular inválido');
+                return
+            }
+        }
+        for(let item of test_rg){
+            if(save_rg == item){
+                setMessage('número de rg inválido');
+                return
+            }
+        }
+        
         if(save_tel.length < 10){
-            setMessage('número de celular não válido');
+            setMessage('número de celular inválido');
             return
         }
         if(save_rg.length < 9){
@@ -181,7 +207,7 @@ export default function SignRoute(props){
             setMessage(verify_user);
         }
     }
-
+    
     if(message != 'loading'){
         return(
             <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados" cookies={props.cookies} name={props.data.name}>
