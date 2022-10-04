@@ -24,7 +24,7 @@ export async function getServerSideProps(context){
 export default function Profile({cookies, data}){
 
     return(
-        <Page title='Perfil do usuário' description='Página onde mostra todos os dados sobre o usuário' cookies={cookies}>
+        <Page title='Perfil do usuário' description='Página onde mostra todos os dados sobre o usuário' cookies={cookies} name={data.name}>
             <ProfileData data={data}/>
         </Page>
     )

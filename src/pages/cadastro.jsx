@@ -10,10 +10,12 @@ import styles from '../styles/cadastro.module.scss';
 
 export function getServerSideProps(context){
     const cookies = parseCookies(context);
+    const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
     return{
         props: {
-            cookies: cookies
+            cookies: cookies,
+            data: data
         }
     }
 }
@@ -182,7 +184,7 @@ export default function SignRoute(props){
 
     if(message != 'loading'){
         return(
-            <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados" cookies={props.cookies}>
+            <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados" cookies={props.cookies} name={props.data.name}>
 
                 <h1 className={styles.header}>preencha o formulário com seus dados para se cadastrar na acamedia limits gym</h1>
 

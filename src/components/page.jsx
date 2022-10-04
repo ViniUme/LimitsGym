@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
-export default function Page({title, description, cookies, children}){
+export default function Page({title, description, cookies, children, name}){
 
     return(
         <>
@@ -14,7 +14,7 @@ export default function Page({title, description, cookies, children}){
                 <meta name='google' content='notranslate'/>
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
             </Head>
-            <Navbar cookies={cookies} />
+            <Navbar cookies={cookies} name={name} />
                 {children}
             <Footer cookies={cookies} />
         </>

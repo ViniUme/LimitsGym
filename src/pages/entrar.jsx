@@ -1,6 +1,6 @@
 import Page from '../components/page';
 import Loading from '../components/loading';
-import { LoginUser } from '../utils/functions';
+import { LoginUser, VerifyUser } from '../utils/functions';
 import Link from 'next/link';
 import { parseCookies, setCookie } from 'nookies';
 import { useState, useEffect } from 'react';
@@ -8,10 +8,12 @@ import styles from '../styles/entrar.module.scss';
 
 export async function getServerSideProps(context){
     let cookies = parseCookies(context);
+    const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
     return {
         props: {
-            cookies: cookies
+            cookies: cookies,
+            data: data
         }
     }
 }
@@ -60,7 +62,7 @@ export default function Login(props){
 
     if((message != 'loading') && (props.cookies.USER_LOGIN == undefined)){
         return(
-            <Page title='Entre com sua conta na Limits Gym' description='Tela para acessar a conta do cliente da academia' cookies={props.cookies}>
+            <Page title='Entre com sua conta na Limits Gym' description='Tela para acessar a conta do cliente da academia' cookies={props.cookies} name={props.data.name}>
                 <form className={styles.login} onSubmit={(e) => Submit(e)}>
                     <h1 className={styles.title}>entre com seu email</h1>
                     <div className={styles.input_div}>
