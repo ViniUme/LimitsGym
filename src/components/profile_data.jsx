@@ -69,7 +69,10 @@ export default function ProfileData({data}){
 
                 {ShowPlan()}
 
-                <h2 className={styles.log_off} onClick={() => LogOff()}>sair</h2>
+                <div className={styles.profile_item}>
+                    <h1 className={styles.item_title}>Deseja sair da sua conta</h1>
+                    <h2 className={styles.log_off} onClick={() => LogOff()}>sair</h2>
+                </div>
 
             </section>
         )
