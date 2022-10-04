@@ -13,7 +13,7 @@ export async function getServerSideProps(context){
     return {
         props: {
             cookies: cookies,
-            data: data
+            data: data.user
         }
     }
 }

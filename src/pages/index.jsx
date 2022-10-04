@@ -4,6 +4,7 @@ import GymFeature from '../components/gym_feature';
 import Calendar from '../components/calendar';
 import Page from '../components/page';
 import Coaches from '../components/coaches';
+import { VerifyUser } from '../utils/functions';
 import { parseCookies } from 'nookies';
 import style from '../styles/index.module.scss';
 
@@ -11,10 +12,12 @@ export async function getServerSideProps(context){
   let cookies = parseCookies(context);
   const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
+  console.log(data.user)
+
   return {
       props: {
           cookies: cookies,
-          data: data
+          data: data.user
       }
   }
 }

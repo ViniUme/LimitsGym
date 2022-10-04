@@ -8,14 +8,14 @@ import { parseCookies } from 'nookies';
 import { useState } from 'react';
 import styles from '../styles/cadastro.module.scss';
 
-export function getServerSideProps(context){
+export async function getServerSideProps(context){
     const cookies = parseCookies(context);
     const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
     return{
         props: {
             cookies: cookies,
-            data: data
+            data: data.user
         }
     }
 }
