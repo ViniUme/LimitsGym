@@ -8,12 +8,22 @@ import styles from '../styles/entrar.module.scss';
 
 export async function getServerSideProps(context){
     let cookies = parseCookies(context);
-    const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
+    if(cookies.USER_LOGIN != undefined){
+        let data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
-    return {
-        props: {
-            cookies: cookies,
-            data: data.user
+        return {
+            props: {
+                cookies: cookies,
+                data: data.user
+            }
+        }
+    }
+    else{
+        return {
+            props: {
+                cookies: cookies,
+                data: {name: null}
+            }
         }
     }
 }

@@ -6,8 +6,9 @@ import { parseCookies } from 'nookies';
 import styles from '../styles/contatos.module.scss';
 
 export async function getServerSideProps(context){
-    const cookies = parseCookies(context);
-    const data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
+    let cookies = parseCookies(context);
+  if(cookies.USER_LOGIN != undefined){
+    let data = await VerifyUser(cookies.USER_LOGIN, context.req.rawHeaders[1]);
 
     return {
         props: {
@@ -15,6 +16,15 @@ export async function getServerSideProps(context){
             data: data.user
         }
     }
+  }
+  else{
+    return {
+      props: {
+        cookies: cookies,
+        data: {name: null}
+      }
+    }
+  }
 }
 
 export default function Contatos(props){
