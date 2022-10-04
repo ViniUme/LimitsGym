@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/navbar.module.scss';
 
 export default function Navbar({cookies, name}){
 
     const [activate, setActivate] = useState(styles.navbar);
-    const [first, setFirst] = useState('perfil');
-
-    
-    useEffect(() => {
-      if((name != undefined) || (name != null)){
-        const display_name = name.split(" ");
-        setFirst(display_name[0])
-      }
-    })
 
     const SwitchNavbar = () => {
         if(activate == styles.navbar){
@@ -34,9 +25,10 @@ export default function Navbar({cookies, name}){
         )
       }
       else{
+        const first_name = name.split(" ");
         return(
           <div className={styles.sign_on_in}>
-            <Link href="/perfil"><a className={styles.nav_link}>{first}</a></Link>
+            <Link href="/perfil"><a className={styles.nav_link}>{first_name[0]}</a></Link>
           </div>
         )
       }
