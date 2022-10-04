@@ -102,22 +102,4 @@ export default function Login(props){
             </>
         )
     }
-    if(props.cookies.USER_LOGIN != undefined){
-        return(
-            <Page title='Acesso Concebido' description='' cookies={props.cookies}>
-                <section className={styles.user_loged}>
-                    <h1 className={styles.main}>Parabens, seu acesso foi concebido, o quê gostaria de fazer agora ?</h1>
-                    <div className={styles.input_div}>
-                        <Link href='#'><a className={styles.link}>ir para o início</a></Link>
-                        <Link href='#'><a className={styles.link}>ver produtos</a></Link>
-                        <Link href='#'><a className={styles.link}>ver planos</a></Link>
-                        <Link href='#'><a className={styles.link}>ver perfil</a></Link>
-                    </div>
-                </section>
-            </Page>
-        )
-    }
-    
-    return<></>
-    
 }
