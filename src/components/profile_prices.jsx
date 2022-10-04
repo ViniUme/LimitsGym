@@ -107,6 +107,15 @@ export default function ProfilePrices({data}){
     }
     
     if(data.plan != undefined){
+
+        function Phrase(){
+            const phrases = ['Claro que é difícil. Deve ser difícil. Se fosse fácil, todos fariam. Difícil é o que o torna ótimo.', 'Sem dor, sem ganho. Cale a boca e treine.', 'Seu corpo pode suportar quase tudo. É a sua mente que você tem que convencer.', 'O sucesso nem sempre tem a ver com grandeza. É uma questão de consistência. O trabalho árduo consistente obtém sucesso. A grandeza virá.', 'Treine insano ou permaneça o mesmo.', 'Definição de um treino realmente bom: quando você odeia fazer, mas adora terminá-lo.', 'Empurre-se porque ninguém mais vai fazer isso por você.', 'Vou vencê-la. Vou treinar mais forte. Vou comer mais limpo. Eu conheço seus pontos fortes. Já perdi para ela antes, mas não desta vez. Ela está caindo. Tenho a vantagem porque a conheço bem. Ela é a velha eu.', 'Coisas boas vêm para aqueles que suam.', 'Motivação é o que você começa. Hábito é o que te mantém indo.', 'Um treino de uma hora é 4% do seu dia. Sem desculpas.', 'O corpo alcança o que a mente acredita.', 'O que parece impossível hoje um dia se tornará o seu aquecimento.', 'Nunca desista de um sonho só por causa do tempo que levará para realizá-lo. O tempo vai passar de qualquer maneira.', 'Alguém mais ocupado do que você está trabalhando agora.']
+            
+            const chose_phrase = Math.round(Math.random() * (phrases.length - 1));
+
+            return phrases[chose_phrase];
+        }
+
         return(
             <div className={styles.plan}>
                 <h1 className={styles.title}>Seu Plano</h1>
@@ -145,12 +154,9 @@ export default function ProfilePrices({data}){
                 <Modal isOpen={modalIsOpen.renew} className={styles.modal}>
                     <section className={styles.pop_up}>
                         <h1 className={styles.title}>renovar plano</h1>
-                        <h2 className={styles.sub_chapter}>
-                            {`"Porque sou eu que conheço os planos que tenho para vocês", diz o Senhor, "planos de fazê-los prosperar e não de causar dano, planos de dar a vocês esperança e um futuro."`}
-                        </h2>
-                        <span className={styles.chapter}>- Jeremias 29:11</span>
+                        <h2 className={styles.sub}>{Phrase()}</h2>
                         <div className={styles.div_buttons_reverse}>
-                            <button className={`${styles.button} ${styles.renew}`} onClick={() => RenewPlan()}>amém, renovar plano</button>
+                            <button className={`${styles.button} ${styles.renew}`} onClick={() => RenewPlan()}>renovar plano</button>
                             <button className={`${styles.button} ${styles.return}`} onClick={() => CloseModal('renew')}>voltar</button>
                         </div>
                     </section>
