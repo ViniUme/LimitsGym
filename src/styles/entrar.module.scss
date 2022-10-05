@@ -123,15 +123,21 @@
     }
 
     .sign_on{
-        margin-top: 5px;
+        margin: 10px 0 -20px 0;
         padding: 10px 15px;
         font: 500 15px var(--clean_fonts);
-        color: var(--red);
-        cursor: pointer;
-        transition: 100ms ease-in-out;
-    }
-    .sign_on:visited{
-        color: var(--red_strong);
+        color: #fff;
+
+        .sign_in{
+            margin-top: 5px;
+            color: var(--red);
+            cursor: pointer;
+            transition: 100ms ease-in-out;
+        }
+
+        .sign_on:visited{
+            color: var(--red_strong);
+        }
     }
 }
 

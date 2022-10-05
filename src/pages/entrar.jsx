@@ -117,7 +117,7 @@ export default function Login(props){
 
                     <input className={styles.button} type='submit' value="entrar" />
 
-                    <Link href='/cadastro'><a className={styles.sign_on}>Cadastrar-se na Limits Gym</a></Link>
+                    <span className={styles.sign_on}>Não tem uma conta ? <Link href='/cadastro'><a className={styles.sign_in}>Cadastrar-se</a></Link></span>
                 </form>               
             </Page>
         )
