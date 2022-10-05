@@ -17,7 +17,6 @@ export default function Footer({cookies}){
             return(
                 <>
                     <Link href="/perfil"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Perfil</a></Link>
-                    <Link href="/carrinho"><a className={`${styles.div_item} ${styles.item_link}`}>{">"} Carrinho</a></Link>
                 </>
             )
         }
