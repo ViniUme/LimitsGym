@@ -182,6 +182,10 @@ export default function SignRoute(props){
                 return
             }
         }
+        if(rg_split[0] == 0){
+            setMessage('número de rg inválido');
+            return
+        }
         if(save_rg.length < 9){
             setMessage('digite um rg válido');
             return
