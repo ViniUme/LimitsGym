@@ -12,6 +12,7 @@ export function RegEx(){
         rg: new RegExp(/[\.\-]/g),
         password: new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
         space: new RegExp(/\s/g),
+        more_space: new RegExp(/\s+\s/g),
         name: new RegExp('^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9_-]{3,60}$')
     }
 }
