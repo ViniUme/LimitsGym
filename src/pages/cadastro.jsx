@@ -5,6 +5,7 @@ import Loading from '../components/loading';
 import { mask } from 'remask';
 import { CreateUser, VerifyUser } from '../utils/functions';
 import { parseCookies } from 'nookies';
+import { RegEx, Patterns, TestTel, TestRG } from '../utils/variables';
 import { useState } from 'react';
 import styles from '../styles/cadastro.module.scss';
 
@@ -32,8 +33,8 @@ export async function getServerSideProps(context){
 
 export default function SignRoute(props){
 
-    const test_tel = ['11111111111', '1111111111', '22222222222', '2222222222', '33333333333', '3333333333', '44444444444', '4444444444', '55555555555', '5555555555', '66666666666', '6666666666', '77777777777', '7777777777', '88888888888', '8888888888', '99999999999', '9999999999', '00000000000', '0000000000']
-    const test_rg = ['111111111', '222222222', '333333333', '444444444', '555555555', '666666666', '777777777', '888888888', '999999999', '000000000']
+    const test_tel = TestTel();
+    const test_rg = TestRG();
     const info = [
         ['name', 'Nome'],
         ['city', 'Cidade'],
@@ -66,19 +67,8 @@ export default function SignRoute(props){
             className: styles.eye_svg
         }
     }
-    const pattern = {
-        tel: ['(99) 9999-9999', '(99) 99999-9999'],
-        rg: '99.999.999-9'
-    }
-    const reg_ex = {
-        email: new RegExp('(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))'),
-        tel: new RegExp(/[\)\(\-\s)]/g),
-        rg: new RegExp(/[\.\-]/g),
-        password: new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
-        space: new RegExp(/\s/g),
-        name: new RegExp('^[a-z0-9_-]{3,60}$'),
-        others: new RegExp('^[a-z0-9_-]{3,30}$')
-    }
+    const pattern = Patterns();
+    const reg_ex = RegEx();
 
     const [data, setData] = useState(json);
     const [message, setMessage] = useState('');
@@ -88,7 +78,11 @@ export default function SignRoute(props){
 
     function InputEdit(e){
         const {id, value} = e.target;
+        const check_space = value.split('');
 
+        if((check_space[check_space.length - 1] == ' ') && (check_space[check_space.length - 2] == ' ')){
+            return
+        }
         if(id == 'tel'){
             const save_tel = value.replace(reg_ex.tel, '');
             const masked_tel = mask(save_tel, pattern.tel);
@@ -131,27 +125,30 @@ export default function SignRoute(props){
         
         setMessage('loading');
         
-        for(let item in data){
-            let real_item = eval(`data.${item}`);
+        for(let item of info){
+            let real_item = eval(`data.${item[0]}`);
             if(real_item == ''){
                 setMessage('preencha todos os campos');
                 return
             }
         }
-        
-        if(!reg_ex.others.test(data.city)){
-            setMessage('digite o nome da cidade corretamente');
+
+        if(!reg_ex.name.test(data.name)){
+            setMessage('o seu nome deve ter de 3 a 60 caracteres');
+        }
+        if((data.city.length < 3) || (data.city.length > 30)){
+            setMessage('o nome da cidade deve ter de 3 a 30 caracteres');
             return
         }
-        if(!reg_ex.others.test(data.dist)){
-            setMessage('digite o nome do bairro corretamente');
+        if((data.dist.length < 3) || (data.dist.length > 30)){
+            setMessage('o nome da bairro deve ter de 3 a 30 caracteres');
             return
         }
-        if(!reg_ex.others.test(data.road)){
-            setMessage('digite o nome da cidade corretamente');
+        if((data.road.length < 3) || (data.road.length > 30)){
+            setMessage('o nome da rua deve ter de 3 a 30 caracteres');
             return
         }
-        if(parseInt(data.num) == NaN){
+        if(isNaN(parseInt(data.num))){
             setMessage('digite o número de sua casa corretamente');
             return
         }
@@ -159,6 +156,37 @@ export default function SignRoute(props){
             setMessage('digite um e-mail válido');
             return
         }
+
+        const save_tel = data.tel.replace(reg_ex.tel, '');
+        const tel_split = save_tel.split('');
+        for(let item of test_tel){
+            if(save_tel == item){
+                setMessage('número de celular inválido');
+                return
+            }
+        }
+        if(tel_split[2] == 0){
+            setMessage('número de celular inválido');
+            return
+        }
+        if(save_tel.length < 10){
+            setMessage('número de celular inválido');
+            return
+        }
+
+        const save_rg = data.rg.replace(reg_ex.rg, '');
+        const rg_split = data.rg.split('');
+        for(let item of test_rg){
+            if(save_rg == item){
+                setMessage('número de rg inválido');
+                return
+            }
+        }
+        if(save_rg.length < 9){
+            setMessage('digite um rg válido');
+            return
+        }
+
         if(reg_ex.space.test(data.pass)){
             setMessage('não use espaços na senha');
             return
@@ -169,31 +197,6 @@ export default function SignRoute(props){
         }
         if(data.pass != verify){
             setMessage('comfirme sua senha corretamente');
-            return
-        }
-        
-        const save_tel = data.tel.replace(reg_ex.tel, '');
-        const save_rg = data.rg.replace(reg_ex.rg, '');
-    
-        for(let item of test_tel){
-            if(save_tel == item){
-                setMessage('número de celular inválido');
-                return
-            }
-        }
-        for(let item of test_rg){
-            if(save_rg == item){
-                setMessage('número de rg inválido');
-                return
-            }
-        }
-        
-        if(save_tel.length < 10){
-            setMessage('número de celular inválido');
-            return
-        }
-        if(save_rg.length < 9){
-            setMessage('digite um rg válido');
             return
         }
         
