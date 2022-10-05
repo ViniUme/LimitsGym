@@ -70,7 +70,6 @@ export default function Login(props){
         const {id, value} = e.target;
         setData({...data, [id]: value});
     }
-    console.log(visible)
 
     async function Submit(e){
         e.preventDefault();
