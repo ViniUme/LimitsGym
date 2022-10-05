@@ -37,11 +37,11 @@ export default function SignRoute(props){
     const info = [
         ['name', 'Nome'],
         ['city', 'Cidade'],
+        ['dist', 'Bairro'],
         ['road', 'Rua'],
         ['num', 'Número'],
         ['email', 'E-mail'],
         ['tel', 'Celular'],
-        ['dist', 'Bairro'],
         ['rg', 'RG'],
         ['pass', 'Senha']
     ]
@@ -71,11 +71,13 @@ export default function SignRoute(props){
         rg: '99.999.999-9'
     }
     const reg_ex = {
-        email: new RegExp('[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'),
+        email: new RegExp('(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))'),
         tel: new RegExp(/[\)\(\-\s)]/g),
         rg: new RegExp(/[\.\-]/g),
         password: new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
-        space: new RegExp(/\s/g)
+        space: new RegExp(/\s/g),
+        name: new RegExp('^[a-z0-9_-]{3,60}$'),
+        others: new RegExp('^[a-z0-9_-]{3,30}$')
     }
 
     const [data, setData] = useState(json);
@@ -136,7 +138,19 @@ export default function SignRoute(props){
                 return
             }
         }
-
+        
+        if(!reg_ex.others.test(data.city)){
+            setMessage('digite o nome da cidade corretamente');
+            return
+        }
+        if(!reg_ex.others.test(data.dist)){
+            setMessage('digite o nome do bairro corretamente');
+            return
+        }
+        if(!reg_ex.others.test(data.road)){
+            setMessage('digite o nome da cidade corretamente');
+            return
+        }
         if(parseInt(data.num) == NaN){
             setMessage('digite o número de sua casa corretamente');
             return
@@ -150,7 +164,7 @@ export default function SignRoute(props){
             return
         }
         if(!reg_ex.password.test(data.pass)){
-            setMessage('tenha na sua senha ao menos 1 letra maiuscula, 1 número e mais 6 caracteres');
+            setMessage('a senha deve ter no mínimo 8 caracteres, sendo obrigatório 1 numero e 1 letra maiuscula');
             return
         }
         if(data.pass != verify){
