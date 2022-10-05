@@ -22,6 +22,27 @@
         margin: 25px 0;
         position: relative;
 
+        .eye_pass{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            .eye_svg{
+                width: 30px;
+                height: 30px;
+                transition: 200ms ease-in-out;
+                fill: var(--gray);
+            }
+        }
+        .eye_pass > .eye_svg_red{
+            fill: #ff0000;
+        }
+
         .input{
             width: calc(100% - 19px);
             padding: 8px 10px 3px 5px;
@@ -40,6 +61,13 @@
         }
         .input:focus ~ .line, .input:not(:placeholder-shown) ~ .line{
             width: 100%;
+        }
+        .input:focus ~ .line_pass, .input:not(:placeholder-shown) ~ .line_pass{
+            width: calc(100% - 40px);
+        }
+
+        .input_pass{
+            width: calc(100% - 59px);
         }
     
         .label{
