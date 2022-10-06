@@ -44,46 +44,19 @@
 
         .link_button{
             margin: 50px 0 200px 0;
-            font-size: 1em;
-
-            .title_shadow{
-                position: relative;
-                width: calc(7vw + 220px);
-                height: calc(1vw + 85px);
-                border-radius: 50px;
-                border: none;
-                cursor: pointer;
-                text-transform: uppercase;
-                font-size: calc(0.5vw + 15px);
-                font-weight: 700;
-                background: #00000065;
-                transition: 250ms ease-out;
-                user-select: none;
-
-                .title_button{
-                    color: #ffffff;
-                    position: absolute;
-                    margin: auto;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    width: calc(7vw + 150px);
-                    height: calc(1vw + 50px);
-                    border-radius: 30px;
-                    background: #000000c4;
-                    transition: 250ms ease-out;
-                    user-select: none;
-                }
-            }
-
-            .title_shadow:hover{
-                background: #ff0e0e65;
-
-                .title_button{
-                    background: var(--red);
-                }
-            }
+            padding: 10px 30px;
+            font-size: 0.3em;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #ff1c276b;
+            border: 3px #fff solid;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 150ms ease-in-out;
+        }
+        .link_button:hover{
+            transform: scale(1.05);
+            background: #ff1c27;
         }
         
     }

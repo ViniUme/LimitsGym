@@ -18,11 +18,7 @@ export default function FrontCover({cookies}){
                 <span className={style.title_sub}>exceda seus limites</span>
                 <span className={style.title_header}>academia limits</span>
                 
-                <Link href={ReturnLink()}>
-                    <a className={style.link_button}>
-                        <button className={style.title_shadow}><span className={style.title_button}>junte-se a nós</span></button>
-                    </a>
-                </Link>
+                <Link href={ReturnLink()}><a className={style.link_button}>junte-se à nós</a></Link>
             </div>
         </section>
     )
