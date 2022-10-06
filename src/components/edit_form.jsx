@@ -3,7 +3,7 @@ import Loading from '../components/loading';
 import { VerifyUser, EditUser } from '../utils/functions';
 import { useState } from 'react';
 import { mask } from 'remask';
-import { RegEx, Patterns } from '../utils/variables';
+import { RegEx, Patterns, TestTel, TestRG } from '../utils/variables';
 import styles from '../styles/profile_data.module.scss';
 
 export default function EditForm({user}){
@@ -21,6 +21,8 @@ export default function EditForm({user}){
     const reg_ex = RegEx();
     const pattern = Patterns();
     const email = user.email;
+    const test_tel = TestTel();
+    const test_rg = TestRG();
     
     const [data, setData] = useState(user);
     const [confirm, setConfirm] = useState('');
@@ -29,7 +31,11 @@ export default function EditForm({user}){
     
     function InputEdit(e){
         const {id, value} = e.target;
+        const check_space = value.split('');
 
+        if((check_space[check_space.length - 1] == ' ') && (check_space[check_space.length - 2] == ' ')){
+            return
+        }
         if(id == 'tel'){
             const save_tel = value.replace(reg_ex.tel, '');
             const masked_tel = mask(save_tel, pattern.tel);
@@ -73,37 +79,85 @@ export default function EditForm({user}){
 
     async function Submit(e){
         e.preventDefault();
-
+        
         setMessage('loading');
-
-        for(let item in data){
-            let real_item = eval(`data.${item}`);
-            if((real_item == '') && (item != 'wish')){
-                console.log(data)
-                setMessage('preencha todos os campos')
+        
+        for(let item of info){
+            let real_item = eval(`data.${item[0]}`);
+            if(real_item == ''){
+                setMessage('preencha todos os campos');
+                return
+            }
+            if(reg_ex.more_space.test(real_item)){
+                setMessage(`não utilize vários espaços em branco juntos no campo ${item[1]}`);
                 return
             }
         }
         
-        if(parseInt(data.num) == NaN){
+        if(!reg_ex.name.test(data.name)){
+            setMessage('o seu nome deve ter de 3 a 60 caracteres');
+            return
+        }
+        if((data.city.length < 3) || (data.city.length > 30)){
+            setMessage('o nome da cidade deve ter de 3 a 30 caracteres');
+            return
+        }
+        if((data.dist.length < 3) || (data.dist.length > 30)){
+            setMessage('o nome da bairro deve ter de 3 a 30 caracteres');
+            return
+        }
+        if((data.road.length < 3) || (data.road.length > 30)){
+            setMessage('o nome da rua deve ter de 3 a 30 caracteres');
+            return
+        }
+        if(isNaN(parseInt(data.num))){
             setMessage('digite o número de sua casa corretamente');
             return
         }
         if(!reg_ex.email.test(data.email)){
-            setMessage('digite um e-mail válido');
+            setMessage('digite um email válido');
             return
         }
-        
+
         const save_tel = data.tel.replace(reg_ex.tel, '');
-        const save_rg = data.rg.replace(reg_ex.rg, '');
+        const tel_split = save_tel.split('');
+        for(let item of test_tel){
+            if(save_tel == item){
+                setMessage('número de celular inválido');
+                return
+            }
+        }
+        if(tel_split[2] == 0){
+            setMessage('número de celular inválido');
+            return
+        }
         if(save_tel.length < 10){
-            setMessage('número de celular não válido');
+            setMessage('número de celular inválido');
+            return
+        }
+
+        const save_rg = data.rg.replace(reg_ex.rg, '');
+        const rg_split = data.rg.split('');
+        for(let item of test_rg){
+            if(save_rg == item){
+                setMessage('número de rg inválido');
+                return
+            }
+        }
+        if(rg_split[0] == 0){
+            setMessage('número de rg inválido');
             return
         }
         if(save_rg.length < 9){
             setMessage('digite um rg válido');
             return
         }
+
+        if(reg_ex.space.test(data.pass)){
+            setMessage('não use espaços na senha');
+            return
+        }
+
         const response = await VerifyUser(email, null);
         if(response.user.pass != confirm){
             setMessage('sua senha esta errada')
