@@ -165,16 +165,16 @@ export default function Prices({user, data}){
                 benefits_var.push('Conan;');
             }
             if((gym_plan.price == '20') || (gym_plan.price == '7') || (gym_plan.price == '5')){
-                benefits_var.push('Apenas experimentar;', 'Maior acessibilidade no preço;');
+                benefits_var.push('Apenas experimentar;', 'Preço acessível;');
             }
             if((gym_plan.plan == 'Mensal') || (gym_plan.plan == 'Trimestral') || (gym_plan.plan == 'Semestral') || (gym_plan.plan == 'Anual')){
-                benefits_var.push('Maior acessibilidade no preço;', 'Rótina saudável;', 'Perceberá resultados;');
+                benefits_var.push('Preço acessível;', 'Rótina saudável;', 'Resultados visíveis;');
             }
             if((gym_plan.plan == 'Semestral') || (gym_plan.plan == 'Anual')){
                 benefits_var.push('Transformação do corpo;');
             }
             if(gym_plan.type == 'Familiar'){
-                benefits_var.push('Maior rentabilidade para toda família;');
+                benefits_var.push('Desconto para toda família;');
             }
 
             return benefits_var
