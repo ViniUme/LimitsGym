@@ -21,7 +21,7 @@
 }
 
 html, body{
-    width: 100vw;
+    width: 100%;
     cursor: default;
     overflow-x: hidden;
     margin: 0;
@@ -42,10 +42,4 @@ a{
     text-decoration: none;
     cursor: default;
     color: white;
-}
-
-@media(max-width: 800px){
-    body{
-        width: 100vw;
-    }
 }
