@@ -33,7 +33,7 @@ export async function getServerSideProps(context){
 export default function Index(props) {
   
   return(
-    <Page title="Academia Limits - Exceda seus limites" description="Assinatura da academia" cookies={props.cookies} name={props.data.name}>
+    <Page title="Academia Limits - Exceda seus limites" description="Assinatura da academia" cookies={props.cookies} name={props.data.name} link="index">
       <div className={style.container} lang="pt-BR">
 
         <FrontCover cookies={props.cookies}/>
