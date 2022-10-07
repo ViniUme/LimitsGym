@@ -1,10 +1,23 @@
-import { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from '../styles/navbar.module.scss';
 
-export default function Navbar({cookies, name}){
+export default function Navbar({cookies, name, link}){
 
     const [activate, setActivate] = useState(styles.navbar);
+    const [main_link, setMain] = useState({
+      login: styles.nav_link,
+      signin: styles.nav_link,
+      profile: styles.nav_link,
+      index: styles.nav_link,
+      contacts: styles.nav_link,
+      plan: styles.nav_link,
+    })
+
+    useEffect(() => {
+      setMain({...main_link, [link]: `${styles.nav_link} ${styles.nav_link_main}`});
+    }, [])
 
     const SwitchNavbar = () => {
         if(activate == styles.navbar){
@@ -19,8 +32,8 @@ export default function Navbar({cookies, name}){
       if(cookies.USER_LOGIN == undefined){
         return(
           <div className={styles.sign_on_in}>
-            <Link href="/entrar"><a className={styles.nav_link}>entrar</a></Link>
-            <Link href="/cadastro"><a className={styles.nav_link}>cadastrar</a></Link>
+            <Link href="/entrar"><a className={main_link.login}>entrar</a></Link>
+            <Link href="/cadastro"><a className={main_link.signin}>cadastrar</a></Link>
           </div>
         )
       }
@@ -28,7 +41,7 @@ export default function Navbar({cookies, name}){
         const first_name = name.split(" ");
         return(
           <div className={styles.sign_on_in}>
-            <Link href="/perfil"><a className={styles.nav_link}>{first_name[0]}</a></Link>
+            <Link href="/perfil"><a className={main_link.profile}>{first_name[0]}</a></Link>
           </div>
         )
       }
@@ -44,9 +57,9 @@ export default function Navbar({cookies, name}){
           </div>
 
           <div className={styles.link_menu}>
-            <Link href="/"><a className={styles.nav_link_main}>início</a></Link>
-            <Link href="/contatos"><a className={styles.nav_link}>contatos</a></Link>
-            <Link href="/planos"><a className={styles.nav_link}>planos</a></Link>
+            <Link href="/"><a className={main_link.index}>início</a></Link>
+            <Link href="/contatos"><a className={main_link.contacts}>contatos</a></Link>
+            <Link href="/planos"><a className={main_link.plan}>planos</a></Link>
           </div>
 
           {UserLinks()}
