@@ -27,7 +27,7 @@ export async function getServerSideProps(context){
 
 export default function Precos(props){
     return(
-        <Page title="Preços dos Planos" context="Página que mostra o preço dos planos" cookies={props.cookies} name={props.data.name}>
+        <Page title="Preços dos Planos" context="Página que mostra o preço dos planos" cookies={props.cookies} name={props.data.name} link="plan">
             <Prices user={props.cookies} data={props.data} />
         </Page>
     )

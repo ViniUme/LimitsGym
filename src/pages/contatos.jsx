@@ -29,7 +29,7 @@ export async function getServerSideProps(context){
 
 export default function Contatos(props){
     return(
-        <Page title="Contatos Limits Gym" description="Página com todos contatos da Limits Gym" cookies={props.cookies} name={props.data.name}>
+        <Page title="Contatos Limits Gym" description="Página com todos contatos da Limits Gym" cookies={props.cookies} name={props.data.name} link="contacts">
             <section className={styles.contatos}>
                 <Contacts/>
                 <Coaches/>

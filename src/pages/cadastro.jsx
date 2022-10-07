@@ -231,7 +231,7 @@ export default function SignRoute(props){
     
     if(message != 'loading'){
         return(
-            <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados" cookies={props.cookies} name={props.data.name}>
+            <Page title="Faça seu cadastro na Limits Gym" description="Tela para criação de usuário e efetuação do seu cadastro no banco de dados" cookies={props.cookies} name={props.data.name} link="signin">
 
                 <h1 className={styles.header}>preencha o formulário com seus dados para se cadastrar na acamedia limits gym</h1>
 
