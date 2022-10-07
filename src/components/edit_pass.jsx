@@ -64,15 +64,20 @@ export default function EditPass({user}){
         
         setMessage('loading');
 
-        for(let item in data){
-            if((reg_ex.space.test(data[item])) || (data[item] == '')){
-                setMessage('preencha todos os campos e não utilize espaços em branco');
+        for(let item of info){
+            let real_item = eval(`data.${item[0]}`);
+            if(real_item == ''){
+                setMessage('preencha todos os campos');
+                return
+            }
+            if(reg_ex.space.test(real_item)){
+                setMessage(`não utilize espaços nas senhas`);
                 return
             }
         }
 
         if(!reg_ex.password.test(data.new_pass)){
-            setMessage('senha muito fraca. utilize 6 caracteres, tendo 1 letra maiúscula, 1 minúscula e 1 número');
+            setMessage('a senha deve ter no mínimo 8 caracteres, sendo obrigatório 1 numero e 1 letra maiuscula');
             return
         }
         if(data.new_pass != data.confirm_pass){
