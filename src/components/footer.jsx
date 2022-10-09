@@ -2,7 +2,6 @@ import styles from '../styles/footer.module.scss'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer({cookies}){
