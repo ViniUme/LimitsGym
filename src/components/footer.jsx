@@ -1,4 +1,6 @@
 import styles from '../styles/footer.module.scss'
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -27,9 +29,9 @@ export default function Footer({cookies}){
         <section className={styles.footer}>
             <div className={styles.contact}>
                 <h3 className={styles.div_title}>Entrar em contato</h3>
-                <span className={styles.div_item}><Image src="/img/local.webp" width={25} height={25} alt="" />R. Armando Sales, 489 - Osvaldo Cruz - SP</span>
-                <span className={styles.div_item}><Image src="/img/tel.webp" width={25} height={25} alt="" />(41) 99674-8137</span>
-                <Link href="https://www.instagram.com/limitsgym/"><a target="_blank" className={`${styles.div_item} ${styles.item_link}`}><InstagramIcon width={25} height={25} />@limitsgym</a></Link>
+                <span className={styles.div_item}><LocationOnIcon className={styles.icons}/>R. Armando Sales, 489 - Osvaldo Cruz - SP</span>
+                <span className={styles.div_item}><LocalPhoneIcon className={styles.icons}/>(41) 99674-8137</span>
+                <Link href="https://www.instagram.com/limitsgym/"><a target="_blank" className={`${styles.div_item} ${styles.item_link}`}><InstagramIcon className={styles.icons} />@limitsgym</a></Link>
             </div>
             <div className={styles.links}>
                 <h3 className={styles.div_title}>Links Rápidos</h3>
