@@ -13,7 +13,7 @@
 <br>
 
 ## Translations
-- [Português Brasileiro](https://github.com/ViniUme/LimitsGym/blob/master/translations/README-ptbr.md)
+- [Português Brasileiro](https://github.com/ViniUme/LimitsGym/blob/master/translations/README-pt_br.md)
 
 <br>
 
