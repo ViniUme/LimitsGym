@@ -11,26 +11,26 @@
 
 <br>
 
-## Translations
-- [Português Brasileiro](https://github.com/ViniUme/LimitsGym/blob/master/translations/README-ptbr.md)
+## Traduções
+- [English](https://github.com/ViniUme/LimitsGym/blob/master/README.md)
 
 <br>
 
-## About
-This project is the final thesis for the conclusion of our team's technical course in systems development. The project consists of a website based on the "Limits" gym, which we frequent.
+## Sobre
+Este projeto é o TCC (Trabalho de conclusão de curso) do curso técnico da nossa equipe em desenvolvimento de sistemas. O projeto consiste em um site baseado na academia "Limits", que frequentamos.
 
 <br>
 
-## Team
-<a href="https://github.com/Vini17MS" target="_blank">Vinícius M. Silva</a><br>
-<a href="https://github.com/FranciscoMOL" target="_blank">Miguel F. de Oliveira Leite</a><br>
-<a href="https://github.com/PedroMilani04" target="_blank">Pedro H. Milani Vágula</a><br>
-<a href="https://www.instagram.com/ark.king5/" target="_blank">Ruan (Ark King)</a><br>
-<span href="#" target="_blank">Leonardo Bertelli</span><br>
+## Equipe
+<a href="https://github.com/Vini17MS" target="_blank">Vinícius M. Silva</a><br> 
+<a href="https://github.com/FranciscoMOL" target="_blank">Miguel Francisco</a><br>
+<a href="https://github.com/PedroMilani04" target="_blank">Pedro H. M. Vágula</a><br>
+<a href="https://www.instagram.com/ark.king5/" target="_blank">Ruan Nascimento</a><br>
+<a href="#" target="_blank">Leonardo Bertelli</a><br>
 
 <br>
 
-## Technologies Used
+## Tecnologias Usadas
 <table>
   <tr>
     <td>Front End</td>
@@ -52,22 +52,22 @@ This project is the final thesis for the conclusion of our team's technical cour
     <td><img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white"></td>
   </tr>
 </table>
-Also included are some npm libraries, such as nookies, react-modal and remask. Respectively used to manage browser cookies, create pop-ups on display, and use mask on inputs.
+Também estão incluídas algumas bibliotecas npm, sendo elas: nookies, react-modal e remask. Usadas respectivamente para gerenciar cookies do navegador, criar pop-ups em exibição e usar máscara nos caixas de texto.
 
 <br><br>
 
 ## How to Run
-Clone this repository:
+Clone esse repositório:
 
     git clone https://github.com/ViniUme/LimitsGym.git
     
-Have Node.js installed in your computer. With terminal opened in project folder, install the dependencies :
+Tenha Node.js instalado no seu computador. Com o terminal aberto na pasta do projeto, instale as dependências:
 
     npm install
         or
     yarn
     
-Then type this command in to run local server:
+Então digite esse comando no terminal para iniciar um servidor local:
 
     npm run dev
        or
