@@ -32,15 +32,15 @@
                 background: transparent;
                 color: #fff;
                 border: 2px #fff solid;
-                font-size: 0.9em;
+                font-size: 22px;
                 padding: 10px 15px;
                 cursor: pointer;
                 transition: 250ms ease-in-out;
             }
 
-            .button_join:hover{
-                background-color: #fff;
-                color: #000000;
+            .button_join:hover, .button_join:focus{
+                box-shadow: inset 180.77px 0 0 0 #fff;
+                color: #000;
             }
         }
     }
