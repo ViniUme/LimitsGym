@@ -21,6 +21,7 @@ export default function EditPass({user}){
         }
     }
     const reg_ex = RegEx();
+    const info = ['new_pass', 'confirm_pass', 'old_pass'];
     const json_form = {
         new_pass: '',
         confirm_pass: '',
@@ -65,7 +66,7 @@ export default function EditPass({user}){
         setMessage('loading');
 
         for(let item of info){
-            let real_item = eval(`data.${item[0]}`);
+            let real_item = eval(`data.${item}`);
             if(real_item == ''){
                 setMessage('preencha todos os campos');
                 return
