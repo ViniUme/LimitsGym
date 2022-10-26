@@ -26,7 +26,7 @@ This project is the final thesis for the conclusion of our team's technical cour
 <a href="https://github.com/Vini17MS" target="_blank">Vinícius M. Silva</a><br>
 <a href="https://github.com/FranciscoMOL" target="_blank">Miguel F. de Oliveira Leite</a><br>
 <a href="https://github.com/PedroMilani04" target="_blank">Pedro H. Milani Vágula</a><br>
-<a href="https://www.instagram.com/ark.king5/" target="_blank">Ruan (Ark King)</a><br>
+<a href="https://www.instagram.com/ark.ruan/" target="_blank">Ruan (Ark Ruan)</a><br>
 <span href="#" target="_blank">Leonardo Bertelli</span><br>
 
 <br>
